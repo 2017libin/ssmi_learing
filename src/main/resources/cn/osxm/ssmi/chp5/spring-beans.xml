@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="teacher" class="cn.osxm.ssmi.chp5.Teacher" />
+	<bean id="school" class="cn.osxm.ssmi.chp5.School">
+		<property name="principal" value="Zhang San,50" />
+	</bean>
+
+	<!--<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer"> <property name="customEditors"> <map> <entry key="cn.osxm.ssmi.chp5.Teacher" 
+		value="cn.osxm.ssmi.chp5.TeacherEditor" /> </map> </property> </bean> -->
+</beans>  
