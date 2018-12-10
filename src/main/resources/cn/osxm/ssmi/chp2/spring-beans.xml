@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<bean id="helloService" class="cn.osxm.ssmi.chp2.HelloService"/>
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="helloService" class="cn.osxm.ssmi.chp2.HelloService" />
+
+	<bean id="userDao" class="cn.osxm.ssmi.chp2.UserDao" />
+	<bean id="userService" class="cn.osxm.ssmi.chp2.UserService">
+		<!--<constructor-arg> <ref bean="userDao" /> </constructor-arg> -->
+		<constructor-arg ref="userDao" />
+	</bean>
+
+	<bean id="userService2" class="cn.osxm.ssmi.chp2.UserService2">
+		<property name="userDao" ref="userDao" />
+	</bean>
 </beans>  

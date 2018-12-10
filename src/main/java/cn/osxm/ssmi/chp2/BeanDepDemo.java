@@ -1,9 +1,9 @@
 /**
- * @Title: ApplicationContextDemo.java
+ * @Title: BeanDepDemo.java
  * @Package cn.osxm.ssmi.chp2
  * @Description: TODO
  * @author osxm:oscarxueming
- * @date 2018年12月4日 上午6:50:20
+ * @date 2018年12月9日 上午7:34:36
  * @version V1.0
  */
 
@@ -13,12 +13,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
-  * @ClassName: ApplicationContextDemo
+  * @ClassName: BeanDepDemo
   * @Description: TODO
   * @author osxm:oscarxueming
   */
 
-public class ApplicationContextDemo {
+public class BeanDepDemo {
 
 	/**
 	  * @Title: main
@@ -26,14 +26,14 @@ public class ApplicationContextDemo {
 	  * @param args
 	  */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-
-		@SuppressWarnings("resource")
 		ApplicationContext context = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp2/spring-beans.xml"); 
-		HelloService helloService = (HelloService)context.getBean("helloService");
-		helloService.sayHello();
-		
+		UserService userService = (UserService)context.getBean("userService");
+		userService.add("Zhang San");
 
+		UserService2 userService2 = (UserService2)context.getBean("userService2");
+		userService2.add("Zhang San");
 	}
 
 }
