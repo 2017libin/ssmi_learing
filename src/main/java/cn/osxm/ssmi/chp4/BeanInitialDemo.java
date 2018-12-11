@@ -12,6 +12,8 @@ package cn.osxm.ssmi.chp4;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import cn.osxm.ssmi.chp4.WithInnerClass.InnerClass;
+
 /**
   * @ClassName: BeanInitialDemo
   * @Description: TODO
@@ -37,6 +39,9 @@ public class BeanInitialDemo {
 		
 		FourService fourService = (FourService)context.getBean("fourService");
 		System.out.println(fourService);
+		
+		InnerClass innerObject = (InnerClass)context.getBean("innerObject");
+		innerObject.innerMethod();
 	}
 
 }

@@ -7,4 +7,6 @@
 	<bean id="serviceLocator" class="cn.osxm.ssmi.chp4.ServiceLocator" />
 	<bean id="thirdService2" factory-bean="serviceLocator" factory-method="createThirdServiceInstance" />
 	<bean id="fourService" factory-bean="serviceLocator" factory-method="createFourServiceInstance" />
+	<!-- inner Class initial -->
+	<bean id="innerObject" class="cn.osxm.ssmi.chp4.WithInnerClass$InnerClass" />
 </beans>  
