@@ -9,4 +9,15 @@
 	<bean id="fourService" factory-bean="serviceLocator" factory-method="createFourServiceInstance" />
 	<!-- inner Class initial -->
 	<bean id="innerObject" class="cn.osxm.ssmi.chp4.WithInnerClass$InnerClass" />
+
+	<bean id="twoService" class="cn.osxm.ssmi.chp4.TwoService">
+		<constructor-arg ref="fourService" />
+		<constructor-arg ref="thirdService" />
+	</bean>
+
+	<bean id="simpleTypeDepService" class="cn.osxm.ssmi.chp4.SimpleTypeDepService">
+		<!--<constructor-arg type="String" value="Hello World!" />-->
+		<constructor-arg index="0" value="3" />
+		<constructor-arg index="1" value="2" />
+	</bean>
 </beans>  

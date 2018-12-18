@@ -16,4 +16,7 @@ package cn.osxm.ssmi.chp4;
 
 public class FourService {
 
+	public void doMethod() {
+		System.out.println("执行FourService的方法");
+	}
 }
