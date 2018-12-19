@@ -14,13 +14,13 @@ package cn.osxm.ssmi.chp4;
   * @author osxm:oscarxueming
   */
 
-public class SimpleTypeDepService {
+public class SimpleTypeConArgsDepService {
 
 	private int iFoo;
 	
 	private String sBar;
 	
-	public SimpleTypeDepService(int iFoo,String sBar) {
+	public SimpleTypeConArgsDepService(int iFoo,String sBar) {
 		this.iFoo = iFoo;
 		this.sBar = sBar;
 	}

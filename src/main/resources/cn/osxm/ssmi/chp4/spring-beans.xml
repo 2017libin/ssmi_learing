@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="thirdService" class="cn.osxm.ssmi.chp4.ThirdService" factory-method="getInstance" />
@@ -15,9 +16,35 @@
 		<constructor-arg ref="thirdService" />
 	</bean>
 
-	<bean id="simpleTypeDepService" class="cn.osxm.ssmi.chp4.SimpleTypeDepService">
-		<!--<constructor-arg type="String" value="Hello World!" />-->
-		<constructor-arg index="0" value="3" />
-		<constructor-arg index="1" value="2" />
+	<bean id="simpleTypeDepService" class="cn.osxm.ssmi.chp4.SimpleTypeConArgsDepService">
+		<!-- 配置与类函数的顺序不一致，初始化会出错 <constructor-arg value="Hello World!" /> <constructor-arg value="2" /> -->
+
+		<!--<constructor-arg type="java.lang.String" value="Hello World!" /> <constructor-arg index="0" value="3" /> <constructor-arg index="1" value="2" 
+			/> -->
+
+		<constructor-arg name="sBar" value="Hello World!" />
+		<constructor-arg name="iFoo" value="2" />
+	</bean>
+
+	<bean id="simpleTypePropertyDepService" class="cn.osxm.ssmi.chp4.SimpleTypePropertyDepService">
+		<property name="sBar" value="Hello World!" />
+		<property name="iFoo" value="2" />
+	</bean>
+
+	<bean id="simpleTypePropertyDepService2" class="cn.osxm.ssmi.chp4.SimpleTypePropertyDepService" p:sBar="Hello World!" p:iFoo="2" />
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!--  <property name="properties">
+			<value>
+				jdbc.driver.className=com.mysql.jdbc.Driver
+				jdbc.url=jdbc:mysql://localhost:3306/mydb
+			</value>
+		</property>-->
+		 <property name="properties" value="classpath:cfg.properties"></property>
+	</bean>
+
+	<bean id="propertiesDepService" class="cn.osxm.ssmi.chp4.PropertiesDepService">
+		<property name="jdbcClass" value="${jdbc.driver.className}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
 	</bean>
 </beans>  
