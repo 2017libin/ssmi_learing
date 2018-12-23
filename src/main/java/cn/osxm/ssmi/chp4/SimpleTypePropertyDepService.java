@@ -9,8 +9,6 @@
 
 package cn.osxm.ssmi.chp4;
 
-import org.springframework.beans.factory.annotation.Value;
-
 /**
  * @ClassName: SimpleTypePropertyDepService
  * @Description: TODO
@@ -21,7 +19,9 @@ public class SimpleTypePropertyDepService {
 	private int iFoo;
 
 	private String sBar;
-	
+
+	private String baz;
+
 	public int getiFoo() {
 
 		return iFoo;
@@ -39,10 +39,20 @@ public class SimpleTypePropertyDepService {
 	public void setsBar(String sBar) {
 		this.sBar = sBar;
 	}
-	
+
+	public String getBaz() {
+
+		return baz;
+	}
+
+	public void setBaz(String baz) {
+		this.baz = baz;
+	}
+
 	public void fooBar() {
-		System.out.println("iFoo="+iFoo);
-		System.out.println("sBar="+sBar);
+		System.out.println("iFoo=" + iFoo);
+		System.out.println("sBar=" + sBar);
+		System.out.println("baz=" + baz);
 	}
 
 }

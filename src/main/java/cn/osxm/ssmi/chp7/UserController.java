@@ -10,6 +10,7 @@
 package cn.osxm.ssmi.chp7;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,7 +41,7 @@ public class UserController {
 
 	@GetMapping(path = "/getJson/{id}")
 	@ResponseBody
-	@JsonView(WithoutNameView.class)
+	//@JsonView(WithoutNameView.class)
 	public User getUserJson() {
 		User user = new User("001", "Oscar");
 		return user;
@@ -49,7 +50,7 @@ public class UserController {
 	@GetMapping(path = "/getView/{id}")
 	public String getUserView(Model model) {
 		model.addAttribute("user", new User("001", "Oscar"));
-		model.addAttribute(JsonView.class.getName(), User.WithoutNameView.class);
+		//model.addAttribute(JsonView.class.getName(), User.WithoutNameView.class);
 		return "userView";
 	}
 }

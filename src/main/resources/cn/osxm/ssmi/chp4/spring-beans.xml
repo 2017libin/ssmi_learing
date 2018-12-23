@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<context:annotation-config />
 
 	<bean id="thirdService" class="cn.osxm.ssmi.chp4.ThirdService" factory-method="getInstance" />
 
@@ -29,22 +33,37 @@
 	<bean id="simpleTypePropertyDepService" class="cn.osxm.ssmi.chp4.SimpleTypePropertyDepService">
 		<property name="sBar" value="Hello World!" />
 		<property name="iFoo" value="2" />
+		<!--<property name="baz" value="fourService" /> -->
+		<property name="baz">
+			<idref bean="fourService" />
+		</property>
 	</bean>
 
 	<bean id="simpleTypePropertyDepService2" class="cn.osxm.ssmi.chp4.SimpleTypePropertyDepService" p:sBar="Hello World!" p:iFoo="2" />
 
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<!--  <property name="properties">
+		<property name="properties">
 			<value>
 				jdbc.driver.className=com.mysql.jdbc.Driver
 				jdbc.url=jdbc:mysql://localhost:3306/mydb
 			</value>
-		</property>-->
-		 <property name="properties" value="classpath:cfg.properties"></property>
+		</property>
+		<!-- <property name="properties" value="classpath:cfg.properties"></property> -->
 	</bean>
 
 	<bean id="propertiesDepService" class="cn.osxm.ssmi.chp4.PropertiesDepService">
 		<property name="jdbcClass" value="${jdbc.driver.className}" />
 		<property name="jdbcUrl" value="${jdbc.url}" />
 	</bean>
+
+	<bean id="singleFourService" class="cn.osxm.ssmi.chp4.FourService" scope="singleton" />
+	<bean id="prototypeFourService" class="cn.osxm.ssmi.chp4.FourService" scope="prototype" />
+
+	<bean id="implCallbackService" class="cn.osxm.ssmi.chp4.ImplCallbackService" />
+	<bean id="cfgCallbackService" class="cn.osxm.ssmi.chp4.CfgCallbackService" init-method="init" destroy-method="destroy" />
+	<bean id="annoCallbackService" class="cn.osxm.ssmi.chp4.AnnoCallbackService">
+		<property name="sBar" value="Hello World!" />
+	</bean>
+
+
 </beans>  

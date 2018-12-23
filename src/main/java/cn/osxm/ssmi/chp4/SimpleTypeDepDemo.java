@@ -40,6 +40,10 @@ public class SimpleTypeDepDemo {
 		System.out.println("设置值注入简单类型的依赖：");
 		SimpleTypePropertyDepService simpleTypePropertyDepService  = (SimpleTypePropertyDepService) context.getBean("simpleTypePropertyDepService");
 		simpleTypePropertyDepService.fooBar();
+		//获取的是bean id, 使用idref会验证
+		String fourServiceBeanId = simpleTypePropertyDepService.getBaz();
+		FourService fourService = (FourService)context.getBean(fourServiceBeanId);
+		System.out.println("通过idref获取的bean"+fourService.toString());
 		
 		System.out.println("设置值注入简单类型的依赖的简洁方式：");
 		SimpleTypePropertyDepService simpleTypePropertyDepService2  = (SimpleTypePropertyDepService) context.getBean("simpleTypePropertyDepService2");
