@@ -9,6 +9,8 @@
 
 package cn.osxm.ssmi.chp2;
 
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  * @ClassName: UserService
  * @Description: TODO
@@ -27,4 +29,9 @@ public class UserService {
 		user.setName(userName);
 		userDao.add(user);
 	}
+	
+    @Transactional
+    public void update(User user) {
+        System.out.println("Update User");
+    }
 }
