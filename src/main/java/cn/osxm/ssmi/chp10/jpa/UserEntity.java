@@ -19,7 +19,7 @@ import javax.persistence.Id;
  * @Description: TODO
  * @author osxm:oscarxueming
  */
-@Entity
+@Entity(name="user")
 public class UserEntity {
 	private int id;
 	private String name;
