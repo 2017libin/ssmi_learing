@@ -11,6 +11,12 @@ package cn.osxm.ssmi.chp10.jpa;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import cn.osxm.ssmi.chp2.User;
+
 /**
   * @ClassName: JpaDemo
   * @Description: TODO
@@ -26,12 +32,27 @@ public class JpaDemo {
 	  */
 
 	public static void main(String[] args) {
-		UserDao userDao =  new UserDao();
-		List<UserEntity> userList = (List<UserEntity>) userDao.findAll();
-        for(UserEntity user:userList)
-        {
-        	System.out.println(user.getName());
-        }
-	}
+		 EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ssmi");
+	        EntityManager entityManager = entityManagerFactory.createEntityManager();
+	        entityManager.getTransaction().begin();
+
+	        List<User> result = entityManager.createQuery("select u " + "from User u ").getResultList();
+	        //List<User> result = entityManager.createNamedQuery("User.findAll").getResultList();
+	        for (User user : result) {
+	            System.out.println(user.getName());
+	        }
+	        
+	        //ע�ⷽʽ
+	      /* List<UserAnnoEntity> result2 = entityManager.createQuery("select u " + "from user u ").getResultList();
+	        for (UserAnnoEntity user : result2) {
+	            System.out.println(user.getName());
+	        }*/
+	        
+	        
+	        entityManager.getTransaction().commit();
+	        entityManager.close();
+
+	    }
+	
 
 }

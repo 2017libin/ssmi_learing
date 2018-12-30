@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1" xmlns="http://www.eclipse.org/eclipselink/xsds/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eclipse.org/eclipselink/xsds/persistence/orm http://www.eclipse.org/eclipselink/xsds/eclipselink_orm_2_1.xsd">
+    <named-query name="User.findAll">
+        <query>select u from User u</query>
+    </named-query>
+	<entity class="cn.osxm.ssmi.chp10.hibernate.User">
+		<attributes>
+			<id name="id" attribute-type="String">
+			</id>
+			<basic name="name" attribute-type="String">
+			</basic>
+		</attributes>
+	</entity>
+</entity-mappings>
