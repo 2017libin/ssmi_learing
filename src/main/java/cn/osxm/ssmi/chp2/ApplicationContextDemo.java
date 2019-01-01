@@ -11,28 +11,40 @@ package cn.osxm.ssmi.chp2;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 /**
-  * @ClassName: ApplicationContextDemo
-  * @Description: TODO
-  * @author osxm:oscarxueming
-  */
+ * @ClassName: ApplicationContextDemo
+ * @Description: TODO
+ * @author osxm:oscarxueming
+ */
 
 public class ApplicationContextDemo {
 
 	/**
-	  * @Title: main
-	  * @Description: TODO
-	  * @param args
-	  */
+	 * @Title: main
+	 * @Description: TODO
+	 * @param args
+	 */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
-		@SuppressWarnings("resource")
-		ApplicationContext context = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp2/spring-beans.xml"); 
-		HelloService helloService = (HelloService)context.getBean("helloService");
-		helloService.sayHello();
+		ApplicationContext context = null;
+		// 1.配置文件位于类的根目录
+		// context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		//context = new FileSystemXmlApplicationContext("classpath:applicationContext.xml ");
+
+		// 2.配置文件位于类根目录的子目录
+		// context = new
+		// ClassPathXmlApplicationContext("cn/osxm/ssmi/chp2/applicationContext.xml");
+		//context = new FileSystemXmlApplicationContext("classpath:cn/osxm/ssmi/chp2/applicationContext.xml ");
+
+		//context = new FileSystemXmlApplicationContext("applicationContext.xml");
 		
+		context = new FileSystemXmlApplicationContext("config/applicationContext.xml");
+		HelloService helloService = (HelloService) context.getBean("helloService");
+		helloService.sayHello();
 
 	}
 

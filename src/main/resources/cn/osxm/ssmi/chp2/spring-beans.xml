@@ -3,6 +3,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean id="helloService" class="cn.osxm.ssmi.chp2.HelloService" />
 
+    <!-- Spring后置处理器 -->
+    <bean id="helloPostProcessor" class="cn.osxm.ssmi.chp2.HelloPostProcessor"/>
 	<bean id="userDao" class="cn.osxm.ssmi.chp2.UserDao" />
 	<bean id="userService" class="cn.osxm.ssmi.chp2.UserService">
 		<!--<constructor-arg> <ref bean="userDao" /> </constructor-arg> -->

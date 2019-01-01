@@ -22,4 +22,5 @@
 		<property name="password" value="123456" />
 	</bean>
 
+	<bean id="helloService" class="cn.osxm.ssmi.chp2.HelloService" />
 </beans>
