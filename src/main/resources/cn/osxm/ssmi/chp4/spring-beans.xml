@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
 	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-
 	<context:annotation-config />
 
 	<bean id="thirdService" class="cn.osxm.ssmi.chp4.ThirdService" factory-method="getInstance" />
@@ -59,11 +58,15 @@
 	<bean id="singleFourService" class="cn.osxm.ssmi.chp4.FourService" scope="singleton" />
 	<bean id="prototypeFourService" class="cn.osxm.ssmi.chp4.FourService" scope="prototype" />
 
-	<bean id="implCallbackService" class="cn.osxm.ssmi.chp4.ImplCallbackService" />
-	<bean id="cfgCallbackService" class="cn.osxm.ssmi.chp4.CfgCallbackService" init-method="init" destroy-method="destroy" />
+	<!-- lazy-init="true" -->
 	<bean id="annoCallbackService" class="cn.osxm.ssmi.chp4.AnnoCallbackService">
 		<property name="sBar" value="Hello World!" />
 	</bean>
+	<bean id="implCallbackService" class="cn.osxm.ssmi.chp4.ImplCallbackService"/>
+	<bean id="cfgCallbackService" class="cn.osxm.ssmi.chp4.CfgCallbackService" init-method="init" destroy-method="destroy"/>
+	
+	<bean id="allCallbackService" class="cn.osxm.ssmi.chp4.AllCallbackService" init-method="cfgInit" destroy-method="cfgDestroy"/>
+
 
 
 </beans>  

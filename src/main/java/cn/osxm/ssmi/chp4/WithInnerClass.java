@@ -16,9 +16,10 @@ package cn.osxm.ssmi.chp4;
 
 public class WithInnerClass {
 	
-	 static class InnerClass{
+    //¾²Ì¬ÄÚ²¿Àà
+	static class InnerClass{	     
 		public void innerMethod() {
-			System.out.println("This is Inner method");
+			System.out.println("This is InnerClass's Innermethod");
 		}
 	}
 

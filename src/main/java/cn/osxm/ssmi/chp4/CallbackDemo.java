@@ -28,11 +28,18 @@ public class CallbackDemo {
 	 */
 
 	public static void main(String[] args) {
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-beans.xml", CallbackDemo.class);
-		ImplCallbackService implCallbackService = (ImplCallbackService)context.getBean("implCallbackService");		
-		CfgCallbackService  cfgCallbackService = (CfgCallbackService)context.getBean("cfgCallbackService");
-		AnnoCallbackService  annoCallbackService = (AnnoCallbackService)context.getBean("annoCallbackService");	
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-beans.xml", CallbackDemo.class);		
+		//如果设置了懒加载， 需要在获取bean的时候才执行
+		//AnnoCallbackService  annoCallbackService = (AnnoCallbackService)context.getBean("annoCallbackService");	
+		//ImplCallbackService implCallbackService = (ImplCallbackService)context.getBean("implCallbackService");		
+		//CfgCallbackService  cfgCallbackService = (CfgCallbackService)context.getBean("cfgCallbackService");
+		
+		AllCallbackService  allCallbackService = (AllCallbackService)context.getBean("allCallbackService");
+		
+		
 		context.registerShutdownHook();
+		context.close();
+		
 	}
 
 }

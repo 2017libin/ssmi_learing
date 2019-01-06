@@ -34,11 +34,11 @@ public class AnnoCallbackService {
 
 	@PostConstruct
 	public void init11() {
-		System.out.println("[基于注解]初始化方法回调．．．");
+		System.out.println("[注解@PostConstruct]初始化方法回调．．．");
 	}
 
 	@PreDestroy
 	public void destroy() {
-		System.out.println("[基于注解]销毁方法回调．．．．");
+		System.out.println("[注解@PreDestroy]销毁方法回调．．．．");
 	}
 }

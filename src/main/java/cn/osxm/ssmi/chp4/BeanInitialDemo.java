@@ -42,6 +42,11 @@ public class BeanInitialDemo {
 		
 		InnerClass innerObject = (InnerClass)context.getBean("innerObject");
 		innerObject.innerMethod();
+		
+		innerObject =  new WithInnerClass.InnerClass();
+		innerObject.innerMethod();
+		
+		
 	}
 
 }

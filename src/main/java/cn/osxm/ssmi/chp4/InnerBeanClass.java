@@ -1,26 +1,26 @@
 /**
- * @Title: HelloService.java
- * @Package cn.osxm.ssmi.chp2
+ * @Title: InnerBeanClass.java
+ * @Package cn.osxm.ssmi.chp4
  * @Description: TODO
  * @author osxm:oscarxueming
- * @date 2018年12月4日 上午6:54:00
+ * @date 2019年1月6日 下午2:48:37
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp2;
+package cn.osxm.ssmi.chp4;
 
 /**
- * @ClassName: HelloService
+ * @ClassName: InnerBeanClass
  * @Description: TODO
  * @author osxm:oscarxueming
  */
 
-public class HelloService {
+public class InnerBeanClass {
 
 	private String name;
 
 	public String getName() {
-
+	
 		return name;
 	}
 
@@ -28,7 +28,4 @@ public class HelloService {
 		this.name = name;
 	}
 
-	public void sayHello() {
-		System.out.println("Hello,"+this.name);
-	}
 }

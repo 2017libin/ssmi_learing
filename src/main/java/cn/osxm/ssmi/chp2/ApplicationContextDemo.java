@@ -42,7 +42,12 @@ public class ApplicationContextDemo {
 
 		//context = new FileSystemXmlApplicationContext("applicationContext.xml");
 		
-		context = new FileSystemXmlApplicationContext("config/applicationContext.xml");
+		//context = new FileSystemXmlApplicationContext("config/applicationContext.xml");
+		context = new FileSystemXmlApplicationContext("file:///D:/devworkspace/ecpphoton/ssmi/applicationContext.xml");
+		
+		
+		
+		
 		HelloService helloService = (HelloService) context.getBean("helloService");
 		helloService.sayHello();
 

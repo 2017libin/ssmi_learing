@@ -9,6 +9,8 @@
 
 package cn.osxm.ssmi.chp7;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +26,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/anno-demo")
 public class AnnoDemoController {
 
+	@PostConstruct
+	public void init() {
+		System.out.println("[注解@PostConstruct，AnnoDemoController]初始化方法回调．．．");
+	}
+
+	
 	@GetMapping("/res-entity")
 	public ResponseEntity<String> resEntity() {
 		String body = "ResponseEntity 返回的内容";

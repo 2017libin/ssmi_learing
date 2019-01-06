@@ -7,10 +7,12 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp2;
+package cn.osxm.ssmi.chp4;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+
+import cn.osxm.ssmi.chp2.HelloService;
 
 /**
  * @ClassName: MyPostProcessor
@@ -18,18 +20,20 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
  * @author osxm:oscarxueming
  */
 
-public class HelloPostProcessor implements BeanPostProcessor {
+public class HelloBeanPostProcessor implements BeanPostProcessor {
 	@Override
-	//实例化、依赖注入完毕，在调用显示的初始化之前完成一些定制的初始化任务
+	//实例化、依赖注入完毕，在初始化(inti-method)之前调用
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-		System.out.println("后置处理器开始, beanName="+beanName);
+		if(bean instanceof HelloService)
+		{			
+			((HelloService) bean).setName("王五");
+		}
 		return bean;
 	}
 
 	@Override
 	//实例化、依赖注入、初始化完毕时执行  
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-		System.out.println("后置处理器结束, beanName="+beanName);
 		return bean;
 	}
 }

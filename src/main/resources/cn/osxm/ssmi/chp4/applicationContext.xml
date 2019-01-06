@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-lazy-init="default">
+
+	<bean id="staticFactoryService" class="cn.osxm.ssmi.chp4.StaticFactoryService" factory-method="getInstance" />
+
+	<bean id="instanceFactory" class="cn.osxm.ssmi.chp4.InstanceFactory" />
+	<bean id="foo" factory-bean="instanceFactory" factory-method="getFooInstance" />
+
+	<bean id="helloService" class="cn.osxm.ssmi.chp2.HelloService">
+		<property name="name" value="张三" />
+	</bean>
+	<!-- <bean id="helloBeanFactoryPostProcessor" class="cn.osxm.ssmi.chp4.HelloBeanFactoryPostProcessor" /> -->
+	<bean id="helloBeanPostProcessor" class="cn.osxm.ssmi.chp4.HelloBeanPostProcessor" />
+	<!-- lazy-init="default" -->
+	<bean id="lazyInitService" class="cn.osxm.ssmi.chp4.CfgCallbackService" lazy-init="true" init-method="init" destroy-method="destroy" />
+	<bean id="useLazyService" class="cn.osxm.ssmi.chp4.UseLazyService">
+		<property name="lazyInitService" ref="lazyInitService" />
+	</bean>
+
+	<bean id="parentBean" class="cn.osxm.ssmi.chp4.ParentBean" abstract="true">
+		<property name="name" value="张三" />
+		
+	</bean>
+
+	<bean id="parentBean2" abstract="true">
+		<property name="name" value="张三" />
+	</bean>
+	<bean id="childBean" class="cn.osxm.ssmi.chp4.ChildBean" parent="parentBean2">
+		<property name="age" value="18" />
+	</bean>
+
+	<bean id="outBeanClass" class="cn.osxm.ssmi.chp4.OutBeanClass">
+		<constructor-arg>
+			<bean class="cn.osxm.ssmi.chp4.InnerBeanClass">
+				<property name="name" value="Inner Bean Class" />
+			</bean>
+		</constructor-arg>
+		<!--<property name="innerBean"> <bean class="cn.osxm.ssmi.chp4.InnerBeanClass"> <property name="name" value="Inner Bean Class" /> </bean> </property> -->
+	</bean>
+
+	<bean id="collectionDepBean" class="cn.osxm.ssmi.chp4.CollectionDepBeanClass">
+		<!-- <property name="myList">
+			<list>
+				<value>List Item 1</value>
+				<value>List Item 2</value>
+			</list>
+		</property>-->
+		<constructor-arg>
+		    <list>
+				<value>List Item 1</value>
+				<value>List Item 2</value>
+			</list>
+		</constructor-arg>
+		<property name="mySet">
+			<list>
+				<value>Set Item 1</value>
+				<value>Set Item 2</value>
+			</list>
+		</property>
+		<property name="myMap">
+			<map>
+				<entry key="Key 1">
+					<value>Value 1</value>
+				</entry>
+				<entry key="Key 2">
+					<value>Value 2</value>
+				</entry>
+			</map>
+		</property>
+		<property name="myProperties">
+			<props>
+				<prop key="Properties  Key 1">
+					Properties Value 1
+				</prop>
+			</props>
+		</property>
+	</bean>
+    <bean id="collectionDepChildBean" parent="collectionDepBean">
+    	<property name="myProperties">
+			<props merge="true">
+				<prop key="[Child]Properties  Key 2">
+					[Child]Properties Value 2
+				</prop>
+			</props>
+		</property>
+    </bean> 
+
+	<bean id="beanA" class="cn.osxm.ssmi.chp4.BeanAClass" init-method="init" depends-on="beanB"/>
+	<bean id="beanB" class="cn.osxm.ssmi.chp4.BeanBClass" init-method="init"/>
+	
+	<bean id="beanC" class="cn.osxm.ssmi.chp4.BeanCClass">
+	   <!--<constructor-arg ref="beanD"/>-->
+	   <property name="beanD"  ref="beanD"/>
+	</bean>
+	<bean id="beanD" class="cn.osxm.ssmi.chp4.BeanDClass">
+	   <!-- <property name="beanC"  ref="beanC"/>-->
+	   <constructor-arg ref="beanC"/>
+	</bean>
+
+</beans>  
