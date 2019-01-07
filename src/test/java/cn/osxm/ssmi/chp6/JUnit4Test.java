@@ -27,10 +27,16 @@ public class JUnit4Test {
 	    public void mySetUp() {
 	        // "Initial Some ...."
 	        iNo = 1;
+	        System.out.println("Junit 4 SetUp...");
 	    }
 
 	    @Test
 	    public void tStr() {
 	        assertEquals(iNo, 1);
 	    }
+	    
+	    @Test
+     public void tStr2() {
+         assertEquals(iNo, 1);
+     }
 }
