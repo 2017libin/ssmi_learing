@@ -16,9 +16,8 @@ package cn.osxm.ssmi.chp4.methodinj;
 
 public class OldEraPeople {
 
-	public String eat() {
-		String str = "旧时代吃糠";
-		System.out.println(str);
+	public String eat(String name){
+		String str = name+"在旧时代吃糠";
 		return str;
 	}
 }

@@ -23,17 +23,17 @@ public class NewEraPeople implements MethodReplacer {
 
 	
 
-	public String eat() {
+	/*public String eat() {
 		String str = "新时代吃肉";
 		return str;
-	}
+	}*/
 	@Override
 	public Object reimplement(Object obj, Method method, Object[] args) throws Throwable {
-		String oldStr = (String)args[0];
-		System.out.println("旧的值或对象："+oldStr);
+		String inputParam = (String)args[0];
+		System.out.println("传入参数："+inputParam);
 		// TODO Auto-generated method stub
-		String newStr = eat();
-		System.out.println("替换新方法返回对象");
+		String newStr =  inputParam+"在新时代吃肉";
+		System.out.println("替换返回新的字符串或对象");
 		return newStr;
 	}
 

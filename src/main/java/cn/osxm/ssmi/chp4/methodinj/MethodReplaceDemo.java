@@ -8,12 +8,28 @@
  */
 
 package cn.osxm.ssmi.chp4.methodinj;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import cn.osxm.ssmi.chp4.AllCallbackService;
+import cn.osxm.ssmi.chp4.CallbackDemo;
+
 /**
-  * @ClassName: MethodReplaceDemo
-  * @Description: TODO
-  * @author osxm:oscarxueming
-  */
+ * @ClassName: MethodReplaceDemo
+ * @Description: TODO
+ * @author osxm:oscarxueming
+ */
 
 public class MethodReplaceDemo {
+	public static void main(String[] args) {
+		
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml", MethodReplaceDemo.class);
 
+		OldEraPeople  oldEraPeople = (OldEraPeople)context.getBean("oldEraPeople");
+		String str = oldEraPeople.eat("ÕÅÈý");
+		System.out.println(str);
+		context.close();
+
+	}
 }
