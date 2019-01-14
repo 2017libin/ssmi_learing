@@ -9,6 +9,9 @@
 
 package cn.osxm.ssmi.chp6.junit;
 
+import org.junit.runner.notification.RunNotifier;
+import org.junit.runners.BlockJUnit4ClassRunner;
+import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.InitializationError;
 
 /**
@@ -17,7 +20,7 @@ import org.junit.runners.model.InitializationError;
   * @author osxm:oscarxueming
   */
 
-public class MyTestRunner {
+public class MyTestRunner extends BlockJUnit4ClassRunner {
     public MyTestRunner(Class<?> klass) throws InitializationError {
         super(klass);
     }

@@ -12,6 +12,7 @@ package cn.osxm.ssmi.chp6.junit;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 /**
   * @ClassName: MyTestRunnerTest

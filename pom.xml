@@ -35,6 +35,13 @@
 			<version>6.14.3</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- Easy Mock-->
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>4.0.2</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>

@@ -29,6 +29,15 @@ public class HelloService {
 	}
 
 	public void sayHello() {
-		System.out.println("Hello,"+this.name);
+		System.out.println("Hello," + this.name);
+	}
+
+	public String getHello() {
+		String str = "Hello";
+		if (name != null) {
+			str += ",";
+			str += name;
+		}
+		return str;
 	}
 }

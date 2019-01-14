@@ -8,6 +8,9 @@
  */
 
 package cn.osxm.ssmi.chp6.relfutil;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
   * @ClassName: ClassA
   * @Description: TODO
