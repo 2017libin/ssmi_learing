@@ -1,9 +1,9 @@
 /**
- * @Title: AnnoUseDemo.java
+ * @Title: ResoureAnnoDemo.java
  * @Package cn.osxm.ssmi.chp4.anno
  * @Description: TODO
  * @author osxm:oscarxueming
- * @date 2019年1月12日 下午8:07:13
+ * @date 2019年1月20日 上午8:34:43
  * @version V1.0
  */
 
@@ -13,12 +13,12 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * @ClassName: AnnoUseDemo
+ * @ClassName: ResoureAnnoDemo
  * @Description: TODO
  * @author osxm:oscarxueming
  */
 
-public class RequiredAnnoDemo {
+public class ResoureAnnoDemo {
 
 	/**
 	 * @Title: main
@@ -29,13 +29,11 @@ public class RequiredAnnoDemo {
 	public static void main(String[] args) {
 
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml",
-				RequiredAnnoDemo.class);
-		ResoureAnno resoureAnno = (ResoureAnno) context.getBean("resoureAnno");
-			
-		System.out.println(resoureAnno.getFoo());
-		System.out.println(resoureAnno.getContext());
-		System.out.println(resoureAnno.getBar());
+				ResoureAnnoDemo.class);
+		RequiredUsage beanC = (RequiredUsage) context.getBean("requiredUsage");
+
 		context.close();
+
 	}
 
 }

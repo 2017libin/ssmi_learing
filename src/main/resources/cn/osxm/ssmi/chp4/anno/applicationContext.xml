@@ -27,4 +27,10 @@
 	<bean id="autowiredUsage" class="cn.osxm.ssmi.chp4.anno.AutowiredUsage"/>
 	
 	<bean id="baz2" class="cn.osxm.ssmi.com.Baz" />
+	
+	<bean id="resoureAnno" class="cn.osxm.ssmi.chp4.anno.ResoureAnno"/>
+	<bean id="injectNamedAnno" class="cn.osxm.ssmi.chp4.anno.InjectNamedAnno"/>
+	
+	<context:annotation-config/>
+	<context:component-scan base-package="cn.osxm.ssmi.chp4.anno" />
 </beans>  
