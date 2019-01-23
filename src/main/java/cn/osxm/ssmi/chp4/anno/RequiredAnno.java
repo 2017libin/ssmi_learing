@@ -19,13 +19,11 @@ import cn.osxm.ssmi.com.Foo;
  * @author osxm:oscarxueming
  */
 
-public class RequiredUsage {
-
+public class RequiredAnno {
 	public Foo foo;
 
 	@Required
 	public void setFoo(Foo foo) {
 		this.foo = foo;
 	}
-
 }

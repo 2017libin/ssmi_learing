@@ -46,7 +46,6 @@ public class AutowiredUsage {
 	@Autowired
 	public AutowiredUsage(Foo foo) {
 		this.foo = foo;
-
 	}
 
 	public AutowiredUsage() {
@@ -57,7 +56,7 @@ public class AutowiredUsage {
 	public void setBar(Bar bar) {
 		this.bar = bar;
 	}
-
+    //注解在一般方法
 	@Autowired
 	public void myInitBar(Bar bar) {
 		this.bar = bar;

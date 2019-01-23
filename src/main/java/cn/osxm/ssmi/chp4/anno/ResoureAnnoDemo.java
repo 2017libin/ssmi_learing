@@ -30,7 +30,7 @@ public class ResoureAnnoDemo {
 
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml",
 				ResoureAnnoDemo.class);
-		RequiredUsage beanC = (RequiredUsage) context.getBean("requiredUsage");
+		RequiredAnno beanC = (RequiredAnno) context.getBean("requiredUsage");
 
 		context.close();
 

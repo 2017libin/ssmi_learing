@@ -30,12 +30,16 @@ public class RequiredAnnoDemo {
 
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml",
 				RequiredAnnoDemo.class);
+		
 		ResoureAnno resoureAnno = (ResoureAnno) context.getBean("resoureAnno");
 			
 		System.out.println(resoureAnno.getFoo());
 		System.out.println(resoureAnno.getContext());
 		System.out.println(resoureAnno.getBar());
 		context.close();
+		
+	
+		
 	}
 
 }

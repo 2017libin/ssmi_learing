@@ -19,8 +19,7 @@
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor">
 	</bean>
 
-
-	<bean id="requiredUsage" class="cn.osxm.ssmi.chp4.anno.RequiredUsage">
+	<bean id="requiredAnno" class="cn.osxm.ssmi.chp4.anno.RequiredAnno">
 		<property name="foo" ref="foo" />
 	</bean>
 
