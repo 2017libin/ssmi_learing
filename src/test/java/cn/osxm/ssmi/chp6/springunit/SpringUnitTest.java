@@ -45,4 +45,5 @@ public class SpringUnitTest {
 		EasyMock.verify(userDao);
 
 	}
+
 }
