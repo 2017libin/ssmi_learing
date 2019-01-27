@@ -10,6 +10,8 @@
 package cn.osxm.ssmi.com.anno;
 
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,9 +19,11 @@ import org.springframework.stereotype.Component;
   * @Description: TODO
   * @author osxm:oscarxueming
   */
-@Component
+//@Component
 public class Foo {
-
-	
-	
+	@Bean(name="barBean",value="barBean")
+	@Scope("prototype")
+	public Bar myInifBar() {
+		return new Bar();
+	}	
 }

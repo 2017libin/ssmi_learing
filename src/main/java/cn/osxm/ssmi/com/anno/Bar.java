@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
   * @Description: TODO
   * @author osxm:oscarxueming
   */
-@Service
+//@Service
 public class Bar {
 
 }

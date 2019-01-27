@@ -42,7 +42,7 @@ public class UserDaoImpl implements UserDao {
 
 	class UserRowMapper implements RowMapper<User> {
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-			User user = new User();
+			User user = new User("");
 			user.setName(rs.getString("name"));
 			return user;
 		}

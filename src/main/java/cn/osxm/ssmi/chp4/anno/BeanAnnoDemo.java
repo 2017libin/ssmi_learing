@@ -27,9 +27,15 @@ public class BeanAnnoDemo {
 				BeanAnnoDemo.class);
 		BeanAnno beanAnno = (BeanAnno) context.getBean("beanAnno");
 		System.out.println(beanAnno);
-		beanAnno.userInstance();
-		User user = (User) context.getBean("user");
+		//beanAnno.userInstance();
+		//User user = (User) context.getBean("userInstance");
+		//User user = (User) context.getBean(User.class);
+		User user = (User) context.getBean("firstUser");
 		System.out.println(user);
+		
+		
+		
+		
 		context.close();
 	}
 }

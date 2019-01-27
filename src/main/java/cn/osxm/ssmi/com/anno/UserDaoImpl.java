@@ -9,7 +9,16 @@
 
 package cn.osxm.ssmi.com.anno;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import cn.osxm.ssmi.com.User;
+import cn.osxm.ssmi.com.UserDao;
 
 /**
   * @ClassName: UserDaoImpl
@@ -36,7 +45,7 @@ public class UserDaoImpl implements UserDao {
 
     class UserRowMapper implements RowMapper<User> {
         public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-            User user = new User();
+            User user = new User("");
             user.setName(rs.getString("name"));
             return user;
         }

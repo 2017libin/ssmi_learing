@@ -12,6 +12,7 @@ package cn.osxm.ssmi.chp2;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 /**
  * @ClassName: ApplicationContextDemo
@@ -30,7 +31,7 @@ public class ApplicationContextDemo {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
-		ApplicationContext context = null;
+		//ApplicationContext context = null;
 		// 1.配置文件位于类的根目录
 		// context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		//context = new FileSystemXmlApplicationContext("classpath:applicationContext.xml ");
@@ -43,10 +44,12 @@ public class ApplicationContextDemo {
 		//context = new FileSystemXmlApplicationContext("applicationContext.xml");
 		
 		//context = new FileSystemXmlApplicationContext("config/applicationContext.xml");
-		context = new FileSystemXmlApplicationContext("file:///D:/devworkspace/ecpphoton/ssmi/applicationContext.xml");
+		//context = new FileSystemXmlApplicationContext("file:///D:/devworkspace/ecpphoton/ssmi/applicationContext.xml");
 		
-		
-		
+		GenericXmlApplicationContext context = new GenericXmlApplicationContext();
+		context.setValidating(false);
+		context.load("classpath:applicationContext.xml");
+		context.refresh();
 		
 		HelloService helloService = (HelloService) context.getBean("helloService");
 		helloService.sayHello();

@@ -12,7 +12,11 @@ package cn.osxm.ssmi.chp4.anno;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import cn.osxm.ssmi.com.anno.Bar;
+import cn.osxm.ssmi.com.anno.Baz;
 import cn.osxm.ssmi.com.anno.Foo;
+import cn.osxm.ssmi.com.anno.UserController;
+import cn.osxm.ssmi.com.anno.UserDaoImpl;
 
 /**
  * @ClassName: CompScanDemo
@@ -25,9 +29,14 @@ public class CompScanDemo {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("annoApplicationContext.xml",
 				CompScanDemo.class);
 		// 1.根据@Component注解实例化
-		Foo foo = (Foo) context.getBean(Foo.class);
-		System.out.println(foo);
-
+		//Foo foo = (Foo) context.getBean(Foo.class);
+		//System.out.println(foo);
+		//System.out.println((Bar)context.getBean(Bar.class));
+		System.out.println((Baz)context.getBean(Baz.class));
+		//System.out.println((UserController)context.getBean(UserController.class));
+		
+		
+		System.out.println((UserDaoImpl)context.getBean(UserDaoImpl.class));
 		context.close();
 	}
 
