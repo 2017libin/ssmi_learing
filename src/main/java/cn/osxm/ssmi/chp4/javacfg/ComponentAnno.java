@@ -23,14 +23,18 @@ import cn.osxm.ssmi.com.Foo;
 @Component
 public class ComponentAnno {
 
-	@Bean
-	public Foo foo() {
-		return new Foo();
-	}
+//	@Bean
+//	public Bar bar() {
+//		//System.out.println(foo);
+//		return new Bar(foo());
+//	}
 	
 	@Bean
 	public Bar bar(Foo foo) {
-		//System.out.println(foo);
 		return new Bar(foo);
+	}
+	@Bean
+	public Foo foo() {
+		return new Foo();
 	}
 }

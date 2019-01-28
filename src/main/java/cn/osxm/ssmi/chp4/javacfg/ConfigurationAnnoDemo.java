@@ -1,9 +1,9 @@
 /**
- * @Title: ComponentAnnoDemo.java
+ * @Title: ConfigurationAnnoDemo.java
  * @Package cn.osxm.ssmi.chp4.javacfg
  * @Description: TODO
  * @author osxm:oscarxueming
- * @date 2019年1月27日 下午6:37:40
+ * @date 2019年1月27日 下午9:50:56
  * @version V1.0
  */
 
@@ -15,19 +15,26 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import cn.osxm.ssmi.com.Bar;
 
 /**
- * @ClassName: ComponentAnnoDemo
+ * @ClassName: ConfigurationAnnoDemo
  * @Description: TODO
  * @author osxm:oscarxueming
  */
 
-public class ComponentAnnoDemo {
+public class ConfigurationAnnoDemo {
+
+	/**
+	 * @Title: main
+	 * @Description: TODO
+	 * @param args
+	 */
+
 	public static void main(String[] args) {
-		//AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ComponentAnno.class);
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-		context.scan("cn.osxm.ssmi.chp4.javacfg");
-		context.refresh();
-		Bar bar = (Bar)context.getBean("bar");
+
+		ApplicationContext context = new AnnotationConfigApplicationContext(ConfigurationAnno.class);
+		Bar bar = (Bar) context.getBean("bar");
 		System.out.println(bar.getFoo());
-		
+		Bar bar2 = (Bar) context.getBean("bar2");
+		System.out.println(bar2.getFoo());
 	}
+
 }

@@ -21,9 +21,9 @@ import cn.osxm.ssmi.chp2.HelloService;
  * @Description: TODO
  * @author osxm:oscarxueming
  */
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:cn/osxm/ssmi/chp6/applicationContext.xml")
+//@ContextConfiguration(locations = "classpath:cn/osxm/ssmi/chp6/applicationContext.xml")
+@ContextConfiguration({"classpath:cn/osxm/ssmi/chp6/applicationContext.xml", "classpath:cn/osxm/ssmi/chp6/webApplicationContext.xml"})
 public class SpringTest {
 
 	@Autowired

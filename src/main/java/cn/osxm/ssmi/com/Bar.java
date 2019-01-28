@@ -27,7 +27,7 @@ public class Bar {
 		return foo;
 	}
 
-	public void setFoo(Foo foo) {
-		this.foo = foo;
-	}
+	//public void setFoo(Foo foo) {
+	//	this.foo = foo;
+	//}
 }
