@@ -12,8 +12,8 @@ package cn.osxm.ssmi.chp11;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.osxm.ssmi.chp2.User;
-import cn.osxm.ssmi.chp2.UserService;
+import cn.osxm.ssmi.chp02.User;
+import cn.osxm.ssmi.chp02.UserService;
 
 /**
  * @ClassName: TransOperateAdviceDemo

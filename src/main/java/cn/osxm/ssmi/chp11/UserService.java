@@ -11,7 +11,7 @@ package cn.osxm.ssmi.chp11;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.osxm.ssmi.chp2.User;
+import cn.osxm.ssmi.chp02.User;
 
 /**
  * @ClassName: UserService

@@ -15,7 +15,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import cn.osxm.ssmi.chp2.User;
+import cn.osxm.ssmi.chp02.User;
 
 /**
   * @ClassName: JpaDemo

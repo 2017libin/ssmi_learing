@@ -15,7 +15,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import cn.osxm.ssmi.chp2.User;
+import cn.osxm.ssmi.chp02.User;
 
 /**
   * @ClassName: HibernateDemo
