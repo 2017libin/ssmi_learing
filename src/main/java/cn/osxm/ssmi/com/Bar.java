@@ -19,6 +19,10 @@ public class Bar {
 
 	private Foo foo;
 
+	public Bar() {
+		
+	}
+	
 	public Bar(Foo foo) {
 		this.foo = foo;
 	}

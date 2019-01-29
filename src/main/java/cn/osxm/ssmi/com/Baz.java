@@ -8,12 +8,32 @@
  */
 
 package cn.osxm.ssmi.com;
+
 /**
-  * @ClassName: Baz
-  * @Description: TODO
-  * @author osxm:oscarxueming
-  */
+ * @ClassName: Baz
+ * @Description: TODO
+ * @author osxm:oscarxueming
+ */
 
 public class Baz {
+	private Foo foo;
+	private Bar bar;
 
+	public Foo getFoo() {
+
+		return foo;
+	}
+
+	public void setFoo(Foo foo) {
+		this.foo = foo;
+	}
+
+//	public Bar getBar() {
+//
+//		return bar;
+//	}
+
+	public void setBar(Bar bar) {
+		this.bar = bar;
+	}
 }

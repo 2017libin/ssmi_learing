@@ -18,6 +18,10 @@
 		<constructor-arg ref="fourService" />
 		<constructor-arg ref="thirdService" />
 	</bean>
+	<bean id="twoService2" class="cn.osxm.ssmi.chp4.TwoService">
+		<property name="thirdService" ref="thirdService" />
+		<property name="fourService" ref="fourService" />
+	</bean>
 
 	<bean id="simpleTypeDepService" class="cn.osxm.ssmi.chp4.SimpleTypeConArgsDepService">
 		<!-- 配置与类函数的顺序不一致，初始化会出错 <constructor-arg value="Hello World!" /> <constructor-arg value="2" /> -->
