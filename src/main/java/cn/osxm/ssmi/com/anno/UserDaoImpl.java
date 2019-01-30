@@ -11,6 +11,8 @@ package cn.osxm.ssmi.com.anno;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -41,6 +43,23 @@ public class UserDaoImpl implements UserDao {
     @Override
     public String getUserNameById(String id) {
         return getUserById(id).getName();
+    }
+
+    @Override
+    public void add(User user) {
+        String sql = "insert into user(name) values('"+user.getName()+"')";
+        jdbcTemplate.execute(sql);
+       
+    }
+    
+    @Override
+    public User getUserByName(String name) {
+        String sql = "select * from user where name=?";
+        List list = jdbcTemplate.queryForList(sql,name);
+        Map map = (Map) list.get(0);
+        User user = new User("");
+        user.setName(map.get("name")!=null?(String)map.get("name"):null);
+        return user;
     }
 
     class UserRowMapper implements RowMapper<User> {

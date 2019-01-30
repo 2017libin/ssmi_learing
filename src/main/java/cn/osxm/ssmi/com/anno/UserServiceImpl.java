@@ -27,7 +27,7 @@ import cn.osxm.ssmi.com.UserService;
 @Service
 public class UserServiceImpl implements UserService{
 
-    @Autowired
+	@Autowired
     private UserDaoImpl userDaoImpl;
     
     @Override
@@ -38,6 +38,16 @@ public class UserServiceImpl implements UserService{
     @Override
     public String getUserNameById(String id) {
         return userDaoImpl.getUserNameById(id);
+    }
+
+    @Override
+    //@Transactional
+    public void add(User user) {
+        userDaoImpl.add(user);
+    }
+    
+    public User getUserByName(String name) {
+       return userDaoImpl.getUserByName(name);
     }
 
 }

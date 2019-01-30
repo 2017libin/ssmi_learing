@@ -16,7 +16,11 @@ package cn.osxm.ssmi.com;
  */
 
 public interface UserService {
-	public User getUserById(String id);
+public User getUserById(String id);
+	
+	public User getUserByName(String name);
 	
 	public String getUserNameById(String id);
+	
+	public void add(User user);
 }
