@@ -31,8 +31,8 @@ public class ClassA implements ApplicationContextAware {
 	}
 
 	public ClassB getBeanB() {
-
-		return beanB;
+		return (ClassB)applicationContext.getBean("beanB");
+		//return beanB;
 	}
 
 	public void setBeanB(ClassB beanB) {

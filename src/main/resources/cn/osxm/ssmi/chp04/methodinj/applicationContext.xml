@@ -6,17 +6,17 @@
 
 	<context:annotation-config />
 
-	<bean id="beanA" class="cn.osxm.ssmi.chp4.methodinj.ClassA">
+	<bean id="beanA" class="cn.osxm.ssmi.chp04.methodinj.ClassA">
 		<property name="beanB" ref="beanB" />
 	</bean>
-	<bean id="beanB" class="cn.osxm.ssmi.chp4.methodinj.ClassB" scope="prototype" />
+	<bean id="beanB" class="cn.osxm.ssmi.chp04.methodinj.ClassB" scope="prototype" />
 
-	<bean id="beanALookUp" class="cn.osxm.ssmi.chp4.methodinj.ClassALookUp" />
+	<bean id="beanALookUp" class="cn.osxm.ssmi.chp04.methodinj.ClassALookUp" />
 
-	<bean id="oldEraPeople" class="cn.osxm.ssmi.chp4.methodinj.OldEraPeople">
+	<bean id="oldEraPeople" class="cn.osxm.ssmi.chp04.methodinj.OldEraPeople">
 	    <replaced-method name="eat" replacer="newEraPeople">
 			<arg-type>String</arg-type>
 		</replaced-method>
 	</bean>
-	<bean id="newEraPeople" class="cn.osxm.ssmi.chp4.methodinj.NewEraPeople"/>
+	<bean id="newEraPeople" class="cn.osxm.ssmi.chp04.methodinj.NewEraPeople"/>
 </beans>  

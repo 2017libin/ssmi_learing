@@ -32,7 +32,7 @@ import cn.osxm.ssmi.com.anno.UserServiceImpl;
 @ContextConfiguration(locations = { "classpath:cn/osxm/ssmi/chp06/testAnno.xml" })
 @Transactional
 // @Rollback
-public class TransactionAnnoTest {
+public class TransactionAnnoTest                             {
 
     @Autowired
     private UserServiceImpl userService;
