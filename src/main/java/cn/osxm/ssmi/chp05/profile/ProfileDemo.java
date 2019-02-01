@@ -26,6 +26,9 @@ public class ProfileDemo {
      */
 
    public static void main(String[] args) {
+	   System.setProperty("spring.profiles.active", "qa");
+	   
+	   
        //spring.profiles.default
        AbstractApplicationContext context = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp5/profiles.xml");  
        MyDataSource myDataSource = (MyDataSource)context.getBean("dataSource");

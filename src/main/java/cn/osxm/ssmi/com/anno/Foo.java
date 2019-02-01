@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
   * @Description: TODO
   * @author osxm:oscarxueming
   */
-//@Component
+@Component
 public class Foo {
 	@Bean(name="barBean",value="barBean")
 	@Scope("prototype")
