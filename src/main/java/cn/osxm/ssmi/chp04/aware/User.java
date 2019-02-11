@@ -16,6 +16,8 @@ package cn.osxm.ssmi.chp04.aware;
  */
 
 public class User {
+	private String name;
+
 	private String beanName;
 
 	public String getBeanName() {
@@ -24,5 +26,14 @@ public class User {
 
 	public void setBeanName(String beanName) {
 		this.beanName = beanName;
+	}
+
+	public String getName() {
+
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

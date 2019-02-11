@@ -16,8 +16,23 @@ package cn.osxm.ssmi.chp04;
 
 public class BeanDClass {
 	private BeanCClass beanC;
+	
 
-	public BeanDClass(BeanCClass beanC) {
+//	public BeanDClass(BeanCClass beanC) {
+//		this.beanC = beanC;
+//	}
+
+	public BeanCClass getBeanC() {
+	
+		return beanC;
+	}
+
+	public void setBeanC(BeanCClass beanC) {
 		this.beanC = beanC;
+	}
+
+	public void method() {		
+		System.out.println("Call Bean C method");
+		//beanC.method();
 	}
 }

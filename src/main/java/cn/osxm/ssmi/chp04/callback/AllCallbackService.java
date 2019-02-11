@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp04;
+package cn.osxm.ssmi.chp04.callback;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -22,33 +22,36 @@ import org.springframework.beans.factory.InitializingBean;
   */
 
 public class AllCallbackService implements InitializingBean,DisposableBean{
+	
+
+	
 	@Override
 	public void afterPropertiesSet() throws Exception {
-          System.out.println("[实现InitializingBean接口的afterPropertiesSet方法]初始化方法回调．．．");
+          System.out.println(this.getClass().getSimpleName()+":[实现InitializingBean接口的afterPropertiesSet方法]初始化方法回调．．．");
 	}
 
 	@Override
 	public void destroy() throws Exception {
-		System.out.println("[实现DisposableBean接口的destroy方法]销毁方法回调．．．．");
+		System.out.println(this.getClass().getSimpleName()+":[实现DisposableBean接口的destroy方法]销毁方法回调．．．．");
 	}
 	
 	
 	public void cfgInit() {
-		System.out.println("[配置bean的init-method属性]初始化方法回调．．．");
+		System.out.println(this.getClass().getSimpleName()+":[配置bean的init-method属性]初始化方法回调．．．");
 	}
 
 	public void cfgDestroy() {
-		System.out.println("[配置bean的destroy-method属性]销毁方法回调．．．．");
+		System.out.println(this.getClass().getSimpleName()+":[配置bean的destroy-method属性]销毁方法回调．．．．");
 	}
 	
 	
 	@PostConstruct
 	public void annoInit() {
-		System.out.println("[注解@PostConstruct]初始化方法回调．．．");
+		System.out.println(this.getClass().getSimpleName()+":[注解@PostConstruct]初始化方法回调．．．");
 	}
 
 	@PreDestroy
 	public void annoDestroy() {
-		System.out.println("[注解@PreDestroy]销毁方法回调．．．．");
+		System.out.println(this.getClass().getSimpleName()+":[注解@PreDestroy]销毁方法回调．．．．");
 	}
 }

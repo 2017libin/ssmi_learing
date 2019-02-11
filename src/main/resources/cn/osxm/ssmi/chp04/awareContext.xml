@@ -4,7 +4,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
 	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="user1" class="cn.osxm.ssmi.chp4.aware.UserWithBeanNameAware" />
-	<bean id="user2" class="cn.osxm.ssmi.chp4.aware.User" />
-
+	<bean id="user1" class="cn.osxm.ssmi.chp04.aware.UserWithBeanNameAware" />
+	<bean id="user2" class="cn.osxm.ssmi.chp04.aware.User" />
+    <bean id="implBeanFactoryAware" class="cn.osxm.ssmi.chp04.aware.ImplBeanFactoryAware" />
+    
+    <bean id="userService" class="cn.osxm.ssmi.chp04.aware.UserService" />
+    <bean class="cn.osxm.ssmi.chp04.aware.UserEventListener" />
 </beans>  

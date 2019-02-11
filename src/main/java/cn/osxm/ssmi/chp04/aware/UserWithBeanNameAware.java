@@ -27,5 +27,6 @@ public class UserWithBeanNameAware  implements BeanNameAware{
     @Override
     public void setBeanName(String name) {
         this.beanName = name;
+        //this.beanName = "XXXX";
     }
 }

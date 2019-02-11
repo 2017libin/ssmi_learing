@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
-	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	 default-init-method="initEvery" default-destroy-method="destroyEvery">
 
 	<context:annotation-config />
 
-	<bean id="thirdService" class="cn.osxm.ssmi.chp4.ThirdService" factory-method="getInstance" />
+	<bean id="thirdService" class="cn.osxm.ssmi.chp04.ThirdService" factory-method="getInstance" />
 
-	<bean id="serviceLocator" class="cn.osxm.ssmi.chp4.ServiceLocator" />
-	<bean id="thirdService2" factory-bean="serviceLocator" factory-method="createThirdServiceInstance" />
-	<bean id="fourService" factory-bean="serviceLocator" factory-method="createFourServiceInstance" />
+	<bean id="serviceLocator" class="cn.osxm.ssmi.chp04.ServiceLocator" />
+	<bean id="thirdService2" factory-bean="serviceLocator"
+		factory-method="createThirdServiceInstance" />
+	<bean id="fourService" factory-bean="serviceLocator"++++
+		factory-method="createFourServiceInstance" />
 	<!-- inner Class initial -->
-	<bean id="innerObject" class="cn.osxm.ssmi.chp4.WithInnerClass$InnerClass" />
+	<bean id="innerObject" class="cn.osxm.ssmi.chp04.WithInnerClass$InnerClass" />
 
-	<bean id="twoService" class="cn.osxm.ssmi.chp4.TwoService">
+	<bean id="twoService" class="cn.osxm.ssmi.chp04.TwoService">
 		<constructor-arg ref="fourService" />
 		<constructor-arg ref="thirdService" />
 	</bean>
-	<bean id="twoService2" class="cn.osxm.ssmi.chp4.TwoService">
+	<bean id="twoService2" class="cn.osxm.ssmi.chp04.TwoService">
 		<property name="thirdService" ref="thirdService" />
 		<property name="fourService" ref="fourService" />
 	</bean>
 
-	<bean id="simpleTypeDepService" class="cn.osxm.ssmi.chp4.SimpleTypeConArgsDepService">
+	<bean id="simpleTypeDepService" class="cn.osxm.ssmi.chp04.SimpleTypeConArgsDepService">
 		<!-- 配置与类函数的顺序不一致，初始化会出错 <constructor-arg value="Hello World!" /> <constructor-arg value="2" /> -->
 
-		<!--<constructor-arg type="java.lang.String" value="Hello World!" /> <constructor-arg index="0" value="3" /> <constructor-arg index="1" value="2" 
-			/> -->
+		<!--<constructor-arg type="java.lang.String" value="Hello World!" /> <constructor-arg index="0" value="3" 
+			/> <constructor-arg index="1" value="2" /> -->
 
 		<constructor-arg name="sBar" value="Hello World!" />
 		<constructor-arg name="iFoo" value="2" />
 	</bean>
 
-	<bean id="simpleTypePropertyDepService" class="cn.osxm.ssmi.chp4.SimpleTypePropertyDepService">
+	<bean id="simpleTypePropertyDepService"
+		class="cn.osxm.ssmi.chp04.SimpleTypePropertyDepService">
 		<property name="sBar" value="Hello World!" />
 		<property name="iFoo" value="2" />
 		<!--<property name="baz" value="fourService" /> -->
@@ -42,9 +49,11 @@
 		</property>
 	</bean>
 
-	<bean id="simpleTypePropertyDepService2" class="cn.osxm.ssmi.chp4.SimpleTypePropertyDepService" p:sBar="Hello World!" p:iFoo="2" />
+	<bean id="simpleTypePropertyDepService2"
+		class="cn.osxm.ssmi.chp04.SimpleTypePropertyDepService" p:sBar="Hello World!" p:iFoo="2" />
 
-	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="properties">
 			<value>
 				jdbc.driver.className=com.mysql.jdbc.Driver
@@ -54,23 +63,33 @@
 		<!-- <property name="properties" value="classpath:cfg.properties"></property> -->
 	</bean>
 
-	<bean id="propertiesDepService" class="cn.osxm.ssmi.chp4.PropertiesDepService">
+	<bean id="propertiesDepService" class="cn.osxm.ssmi.chp04.PropertiesDepService">
 		<property name="jdbcClass" value="${jdbc.driver.className}" />
 		<property name="jdbcUrl" value="${jdbc.url}" />
 	</bean>
 
-	<bean id="singleFourService" class="cn.osxm.ssmi.chp4.FourService" scope="singleton" />
-	<bean id="prototypeFourService" class="cn.osxm.ssmi.chp4.FourService" scope="prototype" />
+	<bean id="singleFourService" class="cn.osxm.ssmi.chp04.FourService" scope="singleton" />
+	<bean id="prototypeFourService" class="cn.osxm.ssmi.chp04.FourService" scope="prototype" />
 
 	<!-- lazy-init="true" -->
-	<bean id="annoCallbackService" class="cn.osxm.ssmi.chp4.AnnoCallbackService">
+    <bean id="globalCfgCallbackService" class="cn.osxm.ssmi.chp04.callback.GlobalCfgCallbackService"/>
+	<bean id="annoCallbackService" class="cn.osxm.ssmi.chp04.callback.AnnoCallbackService">
 		<property name="sBar" value="Hello World!" />
 	</bean>
-	<bean id="implCallbackService" class="cn.osxm.ssmi.chp4.ImplCallbackService"/>
-	<bean id="cfgCallbackService" class="cn.osxm.ssmi.chp4.CfgCallbackService" init-method="init" destroy-method="destroy"/>
+	<bean id="implCallbackService" class="cn.osxm.ssmi.chp04.callback.ImplCallbackService" />
+	<bean id="cfgCallbackService" class="cn.osxm.ssmi.chp04.callback.CfgCallbackService" init-method="init"
+		destroy-method="destroy" />
+	<bean id="allCallbackService" class="cn.osxm.ssmi.chp04.callback.AllCallbackService"
+		init-method="cfgInit" destroy-method="cfgDestroy" />
+		
+	<bean id="user1" class="cn.osxm.ssmi.com.User">
+		<constructor-arg name="name" value="Oscar1" />
+	</bean>
+	<bean id="user2" class="cn.osxm.ssmi.com.User">
+		<property name="name" value="Oscar2" />
+	</bean>
+	<bean id="user3" class="cn.osxm.ssmi.com.User" c:name="Oscar3"/>
+	<bean id="user4" class="cn.osxm.ssmi.com.User" p:name="Oscar4"/>
 	
-	<bean id="allCallbackService" class="cn.osxm.ssmi.chp4.AllCallbackService" init-method="cfgInit" destroy-method="cfgDestroy"/>
-
-
-
+    <!-- <bean id="user" class="cn.osxm.ssmi.com.User" c:name="Oscar" c:parent-ref="user1" p:age="30" p:child-ref="user2"/>-->
 </beans>  

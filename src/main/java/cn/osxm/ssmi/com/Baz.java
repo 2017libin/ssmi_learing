@@ -16,6 +16,7 @@ package cn.osxm.ssmi.com;
  */
 
 public class Baz {
+
 	private Foo foo;
 	private Bar bar;
 

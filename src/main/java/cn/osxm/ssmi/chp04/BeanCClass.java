@@ -31,7 +31,8 @@ public class BeanCClass {
 		this.beanD = beanD;
 	}
 
-	public void foo() {
-		System.out.println("Bean C method");
+	public void method() {		
+		System.out.println("Call Bean D method");
+		beanD.method();
 	}
 }

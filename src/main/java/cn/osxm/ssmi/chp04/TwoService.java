@@ -20,6 +20,10 @@ public class TwoService {
 	private ThirdService thirdService;
 	
 	private FourService fourService;
+	public TwoService() {
+		
+	}
+	
 
 	//构造器参数注入依赖对象，可以使用XML或是Java代码方式进行配置
 	public TwoService(ThirdService thirdService, FourService fourService) {
@@ -29,5 +33,24 @@ public class TwoService {
 	
 	public void doMethod() {
 		fourService.doMethod();
+	}
+	
+	
+	public ThirdService getThirdService() {
+		
+		return thirdService;
+	}
+
+	public void setThirdService(ThirdService thirdService) {
+		this.thirdService = thirdService;
+	}
+
+	public FourService getFourService() {
+	
+		return fourService;
+	}
+
+	public void setFourService(FourService fourService) {
+		this.fourService = fourService;
 	}
 }

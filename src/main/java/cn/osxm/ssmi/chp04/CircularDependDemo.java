@@ -18,7 +18,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author osxm:oscarxueming
  */
 
-public class DemoCircularDepend {
+public class CircularDependDemo {
 
 	/**
 	 * @Title: main
@@ -28,9 +28,12 @@ public class DemoCircularDepend {
 
 	public static void main(String[] args) {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml",
-				DemoCircularDepend.class);
+				CircularDependDemo.class);
 		BeanCClass beanC = (BeanCClass)context.getBean("beanC");
-		beanC.foo();
+		System.out.println(beanC);
+		System.out.println(beanC.getBeanD());
+		System.out.println(beanC.getBeanD().getBeanC());
+		beanC.method();
 		context.close();
 
 	}

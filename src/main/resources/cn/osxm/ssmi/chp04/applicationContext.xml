@@ -5,23 +5,23 @@
 	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
 	default-lazy-init="default">
 
-	<bean id="staticFactoryService" class="cn.osxm.ssmi.chp4.StaticFactoryService" factory-method="getInstance" />
+	<bean id="staticFactoryService" class="cn.osxm.ssmi.chp04.StaticFactoryService" factory-method="getInstance" />
 
-	<bean id="instanceFactory" class="cn.osxm.ssmi.chp4.InstanceFactory" />
+	<bean id="instanceFactory" class="cn.osxm.ssmi.chp04.InstanceFactory" />
 	<bean id="foo" factory-bean="instanceFactory" factory-method="getFooInstance" />
 
-	<bean id="helloService" class="cn.osxm.ssmi.chp2.HelloService">
+	<bean id="helloService" class="cn.osxm.ssmi.chp02.HelloService">
 		<property name="name" value="张三" />
 	</bean>
-	<!-- <bean id="helloBeanFactoryPostProcessor" class="cn.osxm.ssmi.chp4.HelloBeanFactoryPostProcessor" /> -->
-	<bean id="helloBeanPostProcessor" class="cn.osxm.ssmi.chp4.HelloBeanPostProcessor" />
+	<!-- <bean id="helloBeanFactoryPostProcessor" class="cn.osxm.ssmi.chp04.HelloBeanFactoryPostProcessor" /> -->
+	<bean id="helloBeanPostProcessor" class="cn.osxm.ssmi.chp04.HelloBeanPostProcessor" />
 	<!-- lazy-init="default" -->
-	<bean id="lazyInitService" class="cn.osxm.ssmi.chp4.CfgCallbackService" lazy-init="true" init-method="init" destroy-method="destroy" />
-	<bean id="useLazyService" class="cn.osxm.ssmi.chp4.UseLazyService">
+	<bean id="lazyInitService" class="cn.osxm.ssmi.chp04.CfgCallbackService" lazy-init="true" init-method="init" destroy-method="destroy" />
+	<bean id="useLazyService" class="cn.osxm.ssmi.chp04.UseLazyService">
 		<property name="lazyInitService" ref="lazyInitService" />
 	</bean>
 
-	<bean id="parentBean" class="cn.osxm.ssmi.chp4.ParentBean" abstract="true">
+	<bean id="parentBean" class="cn.osxm.ssmi.chp04.ParentBean" abstract="true">
 		<property name="name" value="张三" />
 		
 	</bean>
@@ -29,20 +29,20 @@
 	<bean id="parentBean2" abstract="true">
 		<property name="name" value="张三" />
 	</bean>
-	<bean id="childBean" class="cn.osxm.ssmi.chp4.ChildBean" parent="parentBean2">
+	<bean id="childBean" class="cn.osxm.ssmi.chp04.ChildBean" parent="parentBean2">
 		<property name="age" value="18" />
 	</bean>
 
-	<bean id="outBeanClass" class="cn.osxm.ssmi.chp4.OutBeanClass">
+	<bean id="outBeanClass" class="cn.osxm.ssmi.chp04.OutBeanClass">
 		<constructor-arg>
-			<bean class="cn.osxm.ssmi.chp4.InnerBeanClass">
+			<bean class="cn.osxm.ssmi.chp04.InnerBeanClass">
 				<property name="name" value="Inner Bean Class" />
 			</bean>
 		</constructor-arg>
-		<!--<property name="innerBean"> <bean class="cn.osxm.ssmi.chp4.InnerBeanClass"> <property name="name" value="Inner Bean Class" /> </bean> </property> -->
+		<!--<property name="innerBean"> <bean class="cn.osxm.ssmi.chp04.InnerBeanClass"> <property name="name" value="Inner Bean Class" /> </bean> </property> -->
 	</bean>
 
-	<bean id="collectionDepBean" class="cn.osxm.ssmi.chp4.CollectionDepBeanClass">
+	<bean id="collectionDepBean" class="cn.osxm.ssmi.chp04.CollectionDepBeanClass">
 		<!-- <property name="myList">
 			<list>
 				<value>List Item 1</value>
@@ -89,16 +89,16 @@
 		</property>
     </bean> 
 
-	<bean id="beanA" class="cn.osxm.ssmi.chp4.BeanAClass" init-method="init" depends-on="beanB"/>
-	<bean id="beanB" class="cn.osxm.ssmi.chp4.BeanBClass" init-method="init"/>
+	<bean id="beanA" class="cn.osxm.ssmi.chp04.BeanAClass" init-method="init" depends-on="beanB"/>
+	<bean id="beanB" class="cn.osxm.ssmi.chp04.BeanBClass" init-method="init"/>
 	
-	<bean id="beanC" class="cn.osxm.ssmi.chp4.BeanCClass">
+	<bean id="beanC" class="cn.osxm.ssmi.chp04.BeanCClass">
 	   <!--<constructor-arg ref="beanD"/>-->
 	   <property name="beanD"  ref="beanD"/>
 	</bean>
-	<bean id="beanD" class="cn.osxm.ssmi.chp4.BeanDClass">
-	   <!-- <property name="beanC"  ref="beanC"/>-->
-	   <constructor-arg ref="beanC"/>
+	<bean id="beanD" class="cn.osxm.ssmi.chp04.BeanDClass">
+	   <property name="beanC"  ref="beanC"/>
+	    <!--<constructor-arg ref="beanC"/>-->
 	</bean>
 
 </beans>  

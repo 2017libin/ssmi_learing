@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp04;
+package cn.osxm.ssmi.chp04.callback;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

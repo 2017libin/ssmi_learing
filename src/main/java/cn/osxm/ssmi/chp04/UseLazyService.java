@@ -9,6 +9,8 @@
 
 package cn.osxm.ssmi.chp04;
 
+import cn.osxm.ssmi.chp04.callback.CfgCallbackService;
+
 /**
  * @ClassName: UseLazyService
  * @Description: TODO

@@ -12,8 +12,8 @@ package cn.osxm.ssmi.chp04.methodinj;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.osxm.ssmi.chp04.AllCallbackService;
 import cn.osxm.ssmi.chp04.CallbackDemo;
+import cn.osxm.ssmi.chp04.callback.AllCallbackService;
 
 /**
  * @ClassName: MethodReplaceDemo

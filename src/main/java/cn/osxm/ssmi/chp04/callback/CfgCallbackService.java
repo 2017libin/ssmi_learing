@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp04;
+package cn.osxm.ssmi.chp04.callback;
 
 /**
  * @ClassName: CfgCallbackService
@@ -17,11 +17,12 @@ package cn.osxm.ssmi.chp04;
 
 public class CfgCallbackService {
 
+
 	public void init() {
-		System.out.println("[配置bean的init-method属性]初始化方法回调．．．");
+		System.out.println(this.getClass().getSimpleName()+":[配置bean的init-method属性]初始化方法回调．．．");
 	}
 
 	public void destroy() {
-		System.out.println("[配置bean的destroy-method属性]销毁方法回调．．．．");
+		System.out.println(this.getClass().getSimpleName()+":[配置bean的destroy-method属性]销毁方法回调．．．．");
 	}
 }
