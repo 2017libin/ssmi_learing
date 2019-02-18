@@ -18,6 +18,8 @@ package cn.osxm.ssmi.com;
 public class User {
 	private String name;
 
+	private int deptId;
+
 	public User() {
 
 	}
@@ -31,7 +33,14 @@ public class User {
 	}
 
 	public String getName() {
-
 		return name;
+	}
+
+	public int getDeptId() {
+		return deptId;
+	}
+
+	public void setDeptId(int deptId) {
+		this.deptId = deptId;
 	}
 }

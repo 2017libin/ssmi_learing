@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.osxm.ssmi.chp13.UserMapper">
+	<!-- 包含if的动态sql -->
+	<select id="findUserListWithNameIf" resultType="cn.osxm.ssmi.com.User">
+		select * from User where id is not null
+		<if test="name != null">
+			<!-- AND name = #{name} -->
+			AND name like '%${name}%'
+		</if>
+	</select>
+
+	<select id="findUserListWithChoose" resultType="cn.osxm.ssmi.com.User">
+		select * from User where id is not null
+		<choose>
+			<when test="name != null">
+				AND name like '%${name}%'
+			</when>
+			<when test="deptId != null">
+				AND deptId = #{deptId}
+			</when>
+			<otherwise>
+				AND name is not null
+			</otherwise>
+		</choose>
+	</select>
+</mapper>
