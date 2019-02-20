@@ -46,7 +46,8 @@ public class BeanInitialDemo {
 		innerObject =  new WithInnerClass.InnerClass();
 		innerObject.innerMethod();
 		
-		
+		OuterClass.InnerClass  inner = new OuterClass.InnerClass();
+		inner.innerMethod();
 	}
 
 }

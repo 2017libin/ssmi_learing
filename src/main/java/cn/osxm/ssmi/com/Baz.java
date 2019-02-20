@@ -20,6 +20,14 @@ public class Baz {
 	private Foo foo;
 	private Bar bar;
 
+	public Baz() {
+		
+	}
+	public Baz(Foo foo,Bar bar) {
+		this.foo = foo;
+		this.bar = bar;
+	}
+	
 	public Foo getFoo() {
 
 		return foo;

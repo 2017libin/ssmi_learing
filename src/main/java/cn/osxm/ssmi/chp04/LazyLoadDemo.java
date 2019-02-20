@@ -30,7 +30,7 @@ public class LazyLoadDemo {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml", LazyLoadDemo.class);
 		//CfgCallbackService  cfgCallbackService = (CfgCallbackService)context.getBean("lazyInitService");
 		
-		//UseLazyService useLazyService = (UseLazyService)context.getBean("useLazyService");
+		UseLazyService useLazyService = (UseLazyService)context.getBean("useLazyService");
 		
 		
 		context.close();

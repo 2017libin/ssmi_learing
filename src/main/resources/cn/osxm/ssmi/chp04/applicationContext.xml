@@ -16,9 +16,9 @@
 	<!-- <bean id="helloBeanFactoryPostProcessor" class="cn.osxm.ssmi.chp04.HelloBeanFactoryPostProcessor" /> -->
 	<bean id="helloBeanPostProcessor" class="cn.osxm.ssmi.chp04.HelloBeanPostProcessor" />
 	<!-- lazy-init="default" -->
-	<bean id="lazyInitService" class="cn.osxm.ssmi.chp04.CfgCallbackService" lazy-init="true" init-method="init" destroy-method="destroy" />
+	<bean id="lazyInitService" class="cn.osxm.ssmi.chp04.callback.CfgCallbackService" lazy-init="true" init-method="init" destroy-method="destroy" />
 	<bean id="useLazyService" class="cn.osxm.ssmi.chp04.UseLazyService">
-		<property name="lazyInitService" ref="lazyInitService" />
+		 <property name="lazyInitService" ref="lazyInitService" />
 	</bean>
 
 	<bean id="parentBean" class="cn.osxm.ssmi.chp04.ParentBean" abstract="true">
@@ -49,6 +49,13 @@
 				<value>List Item 2</value>
 			</list>
 		</property>-->
+		<property name="myList">
+			<list>
+				<value>List Item 1</value>
+				<value>List Item 2</value>
+				<ref bean="foo" />
+			</list>
+		</property>
 		<constructor-arg>
 		    <list>
 				<value>List Item 1</value>
@@ -66,9 +73,8 @@
 				<entry key="Key 1">
 					<value>Value 1</value>
 				</entry>
-				<entry key="Key 2">
-					<value>Value 2</value>
-				</entry>
+				<entry key="Key 2" value="Value 2"/>
+				<entry key ="a ref" value-ref="foo"/>
 			</map>
 		</property>
 		<property name="myProperties">
