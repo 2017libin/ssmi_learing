@@ -17,7 +17,9 @@ package cn.osxm.ssmi.chp04.methodinj;
 public class OldEraPeople {
 
 	public String eat(String name){
-		String str = name+"在旧时代吃糠";
+		String str = "";
+		//假设方法体未知
 		return str;
+		//
 	}
 }

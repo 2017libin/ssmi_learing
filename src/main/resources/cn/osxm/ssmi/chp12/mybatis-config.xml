@@ -3,31 +3,49 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<properties>
+	<!-- 1. 属性配置 -->
+	<properties resource="cn/osxm/ssmi/chp12/config.properties">
+		<property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true" />
+		<!-- <property name="username" value="root" /> -->
+		<property name="password" value="123456" />
 	</properties>
-
+	<typeAliases>
+		<typeAlias alias="User" type="cn.osxm.ssmi.com.User" /> 
+		<!-- <package name="cn.osxm.ssmi.com" />-->
+	</typeAliases>
 	<typeHandlers>
 		<typeHandler handler="cn.osxm.ssmi.chp12.typehandler.MyTypeHandler" />
 	</typeHandlers>
-
 	<plugins>
-		<plugin interceptor="cn.osxm.ssmi.chp12.plugin.MyPlugin"/>
+		<plugin interceptor="cn.osxm.ssmi.chp12.plugin.MyPlugin" />
 	</plugins>
 
+	<!-- 2. 环境配置 -->
 	<environments default="development">
 		<environment id="development">
+			<!-- 事务 -->
 			<transactionManager type="JDBC" />
+			<!-- 数据源 -->
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" />
-				<property name="username" value="root" />
-				<property name="password" value="123456" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username:root}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+		<environment id="production">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="data_source" value="java:comp/env/jndi/myjndids" />
 			</dataSource>
 		</environment>
 	</environments>
-
-
+	<!-- 3.映射文件 -->
 	<mappers>
-		<mapper resource="cn/osxm/ssmi/chp12/UserMapper.xml" />
+		<!-- <mapper resource="cn/osxm/ssmi/chp12/UserMapper.xml" /> <mapper url="file:///D:/devworkspace/ecpphotonspace/ssmi/src/main/resources/cn/osxm/ssmi/chp12/UserMapper.xml"/> 
+			<mapper class="cn.osxm.ssmi.chp12.UserMapper"/> <package name="cn.osxm.ssmi.chp12"/> -->
+		<mapper class="cn.osxm.ssmi.chp12.UserMapper" />
 	</mappers>
+
+
 </configuration>

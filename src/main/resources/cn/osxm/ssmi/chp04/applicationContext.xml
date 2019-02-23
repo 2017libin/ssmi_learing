@@ -66,15 +66,16 @@
 			<list>
 				<value>Set Item 1</value>
 				<value>Set Item 2</value>
+				<ref bean="foo" />
 			</list>
 		</property>
 		<property name="myMap">
 			<map>
-				<entry key="Key 1">
-					<value>Value 1</value>
+				<entry key="Key 1" value="Value 1"/>			
+				<entry key="Key 2">
+					<value>Value 2</value>
 				</entry>
-				<entry key="Key 2" value="Value 2"/>
-				<entry key ="a ref" value-ref="foo"/>
+				<entry key ="bean ref" value-ref="foo"/>
 			</map>
 		</property>
 		<property name="myProperties">

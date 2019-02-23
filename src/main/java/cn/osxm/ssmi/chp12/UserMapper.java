@@ -18,5 +18,7 @@ import cn.osxm.ssmi.com.User;
   */
 public interface UserMapper {
     public User selectUser(String id);
+
+    public User findUserByName(String name);
 }
 

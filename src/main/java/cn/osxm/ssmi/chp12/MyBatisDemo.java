@@ -33,8 +33,11 @@ public class MyBatisDemo {
 
 			// 3.2 使用接口
 			UserMapper mapper = session.getMapper(UserMapper.class);
-			user = mapper.selectUser("1");
-			System.out.println(user.getName());
+			User user2 = mapper.selectUser("1");
+			System.out.println(user2.getName());
+			
+			User user3 = mapper.findUserByName("Chen");
+			System.out.println(user2.getName());
 		} finally {
 			session.close();
 		}
