@@ -10,4 +10,15 @@
 	<select id="findUserByName" resultType="User">
 		select * from User where name like '%'#{name}
 	</select>
+	
+	<select id="selectUserOneSimpleParam" resultType="cn.osxm.ssmi.com.User">
+		select * from user where name = #{name}
+	</select>
+	<select id="selectUserMoreSimpleParam" parameterType="string" resultType="cn.osxm.ssmi.com.User">
+		select * from user where  deptid = #{deptId} and name like #{name}
+	</select>
+
+	<insert id="insertUser" parameterType="cn.osxm.ssmi.com.User">
+		insert into User(name,deptid) values (#{name},#{deptId})
+	</insert>
 </mapper>

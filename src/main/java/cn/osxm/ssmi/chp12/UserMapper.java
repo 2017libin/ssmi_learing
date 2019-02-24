@@ -20,5 +20,13 @@ public interface UserMapper {
     public User selectUser(String id);
 
     public User findUserByName(String name);
+    
+    
+    public User selectUserOneSimpleParam(String name);
+    
+    public User selectUserMoreSimpleParam(int id,String name);
+    
+    
+    public int insertUser(User user);
 }
 
