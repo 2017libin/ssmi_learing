@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.osxm.ssmi.chp12.DeptMapper">
+	<!-- 一对多关联查询映射 -->
+	<resultMap id="collectionDeptResultMap" type="cn.osxm.ssmi.com.Dept" autoMapping="true">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<collection property="deptUsers" ofType="cn.osxm.ssmi.com.User">
+			<id property="id" column="userid" />
+			<id property="name" column="username" />
+		</collection>
+	</resultMap>
+	<select id="selectDeptCollection" resultMap="collectionDeptResultMap">
+		select d.*,u.id as userid,u.name as username
+		from dept d left join
+		User u on
+		d.id=u.deptid where d.id=#{id};
+	</select>
+
+
+</mapper>

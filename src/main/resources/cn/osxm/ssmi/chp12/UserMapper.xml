@@ -3,22 +3,55 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.osxm.ssmi.chp12.UserMapper">
-	<!-- <select id="selectUser" resultType="cn.osxm.ssmi.com.User">-->
+	<!-- <select id="selectUser" resultType="cn.osxm.ssmi.com.User"> -->
 	<select id="selectUser" resultType="User">
 		select * from User where id = #{id}
 	</select>
 	<select id="findUserByName" resultType="User">
 		select * from User where name like '%'#{name}
 	</select>
-	
+	<select id="selectUserList" resultType="cn.osxm.ssmi.com.User">
+		select * from user where name = #{name}
+	</select>
+	<select id="selectUserResultMap" resultType="Map">
+		select * from user where name = #{name}
+	</select>
+
+	<resultMap id="detailedUserResultMap" type="cn.osxm.ssmi.com.User" autoMapping="false">
+		<id property="id" column="id" />
+		<result property="email" column="email_address" />
+	</resultMap>
+	<select id="selectUserDetail" resultMap="detailedUserResultMap">
+		select * from User where id = #{id}
+	</select>
+
+	<!-- 一对一关联查询映射 -->
+	<resultMap id="associationUserResultMap" type="cn.osxm.ssmi.com.User" autoMapping="true">
+		<id property="id" column="id" />
+		<id property="deptId" column="deptid" />
+		<result property="email" column="email_address" />
+		<association property="dept" javaType="cn.osxm.ssmi.com.Dept" autoMapping="true">
+			<id property="id" column="deptid" />
+			<id property="name" column="deptname" />
+		</association>
+	</resultMap>
+	<select id="selectUserAssociation" resultMap="associationUserResultMap">
+		select u.*,d.name as deptname from user u left
+		join dept d on u.deptid = d.id;
+	</select>
+
+
+
+
 	<select id="selectUserOneSimpleParam" resultType="cn.osxm.ssmi.com.User">
 		select * from user where name = #{name}
 	</select>
-	<select id="selectUserMoreSimpleParam" parameterType="string" resultType="cn.osxm.ssmi.com.User">
-		select * from user where  deptid = #{deptId} and name like #{name}
+	<select id="selectUserMoreSimpleParam" parameterType="string"
+		resultType="cn.osxm.ssmi.com.User">
+		select * from user where deptid =
+		#{deptId} and name like #{name}
 	</select>
 
-	<insert id="insertUser" parameterType="cn.osxm.ssmi.com.User">
-		insert into User(name,deptid) values (#{name},#{deptId})
-	</insert>
+
+
 </mapper>

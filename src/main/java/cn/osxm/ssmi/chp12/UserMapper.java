@@ -9,24 +9,32 @@
 
 package cn.osxm.ssmi.chp12;
 
+import java.util.List;
+import java.util.Map;
+
 import cn.osxm.ssmi.com.User;
 
 /**
-  * @ClassName: UserMapper
-  * @Description: TODO
-  * @author osxm:oscarxueming
-  */
+ * @ClassName: UserMapper
+ * @Description: TODO
+ * @author osxm:oscarxueming
+ */
 public interface UserMapper {
-    public User selectUser(String id);
+	public User selectUser(String id);
 
-    public User findUserByName(String name);
-    
-    
-    public User selectUserOneSimpleParam(String name);
-    
-    public User selectUserMoreSimpleParam(int id,String name);
-    
-    
-    public int insertUser(User user);
+	public User findUserByName(String name);
+
+	public User selectUserOneSimpleParam(String name);
+
+	public List<User> selectUserList(String name);
+
+	public User selectUserMoreSimpleParam(int id, String name);
+
+	public Map selectUserResultMap(String name);
+
+	public List<User> selectUserAssociation();
+
+	public List<User> selectUserDetail(String id);
+
+	public int insertUser(User user);
 }
-

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.osxm.ssmi.chp12.InsertUpdateDeleteMapper">
+
+	<insert id="insertUser" parameterType="cn.osxm.ssmi.com.User" useGeneratedKeys="true" keyProperty="id">
+		insert into
+		user(name,deptid) values (#{name},#{deptId})
+	</insert>
+
+	<update id="updateUser" parameterType="cn.osxm.ssmi.com.User">
+		update user set name=#{name} where id=#{id};
+	</update>
+
+	<delete id="deleteUser" parameterType="cn.osxm.ssmi.com.User">
+		delete from user where id=#{id};
+	</delete>
+
+
+	<sql id="userColumns">id,name,age,deptid</sql>
+	<select id="selectUserWithSqlElement" resultType="map">
+		select
+		<include refid="userColumns" />
+		from user where id=#{id};
+	</select>
+
+	<sql id="userColumnsWithParams">
+		#{tbalias}.id,#{tbalias}.name,#{tbalias}.age,#{tbalias}.deptid
+	</sql>
+	<select id="selectUserWithSqlElementParams" resultType="map">
+		select
+		<include refid="userColumnsWithParams">
+			<property name="tbalias" value="u" />
+		</include>
+		from user u where id=#{id};
+	</select>
+</mapper>

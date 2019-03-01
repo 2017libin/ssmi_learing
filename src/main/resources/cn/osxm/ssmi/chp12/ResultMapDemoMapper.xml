@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.osxm.ssmi.chp12.ResultMapDemoMapper">
+
+	<!--1.1. 关联(association)-嵌套查询 -->
+	<resultMap id="associationDeptResultMap" type="cn.osxm.ssmi.chp12.entity.Dept">
+		<id property="deptId" column="deptid" />
+		<result property="deptName" column="deptname" />
+		<association property="deptLeader" column="deptleaderid" select="getDeptLeader"
+			javaType="cn.osxm.ssmi.chp12.entity.User" />
+	</resultMap>
+	<select id="selectDeptAssociationSelect" parameterType="string" resultMap="associationDeptResultMap">
+		select * from dept_mybatis where
+		deptid=#{id}
+	</select>
+	<!-- select语句用于获取关联字段 -->
+	<select id="getDeptLeader" parameterType="string" resultType="cn.osxm.ssmi.chp12.entity.User">
+		select * from user_mybatis where userid=#{id}
+	</select>
+
+
+	<!--1.2. 关联(association)-嵌套结果 -->
+	<resultMap id="associationDeptResultMap2" type="cn.osxm.ssmi.chp12.entity.Dept">
+		<id property="deptId" column="deptid" />
+		<result property="deptName" column="deptname" />
+		<association property="deptLeader" javaType="cn.osxm.ssmi.chp12.entity.User">
+			<id property="userId" column="deptleaderid" />
+			<result property="userName" column="username" />
+			<result property="age" column="age" />
+		</association>
+	</resultMap>
+	<select id="selectDeptAssociationResult" parameterType="string" resultMap="associationDeptResultMap2">
+		select * from dept_mybatis d left join user_mybatis u on d.deptleaderid=u.userid where d.deptid=#{id}
+	</select>
+
+
+
+	<!--2.1. 集合-嵌套查询 -->
+	<resultMap id="collectionDeptResultMap" type="cn.osxm.ssmi.chp12.entity.Dept">
+		<id property="deptId" column="deptid" />
+		<result property="deptName" column="deptname" />
+		<collection property="deptUsers" column="deptid" ofType="User" javaType="ArrayList" select="getUsers" />
+	</resultMap>
+	<select id="selectDeptCollectionSelect" parameterType="string" resultMap="collectionDeptResultMap">
+		select * from dept_mybatis where deptid=#{id}
+	</select>
+	<select id="getUsers" parameterType="string" resultType="cn.osxm.ssmi.chp12.entity.User">
+		select * from user_mybatis where deptid=#{id}
+	</select>
+
+
+	<!--2.2. 集合-嵌套结果 -->
+	<resultMap id="collectionDeptResultMap2" type="cn.osxm.ssmi.chp12.entity.Dept">
+		<id property="deptId" column="deptid" />
+		<result property="deptName" column="deptname" />
+		<collection property="deptUsers" ofType="cn.osxm.ssmi.chp12.entity.User" javaType="ArrayList">
+			<id property="userid" column="userid" />
+			<result property="userName" column="username" />
+			<result property="age" column="age" />
+		</collection>
+	</resultMap>
+	<select id="selectDeptCollectionResult" parameterType="string" resultMap="collectionDeptResultMap2">
+		select * from dept_mybatis d left join user_mybatis u on d.deptleaderid=u.userid where d.deptid=#{id}
+	</select>
+
+
+	<!--3. 鉴别器使用-discriminator -->
+	<resultMap id="discriminatorUserResultMap" type="cn.osxm.ssmi.chp12.entity.GenUser">
+		<id property="id" column="id" />
+		<result column="user_type" property="userType" />
+		<discriminator column="user_type" javaType="string">
+			<case value="employee" resultType="cn.osxm.ssmi.chp12.entity.Employee">
+				<result column="emp_id" property="empId" />
+				<result column="dept" property="dept" />
+			</case>
+			<case value="outsource" resultType="cn.osxm.ssmi.chp12.entity.Outsource">
+				<result column="company" property="company" />
+				<result column="vendor_account" property="vendorAccount" />
+			</case>
+		</discriminator>
+	</resultMap>
+	<select id="selectUserDiscriminator" resultMap="discriminatorUserResultMap">
+		select * from gen_user where id = #{id}
+	</select>
+
+</mapper>

@@ -5,13 +5,14 @@
 <configuration>
 	<!-- 1. 属性配置 -->
 	<properties resource="cn/osxm/ssmi/chp12/config.properties">
-		<property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true" />
+		<property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value"
+			value="true" />
 		<!-- <property name="username" value="root" /> -->
 		<property name="password" value="123456" />
 	</properties>
 	<typeAliases>
-		<typeAlias alias="User" type="cn.osxm.ssmi.com.User" /> 
-		<!-- <package name="cn.osxm.ssmi.com" />-->
+		<typeAlias alias="User" type="cn.osxm.ssmi.com.User" />
+		<!-- <package name="cn.osxm.ssmi.com" /> -->
 	</typeAliases>
 	<typeHandlers>
 		<typeHandler handler="cn.osxm.ssmi.chp12.typehandler.MyTypeHandler" />
@@ -45,6 +46,8 @@
 		<!-- <mapper resource="cn/osxm/ssmi/chp12/UserMapper.xml" /> <mapper url="file:///D:/devworkspace/ecpphotonspace/ssmi/src/main/resources/cn/osxm/ssmi/chp12/UserMapper.xml"/> 
 			<mapper class="cn.osxm.ssmi.chp12.UserMapper"/> <package name="cn.osxm.ssmi.chp12"/> -->
 		<mapper class="cn.osxm.ssmi.chp12.UserMapper" />
+		<mapper class="cn.osxm.ssmi.chp12.ResultMapDemoMapper" />
+		<mapper class="cn.osxm.ssmi.chp12.InsertUpdateDeleteMapper" />
 	</mappers>
 
 
