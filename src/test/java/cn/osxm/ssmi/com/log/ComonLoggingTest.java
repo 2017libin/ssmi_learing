@@ -11,6 +11,8 @@ package cn.osxm.ssmi.com.log;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * @ClassName: ComonLoggingTest
@@ -19,7 +21,7 @@ import org.apache.commons.logging.LogFactory;
  */
 
 public class ComonLoggingTest {
-	static Log log = LogFactory.getLog(ComonLoggingTest.class);
+	private static final Logger logger = LogManager.getLogger(ComonLoggingTest.class.getName());
 
 	/**
 	 * @Title: main
@@ -28,11 +30,11 @@ public class ComonLoggingTest {
 	 */
 
 	public static void main(String[] args) {
-		log.debug("Debug Log.");
-		log.info("Info Log");
-		log.warn("Warn Log");
-		log.error("Error Log");
-		log.fatal("Fatal Log");
+        logger.debug("Debug Log.");
+        logger.info("Info Log");
+        logger.warn("Warn Log");
+        logger.error("Error Log");
+        logger.fatal("Fatal Log");
 
 	}
 }

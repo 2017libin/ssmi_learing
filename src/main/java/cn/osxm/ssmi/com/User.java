@@ -9,14 +9,19 @@
 
 package cn.osxm.ssmi.com;
 
+import java.io.Serializable;
+
 /**
  * @ClassName: User
  * @Description: TODO
  * @author osxm:oscarxueming
  */
 
-public class User {
-	private int id;
+public class User implements Serializable{
+
+    private static final long serialVersionUID = 5041799435667583775L;
+
+    private int id;
 
 	private String name;
 
