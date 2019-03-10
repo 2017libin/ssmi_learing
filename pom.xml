@@ -90,6 +90,11 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>5.0.8.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>5.0.8.RELEASE</version>
+		</dependency>
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -139,6 +144,13 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.5.0</version>
 		</dependency>
+		<!-- Mybatis-Spring -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
 		<!-- Eclipse Link -->
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
