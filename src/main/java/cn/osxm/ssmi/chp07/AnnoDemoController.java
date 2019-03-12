@@ -25,10 +25,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/anno-demo")
 public class AnnoDemoController {
-
 	@PostConstruct
 	public void init() {
 		System.out.println("[注解@PostConstruct，AnnoDemoController]初始化方法回调．．．");
+
 	}
 
 	

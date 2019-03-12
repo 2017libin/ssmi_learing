@@ -8,6 +8,11 @@
  */
 
 package cn.osxm.ssmi.chp14;
+
+import org.apache.ibatis.annotations.Param;
+
+import cn.osxm.ssmi.com.User;
+
 /**
   * @ClassName: UserMapper
   * @Description: TODO

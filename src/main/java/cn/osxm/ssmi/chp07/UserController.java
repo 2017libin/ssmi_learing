@@ -32,7 +32,7 @@ public class UserController {
 	@ResponseBody
 	public User getUser(@PathVariable String id) {
 		User user = new User();
-		if (id == "1") {
+		if (id.equals( "1")) {
 			user.setId(id);
 			user.setName("User 1");
 		}
