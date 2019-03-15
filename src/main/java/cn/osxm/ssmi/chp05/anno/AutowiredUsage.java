@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp04.anno;
+package cn.osxm.ssmi.chp05.anno;
 
 import java.util.Map;
 import java.util.Set;
@@ -42,10 +42,10 @@ public class AutowiredUsage {
 	@Autowired
 	private Map<String,Baz> bazMap;
 
-	// 多个构造器需要加@Autowired，单个不需要加
+	// 多个构造器需要加@Autowired，单个不需要加。参数名可以不一样，通过类型查找
 	@Autowired
-	public AutowiredUsage(Foo foo) {
-		this.foo = foo;
+	public AutowiredUsage(Foo foo2) {
+		this.foo = foo2;
 	}
 
 	public AutowiredUsage() {
@@ -58,8 +58,8 @@ public class AutowiredUsage {
 	}
     //注解在一般方法
 	@Autowired
-	public void myInitBar(Bar bar) {
-		this.bar = bar;
+	public void myInitBar(Bar bar2) {
+		this.bar = bar2;
 	}
 
 	// get方法用于测试， 不必要

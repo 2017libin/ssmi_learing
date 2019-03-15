@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp04.anno;
+package cn.osxm.ssmi.chp05.anno;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -29,9 +29,13 @@ public class ResoureAnnoDemo {
 	public static void main(String[] args) {
 
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml",
-				ResoureAnnoDemo.class);
-		RequiredAnno beanC = (RequiredAnno) context.getBean("requiredUsage");
-
+				RequiredAnnoDemo.class);
+		
+		ResoureAnno resoureAnno = (ResoureAnno) context.getBean("resoureAnno");
+			
+		System.out.println(resoureAnno.getFoo());
+		System.out.println(resoureAnno.getContext());
+		System.out.println(resoureAnno.getBar());
 		context.close();
 
 	}

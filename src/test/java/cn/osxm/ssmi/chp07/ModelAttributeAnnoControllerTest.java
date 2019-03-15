@@ -40,32 +40,34 @@ import org.springframework.web.context.WebApplicationContext;
 @WebAppConfiguration
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 public class ModelAttributeAnnoControllerTest {
-	@Autowired
-	public WebApplicationContext wac;
+    @Autowired
+    public WebApplicationContext wac;
 
-	private MockMvc mockMvc;
+    private MockMvc mockMvc;
 
-	private MockHttpSession session;
+    private MockHttpSession session;
 
-	@Before
-	public void setUp() {
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-		this.session = new MockHttpSession();
-	}
+    @Before
+    public void setUp() {
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+        this.session = new MockHttpSession();
+    }
 
-	@Test
-	public void get() {
-		try {
-			MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/modelattribute/get"))
-					.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
-			int status = mvcResult.getResponse().getStatus();
-			System.out.println("请求状态码：" + status);
-			String result = mvcResult.getResponse().getContentAsString();
-			System.out.println("返回结果：" + result);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    @Test
+    public void get() {
+        try {
+            String url = "/modelAttrInMethod";
+            url+= "?name=oscar&id=001";
+            MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url)).andExpect(MockMvcResultMatchers.status().is(200))
+                    .andDo(MockMvcResultHandlers.print()).andReturn();
+            int status = mvcResult.getResponse().getStatus();
+            System.out.println("请求状态码：" + status);
+            String result = mvcResult.getResponse().getContentAsString();
+            System.out.println("返回结果：" + result);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-	}
+    }
 }

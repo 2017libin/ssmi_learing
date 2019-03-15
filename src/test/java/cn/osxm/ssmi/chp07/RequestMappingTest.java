@@ -1,13 +1,16 @@
 /**
- * @Title: HandlerMappingTest.java
+ * @Title: RequestMappingTest.java
  * @Package cn.osxm.ssmi.chp07
  * @Description: TODO
  * @author osxm:oscarxueming
- * @date 2019年3月12日 下午10:36:31
+ * @date 2019年3月15日 下午10:31:47
  * @version V1.0
  */
 
 package cn.osxm.ssmi.chp07;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,15 +27,15 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 /**
-  * @ClassName: HandlerMappingTest
+  * @ClassName: RequestMappingTest
   * @Description: TODO
   * @author osxm:oscarxueming
   */
-
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations = { "classpath:springmvc.xml" })
-public class HandlerMappingTest {
+public class RequestMappingTest {
+
     @Autowired
     public WebApplicationContext wac;
 
@@ -45,53 +48,44 @@ public class HandlerMappingTest {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
         this.session = new MockHttpSession();
     }
+    
+    //@Test
+    public void requestWithParams() {
+        try {
+            String url = "/request?type=withParams";
 
+            //Get
+            MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url)).andExpect(MockMvcResultMatchers.status().is(200))
+                    .andDo(MockMvcResultHandlers.print()).andReturn();           
+            int status = mvcResult.getResponse().getStatus();
+            String result = mvcResult.getResponse().getContentAsString();
+            System.out.println("返回结果：" + result);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     @Test
-    public void urlMapping() {
+    public void requestWithHeader() {
         try {
-            MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/hello")).andExpect(MockMvcResultMatchers.status().is(200))
-                    .andDo(MockMvcResultHandlers.print()).andReturn();
-            int status = mvcResult.getResponse().getStatus();
+            String url = "/request";
+//            ServletRequest request;
+//      
+//            HttpServletRequest req = (HttpServletRequest) request;
+   
+
             
-            System.out.println("请求状态码：" + status);
+            //Get
+            MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url).header("type", "withHeaderAttr")).andExpect(MockMvcResultMatchers.status().is(200))
+                    .andDo(MockMvcResultHandlers.print()).andReturn();           
+            int status = mvcResult.getResponse().getStatus();
             String result = mvcResult.getResponse().getContentAsString();
             System.out.println("返回结果：" + result);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
     }
     
-    //@Test
-    public void beanNameMapping() {
-        try {
-            MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/mvcHello")).andExpect(MockMvcResultMatchers.status().is(200))
-                    .andDo(MockMvcResultHandlers.print()).andReturn();
-            int status = mvcResult.getResponse().getStatus();
-            System.out.println("请求状态码：" + status);
-            String result = mvcResult.getResponse().getContentAsString();
-            System.out.println("返回结果：" + result);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
 
-    }
-    
-    //@Test
-    public void annoMapping() {
-        try {
-            MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/anno-demo/hello")).andExpect(MockMvcResultMatchers.status().is(200))
-                    .andDo(MockMvcResultHandlers.print()).andReturn();
-            int status = mvcResult.getResponse().getStatus();
-            System.out.println("请求状态码：" + status);
-            String result = mvcResult.getResponse().getContentAsString();
-            System.out.println("返回结果：" + result);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-    }
 }

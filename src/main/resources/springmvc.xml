@@ -11,7 +11,7 @@
        http://www.springframework.org/schema/security  http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<context:component-scan base-package="cn.osxm.ssmi.chp07" />
-	<!--  <mvc:annotation-driven />-->
+	<mvc:annotation-driven enable-matrix-variables="true"/>
 	
 	<!--  <mvc:annotation-driven>
 		<mvc:message-converters>
@@ -25,33 +25,37 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>-->
 	
-	<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean> -->
+	<!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>-->
 	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/> 已经不用 -->
 	<!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/> 已经不用 -->
 	<!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/> -->
 
-
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">               
-    </bean>     
-    <!-- 启动Spring MVC的注解功能 -->
-   <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="messageConverters">
-            <list>            
-				<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
-            </list>
-        </property>
-    </bean>
-
-
-	<bean id="mvcHelloController" name="/mvcHello" class="cn.osxm.ssmi.chp07.MvcHelloController" />
-	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<!--<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
 				<prop key="/hello">mvcHelloController</prop>
 			</props>
 		</property>
 	</bean>
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+
+   <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">               
+    </bean>     -->
+    <!--     启动Spring MVC的注解功能 -->
+    <!--  <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/> -->
+    <!-- <property name="messageConverters">
+            <list>            
+				<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+            </list>
+        </property>
+    </bean> -->
+
+
+	<bean id="mvcHelloController" name="/mvcHello" class="cn.osxm.ssmi.chp07.MvcHelloController" />
+
+	
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 前缀 -->
 		<property name="prefix" value="/WEB-INF/view/" />
 		<!-- 后缀 -->

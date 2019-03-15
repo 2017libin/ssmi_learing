@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp04.anno;
+package cn.osxm.ssmi.chp05.anno;
 
 import org.springframework.beans.factory.annotation.Required;
 
@@ -21,7 +21,7 @@ import cn.osxm.ssmi.com.Foo;
 
 public class RequiredAnno {
 	public Foo foo;
-
+	
 	@Required
 	public void setFoo(Foo foo) {
 		this.foo = foo;

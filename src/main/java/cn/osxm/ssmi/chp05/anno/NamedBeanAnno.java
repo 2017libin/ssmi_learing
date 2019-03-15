@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp04.anno;
+package cn.osxm.ssmi.chp05.anno;
 
 import javax.inject.Named;
 

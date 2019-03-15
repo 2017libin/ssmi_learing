@@ -35,18 +35,41 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ModelAttributeAnnoController {
 
 	@ModelAttribute
-	public void modelAttrMethod(@RequestParam(required = false) String name, Model model) {
-		model.addAttribute("name", "Oscar");
-		System.out.println("…Ë÷√Modelµƒ÷µ°£°£°£°£");
-	}
+    public void modelAttrMethod(@RequestParam String name, Model model) {
+        model.addAttribute("name", name);
+    }
 
-	@GetMapping("/get")
-	// @ResponseBody
-	// public Map get() {
-	public String get() {
-		return "modelattribute";
-		// Map<String, String> map = new HashMap<String, String>();
-		// map.put("name", "Oscar");
-		// return map;
-	}
+    @ModelAttribute
+    public void modelAttrMethod2(@RequestParam String id, Model model) {
+        model.addAttribute("id", id);
+    }
+
+    @ModelAttribute("user")
+    public User modelAttrMethod3(@RequestParam String name, @RequestParam String id) {
+        return new User(name, id);
+    }
+
+    // @ResponseBody
+    // public Map get() {
+    @RequestMapping("/modelAttrInMethod")
+    public String modelAttrInMethod() {
+        return "modelattribute";
+        // return "modelattribute"; //modelattribute.jsp
+        // Map<String, String> map = new HashMap<String, String>();
+        // map.put("name", "Oscar");
+        // return map;
+    }
+    
+    @RequestMapping("/modelAttrInMethod2")
+    @ModelAttribute("modAttr")
+    public String modelAttrInMethod2() {
+        return "modelattribute";
+    }
+    
+    @RequestMapping("/modelAttrInMethod3")
+    public String modelAttrInMethod3(@ModelAttribute User user) {
+        user.setName("New Oscar");
+        return "modelattribute";
+    }
 }
+

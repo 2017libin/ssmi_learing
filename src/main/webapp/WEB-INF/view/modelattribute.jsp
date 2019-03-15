@@ -6,7 +6,7 @@
 <title>User View</title>
 </head>
 <body>
-ModelAttribute ： ${name}
-
+UserName ： ${name}
+UserId ： ${name}
 </body>
 </html>

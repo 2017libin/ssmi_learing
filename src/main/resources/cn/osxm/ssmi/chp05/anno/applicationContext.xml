@@ -4,24 +4,22 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
 	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
 	default-lazy-init="default">
-
+	
+	<!--  <context:annotation-config/>-->
+	<context:component-scan base-package="cn.osxm.ssmi.chp05.anno" />
+	
 	<bean id="foo" class="cn.osxm.ssmi.com.Foo" />
 	<bean id="bar" class="cn.osxm.ssmi.com.Bar" />
 	<bean id="baz" class="cn.osxm.ssmi.com.Baz" />
-
-
-
-	<bean id="requiredAnnotationBeanPostProcessor"
-		class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor">
+	
+	<bean id="requiredAnno" class="cn.osxm.ssmi.chp05.anno.RequiredAnno">
+		 <property name="foo" ref="foo" />
 	</bean>
 
-	<bean id="autowiredAnnotationBeanPostProcessor"
-		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor">
-	</bean>
-
+	<bean id="autowiredUsage" class="cn.osxm.ssmi.chp05.anno.AutowiredUsage"/>
 	
-	<bean id="injectNamedAnno" class="cn.osxm.ssmi.chp4.anno.InjectNamedAnno"/>
+	<bean id="baz2" class="cn.osxm.ssmi.com.Baz" />
 	
-	<context:annotation-config/>
-	<context:component-scan base-package="cn.osxm.ssmi.chp4.anno" />
+	<bean id="resoureAnno" class="cn.osxm.ssmi.chp05.anno.ResoureAnno"/>
+	
 </beans>  
