@@ -11,9 +11,9 @@
        http://www.springframework.org/schema/security  http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<context:component-scan base-package="cn.osxm.ssmi.chp07" />
-	<mvc:annotation-driven enable-matrix-variables="true"/>
+	<!--  <mvc:annotation-driven enable-matrix-variables="true"/>-->
 	
-	<!--  <mvc:annotation-driven>
+	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 			<property name="supportedMediaTypes">
@@ -23,7 +23,7 @@
 	        </property>
         </bean>
 		</mvc:message-converters>
-	</mvc:annotation-driven>-->
+	</mvc:annotation-driven>
 	
 	<!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>-->
 	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/> 已经不用 -->

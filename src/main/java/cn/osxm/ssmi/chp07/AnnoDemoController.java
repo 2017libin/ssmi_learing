@@ -36,7 +36,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/anno-demo")
 public class AnnoDemoController {
 
-    @PostConstruct
+	@PostConstruct
     public void init() {
         System.out.println("[注解@PostConstruct，AnnoDemoController]初始化方法回调．．．");
 
@@ -110,14 +110,4 @@ public class AnnoDemoController {
         return modelAndView;
     }
     
-    
-    
-    
-    
-    @GetMapping("/res-entity")
-    public ResponseEntity<String> resEntity() {
-        String body = "ResponseEntity 返回的内容";
-        String eTag = "";
-        return ResponseEntity.ok().eTag(eTag).body(body);
-    }
 }
