@@ -9,12 +9,16 @@
 
 package cn.osxm.ssmi.com.notif;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
 /**
  * @ClassName: WechatNoticeServiceImpl
  * @Description: TODO
  * @author osxm:oscarxueming
  */
-
+@Component
+@Primary
 public class WechatNoticeServiceImpl implements NoticeService {
 
 	@Override

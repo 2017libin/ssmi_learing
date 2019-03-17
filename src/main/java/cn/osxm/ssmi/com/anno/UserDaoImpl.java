@@ -31,7 +31,7 @@ import cn.osxm.ssmi.com.UserDao;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    @Autowired
+    //@Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override

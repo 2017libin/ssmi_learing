@@ -12,6 +12,8 @@ package cn.osxm.ssmi.chp05.anno;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import cn.osxm.ssmi.com.notif.NoticeService;
+
 /**
  * @ClassName: AutowiredAnnoDemo
  * @Description: TODO
@@ -28,8 +30,8 @@ public class AutowiredAnnoDemo {
 
 	public static void main(String[] args) {
 
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml",
-				RequiredAnnoDemo.class);
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("autowired.xml",
+				AutowiredAnnoDemo.class);
 
 		AutowiredUsage autowiredUsage = (AutowiredUsage) context.getBean("autowiredUsage");
 		// 1.构造器注解自动装载
@@ -41,12 +43,15 @@ public class AutowiredAnnoDemo {
 
 		// 集合类型的注解
 		// 1. 数组
-		System.out.println(autowiredUsage.getBazs().length);
+		//System.out.println(autowiredUsage.getBazs().length);
 
 		// 2. Set
-		System.out.println(autowiredUsage.getBazSet().size());
+		//System.out.println(autowiredUsage.getBazSet().size());
 		// 3.Map
-		System.out.println(autowiredUsage.getBazMap().keySet().toString());
+		//System.out.println(autowiredUsage.getBazMap().keySet().toString());
+		
+		//NoticeService noticeService = (NoticeService) context.getBean(NoticeService.class);
+		//System.out.println(noticeService);
 		context.close();
 
 	}

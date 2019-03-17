@@ -17,9 +17,14 @@
 		<qualifier value="springJdbc" />
 	</bean>
 
-	<context:component-scan base-package="cn.osxm.ssmi.com.anno">
-		<!-- <context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />-->
+	<context:component-scan base-package="cn.osxm.ssmi.com.anno,cn.osxm.ssmi.chp05.anno">
+		<!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" 
+			/>
+		<context:exclude-filter type="assignable"
+			expression="cn.osxm.ssmi.com.anno.UserController" /> 
+		<context:exclude-filter type="regex" expression="cn.osxm.ssmi.com.anno.*" />
+		<context:exclude-filter type="aspectj" expression="cn.osxm..*Controller" />
+		<context:exclude-filter type="custom" expression="cn.osxm.ssmi.chp05.anno.MyTypeFilter" />-->
 	</context:component-scan>
 
 </beans>

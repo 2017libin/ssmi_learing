@@ -9,12 +9,14 @@
 
 package cn.osxm.ssmi.com.notif;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @ClassName: MailNoticeServiceImpl
  * @Description: TODO
  * @author osxm:oscarxueming
  */
-
+@Component
 public class MailNoticeServiceImpl implements NoticeService {
 
 	@Override

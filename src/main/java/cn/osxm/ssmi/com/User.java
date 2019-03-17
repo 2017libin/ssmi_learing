@@ -59,4 +59,12 @@ public class User implements Serializable{
 	public void setDeptId(int deptId) {
 		this.deptId = deptId;
 	}
+	
+	//use by method component, @Bean×¢½âµÄÊôÐÔ initMethod
+	public void userInit() {
+		System.out.println("Method user() Bean: initMethod");
+	}
+	public void userDestroy() {
+		System.out.println("Method user() Bean: destroyMethod");
+	}
 }

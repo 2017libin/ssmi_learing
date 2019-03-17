@@ -12,7 +12,11 @@ package cn.osxm.ssmi.chp05.anno;
 import java.util.Map;
 import java.util.Set;
 
+//import javax.annotation.Nullable;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Component;
 
 import cn.osxm.ssmi.com.Bar;
 import cn.osxm.ssmi.com.Baz;
@@ -23,28 +27,28 @@ import cn.osxm.ssmi.com.Foo;
  * @Description: TODO
  * @author osxm:oscarxueming
  */
-
+@Component
 public class AutowiredUsage {
 
 	private Foo foo;
 
 	private Bar bar;
 
-	@Autowired
+	//@Autowired
 	private Baz baz;
 
-	@Autowired
+	//@Autowired
 	private Baz[] bazs;
 
-	@Autowired
+	//@Autowired
 	private Set<Baz> bazSet;
 
-	@Autowired
+	//@Autowired
 	private Map<String,Baz> bazMap;
 
 	// 多个构造器需要加@Autowired，单个不需要加。参数名可以不一样，通过类型查找
 	@Autowired
-	public AutowiredUsage(Foo foo2) {
+	public AutowiredUsage(@Nullable  Foo foo2) {
 		this.foo = foo2;
 	}
 
@@ -57,7 +61,7 @@ public class AutowiredUsage {
 		this.bar = bar;
 	}
     //注解在一般方法
-	@Autowired
+	//@Autowired
 	public void myInitBar(Bar bar2) {
 		this.bar = bar2;
 	}

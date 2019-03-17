@@ -9,12 +9,13 @@
 
 package cn.osxm.ssmi.com.notif;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @ClassName: NoticeService
  * @Description: TODO
  * @author osxm:oscarxueming
  */
-
 public interface NoticeService {
 	public void send(String message);
 }

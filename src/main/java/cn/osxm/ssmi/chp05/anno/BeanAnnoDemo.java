@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp04.anno;
+package cn.osxm.ssmi.chp05.anno;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -23,7 +23,7 @@ import cn.osxm.ssmi.com.anno.Foo;
 
 public class BeanAnnoDemo {
 	public static void main(String[] args) {
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("annoApplicationContext.xml",
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("componentScan.xml",
 				BeanAnnoDemo.class);
 		BeanAnno beanAnno = (BeanAnno) context.getBean("beanAnno");
 		System.out.println(beanAnno);
@@ -33,7 +33,8 @@ public class BeanAnnoDemo {
 		User user = (User) context.getBean("firstUser");
 		System.out.println(user);
 		
-		
+		user = (User) context.getBean("userByMethod");
+	
 		
 		
 		context.close();

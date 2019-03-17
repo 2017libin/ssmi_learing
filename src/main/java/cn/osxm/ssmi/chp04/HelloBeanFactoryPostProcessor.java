@@ -36,6 +36,7 @@ public class HelloBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 	@Override
 	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
 		BeanDefinition beanDefinition=beanFactory.getBeanDefinition("helloService");
+		//beanDefinition.getDescription()
 		MutablePropertyValues pv =  beanDefinition.getPropertyValues();  
         //替换设置值注入的值
 		pv.addPropertyValue("name", "李四");  

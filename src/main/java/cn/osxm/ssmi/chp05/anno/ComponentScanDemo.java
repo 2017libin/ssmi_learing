@@ -32,9 +32,9 @@ public class ComponentScanDemo {
 
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("componentScan.xml", ComponentScanDemo.class);
-		
+		System.out.println("Service:"+context.getBean(UserServiceImpl.class));
 		System.out.println("Controller:"+context.getBean(UserController.class));
-		System.out.println("Controller:"+context.getBean(UserServiceImpl.class));
+		
 	}
 
 }
