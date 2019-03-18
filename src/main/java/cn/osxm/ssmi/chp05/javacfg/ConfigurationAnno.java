@@ -22,8 +22,14 @@ import cn.osxm.ssmi.com.Foo;
  */
 @Configuration
 public class ConfigurationAnno {
+	
 	@Bean
-	public Bar bar() {
+	public Bar bar(Foo foo) {
+		return new Bar(foo());
+	}
+	
+	@Bean
+	public Bar bar1() {
 		return new Bar(foo());
 	}
 	
