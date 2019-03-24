@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:sec="http://www.springframework.org/schema/security"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:sec="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
@@ -10,51 +14,42 @@
        	http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/security  http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<context:component-scan base-package="cn.osxm.ssmi.chp07" />
-	<!--  <mvc:annotation-driven enable-matrix-variables="true"/>-->
-	
+	<context:component-scan base-package="cn.osxm.ssmi.chp07">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.context.annotation.Configuration" />
+	</context:component-scan>
+	<!-- <mvc:annotation-driven enable-matrix-variables="true"/> -->
+
 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-			<property name="supportedMediaTypes">
-	            <list>
-	                <value>text/html;charset=UTF-8</value>
-	            </list>
-	        </property>
-        </bean>
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
-	
-	<!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>-->
+
+	<!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean> -->
 	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/> 已经不用 -->
 	<!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/> 已经不用 -->
 	<!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/> -->
 
-	<!--<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-		<property name="mappings">
-			<props>
-				<prop key="/hello">mvcHelloController</prop>
-			</props>
-		</property>
-	</bean>
-	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
-
-   <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">               
-    </bean>     -->
-    <!--     启动Spring MVC的注解功能 -->
-    <!--  <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/> -->
-    <!-- <property name="messageConverters">
-            <list>            
-				<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
-            </list>
-        </property>
-    </bean> -->
+	<!--<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> <property name="mappings"> 
+		<props> <prop key="/hello">mvcHelloController</prop> </props> </property> </bean> <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/> 
+		<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"> </bean> -->
+	<!-- 启动Spring MVC的注解功能 -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/> -->
+	<!-- <property name="messageConverters"> <list> <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean> 
+		</list> </property> </bean> -->
 
 
 	<bean id="mvcHelloController" name="/mvcHello" class="cn.osxm.ssmi.chp07.MvcHelloController" />
 
-	
-	
+
+
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 前缀 -->
 		<property name="prefix" value="/WEB-INF/view/" />
@@ -62,7 +57,8 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<bean id="exceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="defaultErrorView">
 			<value>error</value>
 		</property>
@@ -73,9 +69,10 @@
 			<value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>
 		</property>
 	</bean>
-	
-	
-	
 
-	
+
+
+
+
 </beans>
+
