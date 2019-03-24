@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import cn.osxm.ssmi.chp04.javacfg.AppConfig;
+import cn.osxm.ssmi.chp05.javacfg.AppConfig;
 
 import cn.osxm.ssmi.com.Foo;
 /**
