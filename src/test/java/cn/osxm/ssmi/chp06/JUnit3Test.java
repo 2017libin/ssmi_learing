@@ -26,7 +26,7 @@ public class JUnit3Test extends TestCase{
 		iNo = 1;
 	}
 
-	public void testStr() {
+	public  void testStr() {
 		assertEquals(iNo, 1);
 	}
 }

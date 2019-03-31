@@ -38,13 +38,11 @@ public class MockJndiTest {
         builder.bind("java:comp/env/jdbc/mydatasource", ds);
         builder.activate();
         
-    }
-    
+    }  
     @Test
     public void test() {
         AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml", MockJndiTest.class);
         UserDao userDao = (UserDao)applicationContext.getBean("userDao");
-        System.out.println(userDao.getUserById("1"));
-        
+        System.out.println(userDao.getUserById("1"));       
     }
 }

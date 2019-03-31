@@ -39,7 +39,7 @@ public class EasyMockDemo {
 		UserServiceImpl userService = new UserServiceImpl();
 		// UserDao userDao = new UserDaoStub();
 		userService.setUserDao(userDao);
-		userService.getUserById("001");
+		userService.getUserById("002");
 
 		// 3¡¢»Ø·ÅÂ¼ÖÆ
 		EasyMock.verify(userDao);

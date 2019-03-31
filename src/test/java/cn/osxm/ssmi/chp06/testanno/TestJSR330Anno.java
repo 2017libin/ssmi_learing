@@ -10,6 +10,8 @@
 package cn.osxm.ssmi.chp06.testanno;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -17,6 +19,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import cn.osxm.ssmi.com.anno.Baz;
+import cn.osxm.ssmi.com.anno.Foo;
 /**
   * @ClassName: TestJSR330Anno
   * @Description: TODO
@@ -27,6 +32,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @ContextConfiguration(locations = { "classpath:cn/osxm/ssmi/chp06/testAnno.xml" })
 public class TestJSR330Anno {
     
+	
+	@Inject @Named("foo")
+	private Foo foo;
+	
+	
     @PostConstruct
     public void postConstruct() {
         System.out.println("PostConstruct:每个测试方法前调用，在@Before之前");
@@ -42,10 +52,14 @@ public class TestJSR330Anno {
         System.out.println("BeforeAll");
     }
     
-    
     @Before
     public void before() {
         System.out.println("BeforeEach");
+    }
+    
+    @Test
+    public void testMethod() {
+        System.out.println(foo.toString());
     }
     
     @Test

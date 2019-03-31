@@ -14,6 +14,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+
 /**
   * @ClassName: JUnit4Test
   * @Description: TODO
@@ -28,6 +29,8 @@ public class JUnit4Test {
 	        // "Initial Some ...."
 	        iNo = 1;
 	        System.out.println("Junit 4 SetUp...");
+	        
+	        org.junit.runner.JUnitCore j;
 	    }
 
 	    @Test
@@ -36,7 +39,7 @@ public class JUnit4Test {
 	    }
 	    
 	    @Test
-     public void tStr2() {
+          public void tStr2() {
          assertEquals(iNo, 1);
      }
 }

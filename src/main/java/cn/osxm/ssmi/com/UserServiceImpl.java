@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserById(String id) {
-
+		return userDao.getUserById(id);
 		// TODO Auto-generated method stub
-		return null;
+		//return null;
 	}
 
 	public String getUserNameById(String id) {

@@ -27,10 +27,11 @@ public class UserController {
 
     @Autowired
     private UserServiceImpl userServiceImpl;
-    
+
     @GetMapping("/{id}")
     public String getUserName(@PathVariable String id) {
-       return userServiceImpl.getUserNameById(id);
+        return userServiceImpl.getUserNameById(id);
     }
 }
+
 

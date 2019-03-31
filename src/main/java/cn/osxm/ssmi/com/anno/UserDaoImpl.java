@@ -31,44 +31,45 @@ import cn.osxm.ssmi.com.UserDao;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    //@Autowired
-    private JdbcTemplate jdbcTemplate;
+	   @Autowired
+	    private JdbcTemplate jdbcTemplate;
 
-    @Override
-    public User getUserById(String id) {
-        String sql = "select * from user where id=?";
-        return jdbcTemplate.queryForObject(sql, new UserRowMapper(), id);
-    }
+	    @Override
+	    public User getUserById(String id) {
+	        String sql = "select * from user where id=?";
+	        return jdbcTemplate.queryForObject(sql, new UserRowMapper(), id);
+	    }
 
-    @Override
-    public String getUserNameById(String id) {
-        return getUserById(id).getName();
-    }
+	    @Override
+	    public String getUserNameById(String id) {
+	        return getUserById(id).getName();
+	    }
 
-    @Override
-    public void add(User user) {
-        String sql = "insert into user(name) values('"+user.getName()+"')";
-        jdbcTemplate.execute(sql);
-       
-    }
-    
-    @Override
-    public User getUserByName(String name) {
-        String sql = "select * from user where name=?";
-        List list = jdbcTemplate.queryForList(sql,name);
-        Map map = (Map) list.get(0);
-        User user = new User("");
-        user.setName(map.get("name")!=null?(String)map.get("name"):null);
-        return user;
-    }
+	    @Override
+	    public void add(User user) {
+	        String sql = "insert into user(name) values('"+user.getName()+"')";
+	        jdbcTemplate.execute(sql);
+	       
+	    }
+	    
+	    @Override
+	    public User getUserByName(String name) {
+	        String sql = "select * from user where name=?";
+	        List list = jdbcTemplate.queryForList(sql,name);
+	        Map map = (Map) list.get(0);
+	        User user = new User("");
+	        user.setName(map.get("name")!=null?(String)map.get("name"):null);
+	        return user;
+	    }
 
-    class UserRowMapper implements RowMapper<User> {
-        public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-            User user = new User("");
-            user.setName(rs.getString("name"));
-            return user;
-        }
+	    class UserRowMapper implements RowMapper<User> {
+	        public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+	            User user = new User("");
+	            user.setName(rs.getString("name"));
+	            return user;
+	        }
 
-    }
+	    }
+
 
 }

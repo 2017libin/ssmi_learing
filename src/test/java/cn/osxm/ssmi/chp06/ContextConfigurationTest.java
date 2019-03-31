@@ -25,10 +25,11 @@ import cn.osxm.ssmi.chp04.anno.MyAppConfig;
   * @author osxm:oscarxueming
   */
 @RunWith(SpringRunner.class)
-//@ContextConfiguration(locations ="classpath:cn/osxm/ssmi/chp6/applicationContext.xml")
+//@ContextConfiguration(locations ="classpath:cn/osxm/ssmi/chp06/applicationContext.xml")
 @ContextConfiguration(classes = MyAppConfig.class)
+@Transactional
 public class ContextConfigurationTest {
-	@Autowired
+	@Autowired()
     private HelloService helloService;
     
     @Test

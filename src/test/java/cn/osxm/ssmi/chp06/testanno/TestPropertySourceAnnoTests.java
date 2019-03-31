@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import cn.osxm.ssmi.com.anno.MyDataSource;
 
@@ -34,7 +35,10 @@ public class TestPropertySourceAnnoTests {
     private MyDataSource myDataSource;
     
     @Test
+    @BeforeTransaction
     public void testPropertySource() {
+    	
+    	
         System.out.println(myDataSource.getJdbcClass());
         System.out.println(myDataSource.getJdbcUrl());
     }
