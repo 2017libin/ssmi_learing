@@ -190,10 +190,11 @@
 			<version>2.6.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.google.code.findbugs/jsr305 -->
+		<!-- 导入JSR305依赖包 -->
 		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
-			<version>3.0.2</version>
+			<groupId>com.google.code.findbugs</groupId><!--组名-->
+			<artifactId>jsr305</artifactId><!--组件名-->
+			<version>3.0.2</version> <!--版本-->
 		</dependency>
 	</dependencies>
 

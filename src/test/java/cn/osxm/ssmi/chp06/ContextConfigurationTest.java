@@ -26,8 +26,9 @@ import cn.osxm.ssmi.chp04.anno.MyAppConfig;
   */
 @RunWith(SpringRunner.class)
 //@ContextConfiguration(locations ="classpath:cn/osxm/ssmi/chp06/applicationContext.xml")
-@ContextConfiguration(classes = MyAppConfig.class)
-@Transactional
+//@ContextConfiguration(classes = MyAppConfig.class)
+//@ContextConfiguration("classpath:cn/osxm/ssmi/chp06/applicationContext.xml")
+
 public class ContextConfigurationTest {
 	@Autowired()
     private HelloService helloService;
