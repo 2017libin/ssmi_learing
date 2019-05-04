@@ -17,11 +17,11 @@ import java.io.Serializable;
  * @author osxm:oscarxueming
  */
 
-public class User implements Serializable{
+public class User implements Serializable {
 
-    private static final long serialVersionUID = 5041799435667583775L;
+	private static final long serialVersionUID = 5041799435667583775L;
 
-    private int id;
+	private int id;
 
 	private String name;
 
@@ -29,6 +29,11 @@ public class User implements Serializable{
 
 	public User() {
 
+	}
+
+	public User(int id, String name) {
+		this.id = id;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -59,11 +64,12 @@ public class User implements Serializable{
 	public void setDeptId(int deptId) {
 		this.deptId = deptId;
 	}
-	
-	//use by method component, @Bean注解的属性 initMethod
+
+	// use by method component, @Bean注解的属性 initMethod
 	public void userInit() {
 		System.out.println("Method user() Bean: initMethod");
 	}
+
 	public void userDestroy() {
 		System.out.println("Method user() Bean: destroyMethod");
 	}

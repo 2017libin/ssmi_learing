@@ -23,7 +23,6 @@ public class TestTwo {
 	public void test() {
 		System.out.println("²âÊÔÊµÀı2");
 		Assert.assertTrue(true);
-		
-		TestRunner
+
 	}
 }

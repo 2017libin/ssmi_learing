@@ -45,8 +45,10 @@
 	<!-- <property name="messageConverters"> <list> <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean> 
 		</list> </property> </bean> -->
 
-
-	<bean id="mvcHelloController" name="/mvcHello" class="cn.osxm.ssmi.chp07.MvcHelloController" />
+     <bean id="userService" class="cn.osxm.ssmi.chp07.UserService" />
+	 <bean id="mvcHelloController" name="/mvcHello" class="cn.osxm.ssmi.chp07.MvcHelloController" >
+	    <property name="userService" ref="userService" />
+	 </bean>
 
 
 

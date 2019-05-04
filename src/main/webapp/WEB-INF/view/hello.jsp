@@ -8,6 +8,7 @@
 <body>
 Hello:<br>
 用户Id： ${user.id}
+<br>
 用户名： ${user.name}
 </body>
 </html>

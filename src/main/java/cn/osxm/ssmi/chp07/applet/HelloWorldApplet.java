@@ -25,7 +25,7 @@ public class HelloWorldApplet extends Applet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+    @Override
 	public void paint(Graphics g) {
 		g.setColor(Color.RED);
 		g.drawString("Hello World!", 5, 35);
