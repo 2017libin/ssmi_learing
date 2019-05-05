@@ -9,6 +9,13 @@
 
 package cn.osxm.ssmi.chp07;
 
+import java.util.Date;
+
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 /**
@@ -26,7 +33,14 @@ public class User {
 
 	private String id;
 
+	@NotNull(message = "name is not null")
 	private String name;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date birthDay;
+
+	@NumberFormat(pattern = "#,###,###.#")
+	private Float salary;
 
 	public User() {
 
@@ -55,5 +69,21 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Date getBirthDay() {
+		return birthDay;
+	}
+
+	public void setBirthDay(Date birthDay) {
+		this.birthDay = birthDay;
+	}
+
+	public Float getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Float salary) {
+		this.salary = salary;
 	}
 }

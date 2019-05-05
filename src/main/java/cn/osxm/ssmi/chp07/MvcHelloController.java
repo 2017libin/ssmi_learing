@@ -8,6 +8,7 @@
  */
 
 package cn.osxm.ssmi.chp07;
+
 /**
   * @ClassName: MvcHelloController
   * @Description: TODO
@@ -24,18 +25,22 @@ public class MvcHelloController implements Controller {
 
 	@Autowired
 	private UserService userService;
-	
-    public void setUserService(UserService userService) {
+
+	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
 
 	@Override
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("hello");
-        User user = userService.get();
-        modelAndView.addObject("user", user);
-        return modelAndView;
-    }
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("hello");
+		User user = userService.get();
+		modelAndView.addObject("user", user);
+		// return modelAndView;
+
+		request.setAttribute("user", user);
+		request.getRequestDispatcher("/WEB-INF/view/hello.jsp").forward(request, response);
+		return null;
+	}
 
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -32,7 +33,7 @@ public class UserController {
 	@ResponseBody
 	public User getUser(@PathVariable String id) {
 		User user = new User();
-		if (id.equals( "1")) {
+		if (id.equals("1")) {
 			user.setId(id);
 			user.setName("User 1");
 		}
@@ -41,7 +42,7 @@ public class UserController {
 
 	@GetMapping(path = "/getJson/{id}")
 	@ResponseBody
-	//@JsonView(WithoutNameView.class)
+	// @JsonView(WithoutNameView.class)
 	public User getUserJson() {
 		User user = new User("001", "Oscar");
 		return user;
@@ -50,7 +51,15 @@ public class UserController {
 	@GetMapping(path = "/getView/{id}")
 	public String getUserView(Model model) {
 		model.addAttribute("user", new User("001", "Oscar"));
-		//model.addAttribute(JsonView.class.getName(), User.WithoutNameView.class);
+		// model.addAttribute(JsonView.class.getName(), User.WithoutNameView.class);
 		return "userView";
+	}
+
+	@GetMapping(path = "/getModelView/{id}")
+	public ModelAndView getModelView(Model model) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("userView");
+		mv.addObject("user", new User("001", "Oscar"));
+		return mv;
 	}
 }
