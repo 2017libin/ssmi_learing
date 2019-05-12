@@ -64,6 +64,7 @@ public class ModelAttributeAnnoController {
     @ModelAttribute("modAttr")
     public String modelAttrInMethod2() {
         return "modelattribute";
+  
     }
     
     @RequestMapping("/modelAttrInMethod3")

@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08;
+package cn.osxm.ssmi.chp09;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -35,6 +35,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import cn.osxm.ssmi.chp07.ResponseAnnoController;
+import cn.osxm.ssmi.chp08.UserController;
 import cn.osxm.ssmi.com.User;
 
 //import com.jayway.jsonpath.JsonPath;

@@ -1,24 +1,23 @@
 /**
- * @Title: Junit4BaseWebIntegrateTests.java
+ * @Title: Junit5BaseWebIntegrateTests.java
  * @Package cn.osxm.ssmi.chp08
  * @Description: TODO
  * @author osxm:oscarxueming
- * @date 2019年4月4日 下午10:55:25
+ * @date 2019年4月4日 下午10:56:41
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08;
-import static  org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+package cn.osxm.ssmi.chp09;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -28,23 +27,20 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 /**
-  * @ClassName: Junit4BaseWebIntegrateTests
+  * @ClassName: Junit5BaseWebIntegrateTests
   * @Description: TODO
   * @author osxm:oscarxueming
   */
 
-//@SpringJUnitWebConfig(locations = { "classpath:applicationContext.xml" }) //JUnit4不能用
-@RunWith(SpringRunner.class)
+//@SpringJUnitWebConfig(locations = { "classpath:cn/osxm/ssmi/chp08/applicationContext.xml" })
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration("classpath:cn/osxm/ssmi/chp08/applicationContext.xml")
 @WebAppConfiguration
-public class Junit4BaseWebIntegrateTests {
-  private MockMvc mockMvc;
+public class Junit5BaseWebIntegrateTests {
+  private static MockMvc mockMvc;
 
-  @Autowired
-  private WebApplicationContext wac;
-
-  @Before
-  public void setup() {
+  @BeforeAll
+  static void setup(WebApplicationContext wac) {
       mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
   }
 
@@ -59,4 +55,3 @@ public class Junit4BaseWebIntegrateTests {
               .andExpect(MockMvcResultMatchers.content().string("user1"));
   }
 }
-

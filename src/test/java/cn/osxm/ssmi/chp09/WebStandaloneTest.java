@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08;
+package cn.osxm.ssmi.chp09;
 /**
   * @ClassName: WebStandaloneTest
   * @Description: TODO

@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08;
+package cn.osxm.ssmi.chp09;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
