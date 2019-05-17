@@ -18,19 +18,19 @@ public class HelloHttpServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// org.apache.catalina.core.ApplicationDispatcher
-		RequestDispatcher RequestDispatcher = req.getRequestDispatcher("/index.jsp");
+		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
 		// req.getServletContext().getRequestDispatcher("/index.jsp").forward(req,
 		// resp);
 		PrintWriter pw = resp.getWriter();
 		String myDispatcherMethod = req.getParameter("myDispatcherMethod");
 		if (myDispatcherMethod != null && myDispatcherMethod.equals("forward")) {
 			pw.println("Before RequestDispatcher Forword ...");
-			RequestDispatcher.forward(req, resp);
+			requestDispatcher.forward(req, resp);
 			pw.println("After RequestDispatcher Forword ...");
 		} else if (myDispatcherMethod != null && myDispatcherMethod.equals("include")) {
-			// pw.println("Before RequestDispatcher Include ...");
-			RequestDispatcher.include(req, resp);
-			// pw.println("After RequestDispatcher Include ...");
+			pw.println("Before RequestDispatcher Include ...");
+			requestDispatcher.include(req, resp);
+			pw.println("After RequestDispatcher Include ...");
 		} else if (myDispatcherMethod != null && myDispatcherMethod.equals("sendRedirect")) {
 			resp.sendRedirect("index.jsp");
 		}
