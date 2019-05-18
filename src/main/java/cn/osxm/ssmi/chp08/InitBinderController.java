@@ -33,6 +33,7 @@ public class InitBinderController {
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(Date.class, new MyDateEditor());
+		//binder.addCustomFormatter(Formatter);
 	}
 
 	@InitBinder("user")

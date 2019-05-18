@@ -70,10 +70,26 @@
 		</dependency>
 		<!-- AOP aspectj -->
 		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.9.2</version>
-		</dependency>
+			<groupId>org.springframework</groupId>  
+			<artifactId>spring-aop</artifactId>  
+			<version>5.0.8.RELEASE</version>  
+			</dependency>
+			<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>5.0.8.RELEASE</version>
+			</dependency>
+			<dependency>
+			<groupId>org.aspectj</groupId>  
+			<artifactId>aspectjrt</artifactId>  
+			<version>1.9.2</version>  
+			</dependency>  
+			<dependency>  
+			<groupId>org.aspectj</groupId>  
+			<artifactId>aspectjweaver</artifactId>  
+			<version>1.9.2</version>  
+			<scope>runtime</scope>  
+		</dependency>    
 		<!-- Spring Web MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -101,7 +117,7 @@
 			<artifactId>spring-orm</artifactId>
 			<version>5.0.8.RELEASE</version>
 		</dependency>
-		<!-- Spring Security -->
+		<!-- Spring Security 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
@@ -121,7 +137,7 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>5.0.8.RELEASE</version>
-		</dependency>
+		</dependency>-->
 		<!-- jackson, responsebody -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -196,13 +212,20 @@
 			<artifactId>jsr305</artifactId><!--组件名-->
 			<version>3.0.2</version> <!--版本-->
 		</dependency>
-		<!-- 导入JSR303接口包 -->
+		
+		<!-- 导入Java Bean Validation-->
 		<dependency>
 		    <groupId>javax.validation</groupId>
 		    <artifactId>validation-api</artifactId>
 		    <version>2.0.1.Final</version>
 		</dependency>
-		<!-- Hibernate JSR303实现
+		<!--JSR  validation实现-->
+		<dependency>
+		    <groupId>org.apache.bval</groupId>
+		    <artifactId>org.apache.bval.bundle</artifactId>
+		    <version>2.0.0</version>
+		</dependency> 
+		<!-- Hibernate 
 		<dependency>
 		    <groupId>org.hibernate.validator</groupId>
 		    <artifactId>hibernate-validator</artifactId>
@@ -213,17 +236,10 @@
 		    <artifactId>javax.el-api</artifactId>
 		    <version>3.0.0</version>
 		</dependency> -->
-		<!-- JSR303的实现 -->
-		<dependency>
-		    <groupId>org.apache.bval</groupId>
-		    <artifactId>org.apache.bval.bundle</artifactId>
-		    <version>2.0.0</version>
-		</dependency>
 	</dependencies>
 
 
-
 	<build>
-		<finalName>ssmi</finalName>
+		<finalName>ssmi</finalName>		
 	</build>
 </project>

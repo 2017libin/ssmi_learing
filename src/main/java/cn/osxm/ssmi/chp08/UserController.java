@@ -32,7 +32,7 @@ import cn.osxm.ssmi.com.User;
  * @author osxm:oscarxueming
  */
 
-@Controller
+@Controller(value="chp8UserController")
 public class UserController {
 
 	@GetMapping(path = "/user/getModelView")
@@ -76,3 +76,4 @@ public class UserController {
 	}
 
 }
+
