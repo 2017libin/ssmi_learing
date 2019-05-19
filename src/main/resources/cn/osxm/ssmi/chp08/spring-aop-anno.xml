@@ -10,16 +10,10 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
        	http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- <mvc:default-servlet-handler /> -->
+
+	<context:component-scan base-package="cn.osxm.ssmi.chp08.aop" />
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>  
 
 
-	<bean id="userService" class="cn.osxm.ssmi.chp08.aop.springaspect.UserService"/>
-	<bean id="userServiceImpl" class="cn.osxm.ssmi.chp08.aop.UserServiceImpl"/>
-	<bean id="logAspect" class="cn.osxm.ssmi.chp08.aop.springaspect.LogAspect" />
-	
-	<aop:config>
-     <aop:aspect ref="logAspect">
-        <aop:pointcut id="pointcut" expression="execution(* cn.osxm..*Service*.add(..))"/>      
-        <aop:before method="beforeAdd" pointcut-ref="pointcut"/> 
-      </aop:aspect>
-   </aop:config>
 </beans>

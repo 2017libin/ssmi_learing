@@ -68,6 +68,12 @@
 			<artifactId>spring-test</artifactId>
 			<version>5.0.8.RELEASE</version>
 		</dependency>
+		<!-- Cglib Dynamic Proxy -->
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib</artifactId>
+		    <version>3.2.12</version>
+		</dependency>
 		<!-- AOP aspectj -->
 		<dependency>
 			<groupId>org.springframework</groupId>  

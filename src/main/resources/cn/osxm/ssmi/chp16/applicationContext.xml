@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd    
+        http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 1.目标对象 -->
+    <bean id="userService" class="cn.osxm.ssmi.chp16.UserService"/>
+    <!-- 2.配置增强 -->
+    <bean id="myBeforeAdvice" class="cn.osxm.ssmi.chp16.advice.MyBeforeAdvice"/>
+    <bean id="myAfterAdvice" class="cn.osxm.ssmi.chp16.advice.MyAfterAdvice"/>
+    <bean id="myAroundAdvice" class="cn.osxm.ssmi.chp16.advice.MyAroundAdvice"/>
+   
+    <!-- 3.代理工厂生成代理类，将增强织入目标对象。缺点：只能配置一个目标对象；切面会织入目标类的所有方法 -->
+	<bean id="userServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="targetName" value="userService"/>  <!-- 注入目标对象 -->
+		<property name="interceptorNames" value="myBeforeAdvice,myAfterAdvice,myAroundAdvice"/><!-- 注入目标对象 -->
+	</bean>
+	
+	
+	<bean id="myExceptionAdvice" class="cn.osxm.ssmi.chp16.advice.MyExceptionAdvice"/>
+
+    <!--配置异常目标对象-->
+    <bean id="userException" class="cn.osxm.ssmi.chp16.UserService"/>
+
+
+    <!--现在是一个service对应一个ProxyFactoryBean  这样不可以！-->
+    <bean id="exceptionProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!--注册目标对象 -->
+        <property name="targetName" value="userException"/>
+        <!--注册通知-->
+        <property name="interceptorNames">
+            <array>
+                <value>myExceptionAdvice</value> <!--异常通知-->
+            </array>
+        </property>
+        <!--代理类的优化  设置之后程序就会自动选择是使用JDK动态代理还是使用cglib动态代理-->
+        <property name="optimize" value="true"/>
+        <!-- <property name="proxyTargetClass" value="true"/>
+            proxyTargetClass：默认是false  ，默认执行jdk动态代理！
+                              设置成true，强制执行cglib！
+            optimize ：  代理类的优化
+                         有接口就是用jdk，没有接口使用cglib动态代理-->
+    </bean>
+
+</beans>
