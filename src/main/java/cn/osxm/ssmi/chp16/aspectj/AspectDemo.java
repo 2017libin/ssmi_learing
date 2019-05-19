@@ -6,8 +6,7 @@
  * @date 2019年5月18日 下午5:38:44
  * @version V1.0
  */
-
-package cn.osxm.ssmi.chp08.aop.aspect;
+package cn.osxm.ssmi.chp16.aspectj;
 /**
   * @ClassName: AspectDemo
   * @Description: TODO
@@ -23,6 +22,6 @@ public class AspectDemo {
 
 	public static void main(String[] args) {
 		UserService userService = new UserService();
-       userService.add();
+        userService.add();
 	}
 }

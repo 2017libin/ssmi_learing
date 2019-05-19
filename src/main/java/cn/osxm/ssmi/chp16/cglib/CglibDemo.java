@@ -7,8 +7,8 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.aop.cglib;
-import cn.osxm.ssmi.chp08.aop.UserServiceImpl;
+package cn.osxm.ssmi.chp16.cglib;
+import cn.osxm.ssmi.chp16.UserServiceNoInterface;
 import net.sf.cglib.proxy.Enhancer;
 
 /**
@@ -28,9 +28,9 @@ public class CglibDemo {
 	public static void main(String[] args) {
 
 	    Enhancer enhancer = new Enhancer();  
-        enhancer.setSuperclass(UserServiceImpl.class);  
+        enhancer.setSuperclass(UserServiceNoInterface.class);  
         enhancer.setCallback(new AddMethodInterceptor());  
-        UserServiceImpl userService = (UserServiceImpl)enhancer.create();
+        UserServiceNoInterface userService = (UserServiceNoInterface)enhancer.create();
         userService.add();
 
 	}

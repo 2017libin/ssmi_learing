@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.aop.proxy.dynamic;
+package cn.osxm.ssmi.chp16.proxy.dynamic;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

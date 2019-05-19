@@ -7,15 +7,15 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.aop.aspect;
 /**
   * @ClassName: UserService
   * @Description: TODO
   * @author osxm:oscarxueming
   */
-
+package cn.osxm.ssmi.chp16.aspectj;
 public class UserService {
 	public void add() {
 		System.out.println("Add User");
+		//int i = 1/0; Ä£ÄâÒì³£
 	}
 }

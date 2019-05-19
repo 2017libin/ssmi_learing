@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.aop.springaspect;
+package cn.osxm.ssmi.chp16.springaspect;
 import org.springframework.stereotype.Service;
 /**
   * @ClassName: UserService

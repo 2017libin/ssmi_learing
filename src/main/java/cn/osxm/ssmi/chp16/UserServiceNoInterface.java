@@ -7,14 +7,14 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.aop;
+package cn.osxm.ssmi.chp16;
 /**
   * @ClassName: UserServiceImpl
   * @Description: TODO
   * @author osxm:oscarxueming
   */
 
-public class UserServiceImpl {
+public class UserServiceNoInterface {
     public void add() {
         System.out.println("Add User");
     }

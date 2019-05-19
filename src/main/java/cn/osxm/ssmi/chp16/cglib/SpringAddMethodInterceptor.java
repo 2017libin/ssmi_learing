@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.aop.cglib;
+package cn.osxm.ssmi.chp16.cglib;
 
 import java.lang.reflect.Method;
 

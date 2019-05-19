@@ -7,9 +7,9 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.aop.proxy.statics;
-import cn.osxm.ssmi.chp08.aop.IUserService;
-import cn.osxm.ssmi.chp08.aop.UserService;
+package cn.osxm.ssmi.chp16.proxy.statics;
+import cn.osxm.ssmi.chp16.IUserService;
+import cn.osxm.ssmi.chp16.UserService;
 /**
   * @ClassName: StaticProxyDemo
   * @Description: TODO

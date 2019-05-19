@@ -7,8 +7,8 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.aop.proxy.statics;
-import cn.osxm.ssmi.chp08.aop.IUserService;
+package cn.osxm.ssmi.chp16.proxy.statics;
+import cn.osxm.ssmi.chp16.IUserService;
 /**
   * @ClassName: UserServiceProxy
   * @Description: TODO
@@ -29,5 +29,12 @@ public class UserServiceProxy implements IUserService{
         userService.add();      
         System.out.println("´úÀíºó");
     }
+
+	@Override
+	public void except() {
+		
+		// TODO Auto-generated method stub
+		
+	}
 
 }

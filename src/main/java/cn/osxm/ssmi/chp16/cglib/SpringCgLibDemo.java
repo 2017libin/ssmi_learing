@@ -7,11 +7,11 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.aop.cglib;
+package cn.osxm.ssmi.chp16.cglib;
 
 import org.springframework.cglib.proxy.Enhancer;
 
-import cn.osxm.ssmi.chp08.aop.UserServiceImpl;
+import cn.osxm.ssmi.chp16.UserServiceNoInterface;
 
 
 /**
@@ -31,9 +31,9 @@ public class SpringCgLibDemo {
 	public static void main(String[] args) {
 
 	    Enhancer enhancer = new Enhancer();  
-        enhancer.setSuperclass(UserServiceImpl.class);  
+        enhancer.setSuperclass(UserServiceNoInterface.class);  
         enhancer.setCallback(new SpringAddMethodInterceptor());
-        UserServiceImpl userService = (UserServiceImpl)enhancer.create();
+        UserServiceNoInterface userService = (UserServiceNoInterface)enhancer.create();
         userService.add();
 
 	}
