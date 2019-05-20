@@ -7,16 +7,16 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08;
+package cn.osxm.ssmi.chp16;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import cn.osxm.ssmi.chp08.aop.IUserService;
-import cn.osxm.ssmi.chp08.aop.UserServiceImpl;
-import cn.osxm.ssmi.chp08.aop.springaspect.UserService;
+import cn.osxm.ssmi.chp16.IUserService;
+import cn.osxm.ssmi.chp16.UserServiceNoInterface;
+import cn.osxm.ssmi.chp16.springaspect.UserService;
 /**
   * @ClassName: SpringAOPAnnoTests
   * @Description: TODO

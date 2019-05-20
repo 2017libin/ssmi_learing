@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08;
+package cn.osxm.ssmi.chp16;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +15,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import cn.osxm.ssmi.chp08.aop.IUserService;
-import cn.osxm.ssmi.chp08.aop.UserServiceImpl;
+import cn.osxm.ssmi.chp16.IUserService;
+import cn.osxm.ssmi.chp16.UserServiceNoInterface;
 /**
   * @ClassName: SpringAOPTests
   * @Description: TODO
   * @author osxm:oscarxueming
   */
 @RunWith(SpringRunner.class)
-@ContextConfiguration(locations = "classpath:cn/osxm/ssmi/chp08/spring-aop.xml")
+@ContextConfiguration(locations = "classpath:cn/osxm/ssmi/chp16/spring-aop.xml")
 public class SpringAOPTests {
 
     
@@ -32,7 +32,7 @@ public class SpringAOPTests {
     
     //no interface, use CGLIB
     @Autowired
-    private UserServiceImpl  userServiceImpl;
+    private UserServiceNoInterface  userServiceImpl;
 
     //@Test
     public void testUserAddPointCut() {
