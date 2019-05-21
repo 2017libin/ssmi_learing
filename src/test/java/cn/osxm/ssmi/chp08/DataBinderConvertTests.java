@@ -24,6 +24,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.core.convert.support.DefaultConversionService;
 import org.springframework.format.Formatter;
 import org.springframework.format.datetime.DateFormatter;
+import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.validation.BindingResult;
@@ -31,7 +32,8 @@ import org.springframework.validation.DataBinder;
 import org.testng.Assert;
 
 import cn.osxm.ssmi.chp08.databinder.MyDatePropertyEditor;
-import cn.osxm.ssmi.com.User;
+import cn.osxm.ssmi.chp08.propertyeditor.User;
+
 
 /**
  * @ClassName: DataBinderConvertTests
@@ -44,6 +46,9 @@ public class DataBinderConvertTests {
 	
 	@Autowired
 	private DefaultConversionService defaultConversionService;
+	
+	@Autowired
+	private DefaultFormattingConversionService defaultFormattingConversionService;
 	
 	//@Test
 	public void springPropertyEditorTest() {
@@ -71,7 +76,7 @@ public class DataBinderConvertTests {
 	
 	
 	
-	@Test
+	//@Test
 	public void conversionTest() {
 		List list = defaultConversionService.convert("1,2,3,4,5", List.class);
 		System.out.println(list);
@@ -79,6 +84,19 @@ public class DataBinderConvertTests {
 		System.out.println(timeZone);
 	}
 
+	@Test
+	public void conversionBeanWarpTest() {
+		User user = new User();
+		BeanWrapperImpl userWrapper = new BeanWrapperImpl(user);
+		//userWrapper.setConversionService(defaultFormattingConversionService);
+		userWrapper.setConversionService(defaultConversionService);
+		userWrapper.setPropertyValue("name", "User 1");
+		userWrapper.setPropertyValue("birthDay", "2019/06/10");
+		Object birthDayValue = userWrapper.getPropertyValue("birthDay");
+		System.out.println(birthDayValue);
+	}
+	
+	
 	//@Test
 	public void dataBinderTest() {
 		User user = new User();

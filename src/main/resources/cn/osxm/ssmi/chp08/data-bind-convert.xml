@@ -11,6 +11,8 @@
 
      <context:component-scan base-package="cn.osxm.ssmi.chp08" />
      
-     <bean class=" org.springframework.core.convert.support.DefaultConversionService"/>
+     <bean class="org.springframework.core.convert.support.DefaultConversionService"/>
+     
+     <bean class="org.springframework.format.support.DefaultFormattingConversionService"/>
 
 </beans>

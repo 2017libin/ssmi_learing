@@ -10,6 +10,7 @@
 package cn.osxm.ssmi.com;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @ClassName: User
@@ -26,9 +27,8 @@ public class User implements Serializable {
 	private String name;
 
 	private int deptId;
-	
-	private int age;
 
+	private int age;
 
 
 	public User() {
@@ -68,16 +68,18 @@ public class User implements Serializable {
 	public void setDeptId(int deptId) {
 		this.deptId = deptId;
 	}
+
 	public int getAge() {
-		
+
 		return age;
 	}
 
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	
+
+
+
 	// use by method component, @Bean×¢½âµÄÊôÐÔ initMethod
 	public void userInit() {
 		System.out.println("Method user() Bean: initMethod");
