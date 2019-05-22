@@ -19,6 +19,8 @@ import java.util.Date;
 
 public class User {
 	private String name;
+	
+	@DateTimeFormat
 	private Date birthDay;
 	public String getName() {
 	
