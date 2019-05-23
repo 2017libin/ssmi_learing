@@ -10,9 +10,10 @@
        	http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd">
 
      <context:component-scan base-package="cn.osxm.ssmi.chp08" />
+     <mvc:annotation-driven />
      
-     <bean class="org.springframework.core.convert.support.DefaultConversionService"/>
+     <!-- <bean class="org.springframework.core.convert.support.DefaultConversionService"/>
      
-     <bean class="org.springframework.format.support.DefaultFormattingConversionService"/>
+     <bean class="org.springframework.format.support.DefaultFormattingConversionService"/>-->
 
 </beans>

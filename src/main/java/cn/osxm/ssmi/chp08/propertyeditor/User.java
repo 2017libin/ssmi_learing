@@ -11,6 +11,8 @@ package cn.osxm.ssmi.chp08.propertyeditor;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * @ClassName: User
  * @Description: TODO
@@ -20,8 +22,17 @@ import java.util.Date;
 public class User {
 	private String name;
 	
-	@DateTimeFormat
+	@DateTimeFormat(pattern="yyyy+mm+dd")
 	private Date birthDay;
+	
+	public User() {
+		
+	}
+	public User(String name,Date birthDay) {
+		this.name = name;
+		this.birthDay = birthDay;
+	}
+	
 	public String getName() {
 	
 		return name;

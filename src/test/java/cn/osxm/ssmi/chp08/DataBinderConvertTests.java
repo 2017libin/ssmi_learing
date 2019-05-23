@@ -21,14 +21,19 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.support.DefaultConversionService;
 import org.springframework.format.Formatter;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.support.DefaultFormattingConversionService;
+import org.springframework.format.support.FormattingConversionService;
+import org.springframework.format.support.FormattingConversionServiceFactoryBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
+import org.springframework.web.context.WebApplicationContext;
 import org.testng.Assert;
 
 import cn.osxm.ssmi.chp08.databinder.MyDatePropertyEditor;
@@ -42,13 +47,20 @@ import cn.osxm.ssmi.chp08.propertyeditor.User;
  */
 @RunWith(SpringRunner.class)
 @ContextConfiguration(locations = "classpath:cn/osxm/ssmi/chp08/data-bind-convert.xml")
+@WebAppConfiguration
 public class DataBinderConvertTests {
 	
-	@Autowired
-	private DefaultConversionService defaultConversionService;
+	//@Autowired
+	//private DefaultConversionService defaultConversionService;
 	
 	@Autowired
-	private DefaultFormattingConversionService defaultFormattingConversionService;
+	private WebApplicationContext webApplicationContext;
+	
+	//@Autowired
+	private DefaultFormattingConversionService mvcConversionService;
+	
+	@Autowired
+	private FormattingConversionServiceFactoryBean conversionServiceFactoryBean;
 	
 	//@Test
 	public void springPropertyEditorTest() {
@@ -78,18 +90,18 @@ public class DataBinderConvertTests {
 	
 	//@Test
 	public void conversionTest() {
-		List list = defaultConversionService.convert("1,2,3,4,5", List.class);
+		List list = mvcConversionService.convert("1,2,3,4,5", List.class);
 		System.out.println(list);
-		TimeZone timeZone = defaultConversionService.convert("2019-06-10", TimeZone.class);
+		TimeZone timeZone = mvcConversionService.convert("2019-06-10", TimeZone.class);
 		System.out.println(timeZone);
 	}
 
-	@Test
+	//@Test
 	public void conversionBeanWarpTest() {
 		User user = new User();
 		BeanWrapperImpl userWrapper = new BeanWrapperImpl(user);
 		//userWrapper.setConversionService(defaultFormattingConversionService);
-		userWrapper.setConversionService(defaultConversionService);
+		userWrapper.setConversionService(mvcConversionService);
 		userWrapper.setPropertyValue("name", "User 1");
 		userWrapper.setPropertyValue("birthDay", "2019/06/10");
 		Object birthDayValue = userWrapper.getPropertyValue("birthDay");
@@ -107,4 +119,13 @@ public class DataBinderConvertTests {
 		Object nameValue = bindingResult.getFieldValue("name");
 		Assert.assertEquals(nameValue, "User 1");
 	}
+	
+	
+	
+	//////////////////////////
+	@Test
+	public void springMvcConversionService() {		
+		Assert.assertNotNull(conversionServiceFactoryBean.getObject());
+	}
+	
 }
