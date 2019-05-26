@@ -33,7 +33,7 @@ import cn.osxm.ssmi.chp07.User;
 public class InitBinderController {
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
-		binder.registerCustomEditor(Date.class, new MyDateEditor());
+		//binder.registerCustomEditor(Date.class, new MyDateEditor());
 		//binder.addCustomFormatter(Formatter);
 	}
 

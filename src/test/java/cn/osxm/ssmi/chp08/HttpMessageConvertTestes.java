@@ -48,7 +48,7 @@ public class HttpMessageConvertTestes {
 	@Test
 	public void addUser() throws Exception {
 	//MvcResult mvcResult = 
-	mockMvc.perform(MockMvcRequestBuilders.get("/user/add").param("name", "Zhang San").param("birthDay", "2019-06-10"))
+	mockMvc.perform(MockMvcRequestBuilders.get("/user/add").param("name", "Zhang San").param("birthDay", "2019?06-10"))
 				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
 
 	}

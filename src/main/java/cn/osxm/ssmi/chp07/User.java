@@ -36,7 +36,7 @@ public class User {
 	@NotNull(message = "name is not null")
 	private String name;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	//@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthDay;
 
 	@NumberFormat(pattern = "#,###,###.#")
