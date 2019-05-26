@@ -20,7 +20,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import cn.osxm.ssmi.chp08.convertservice.MyUserConvert;
-import cn.osxm.ssmi.chp08.propertyeditor.User;
+import cn.osxm.ssmi.chp08.User;
 /**
   * @ClassName: ConvertServiceTests
   * @Description: TODO
@@ -42,7 +42,7 @@ public class ConvertServiceTests {
 	  
 	    //@Test
 	    public void convert() {
-	        DefaultConversionService conversionService = new DefaultConversionService();     
+	        DefaultConversionService conversionService = new DefaultConversionService();   
 	        conversionService.addConverter(new MyUserConvert());
 	        User user = conversionService.convert("User 1,2019/06/10", User.class);
 	        System.out.println(user);

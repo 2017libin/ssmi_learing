@@ -37,7 +37,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.testng.Assert;
 
 import cn.osxm.ssmi.chp08.databinder.MyDatePropertyEditor;
-import cn.osxm.ssmi.chp08.propertyeditor.User;
+import cn.osxm.ssmi.chp08.User;
 
 
 /**
@@ -57,7 +57,10 @@ public class DataBinderConvertTests {
 	private WebApplicationContext webApplicationContext;
 	
 	//@Autowired
-	private DefaultFormattingConversionService mvcConversionService;
+	//private DefaultFormattingConversionService mvcConversionService;
+	
+	@Autowired
+	private FormattingConversionService mvcConversionService;
 	
 	@Autowired
 	private FormattingConversionServiceFactoryBean conversionServiceFactoryBean;
@@ -126,6 +129,7 @@ public class DataBinderConvertTests {
 	@Test
 	public void springMvcConversionService() {		
 		Assert.assertNotNull(conversionServiceFactoryBean.getObject());
+		Assert.assertEquals(conversionServiceFactoryBean.getObject().toString(), mvcConversionService.toString());
 	}
 	
 }

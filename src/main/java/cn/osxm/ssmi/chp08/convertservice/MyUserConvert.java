@@ -14,7 +14,7 @@ import java.util.Date;
 
 import org.springframework.core.convert.converter.Converter;
 
-import cn.osxm.ssmi.chp08.propertyeditor.User;
+import cn.osxm.ssmi.chp08.User;
 /**
   * @ClassName: MyUserConvert
   * @Description: TODO

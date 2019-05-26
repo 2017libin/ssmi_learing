@@ -15,7 +15,7 @@ import org.junit.Test;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.format.support.DefaultFormattingConversionService;
 
-import cn.osxm.ssmi.chp08.propertyeditor.User;
+import cn.osxm.ssmi.chp08.User;
 
 /**
   * @ClassName: BeanWrapperTests
@@ -26,13 +26,20 @@ import cn.osxm.ssmi.chp08.propertyeditor.User;
 public class BeanWrapperTests {
 
 	@Test
-	public void beanWrapperWithConvertService() {
-		User user = new User();
-		BeanWrapperImpl userWrapper = new BeanWrapperImpl(user); 
-		DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService();  
-		userWrapper.setConversionService(conversionService);
-		userWrapper.setPropertyValue("birthDay", "2019+06+10");
-		Date date = (Date) userWrapper.getPropertyValue("birthDay");
-		System.out.println(date);
-	}
+    public void formattingConversionServiceWithBeanWrapper(){
+        User user = new User();
+        BeanWrapperImpl fooWrapper = new BeanWrapperImpl(user);
+        //DefaultConversionService conversionService = new DefaultConversionService();
+        //fooWrapper.setConversionService(conversionService);
+        DefaultFormattingConversionService conversionService= new DefaultFormattingConversionService();
+        fooWrapper.setConversionService(conversionService);
+        fooWrapper.setPropertyValue("name", "User 1");
+        //fooWrapper.setPropertyValue("birthDay", "2019/05/10"); //default
+        fooWrapper.setPropertyValue("birthDay", "2019-05-10");
+        Object nameValue = fooWrapper.getPropertyValue("name");   
+        Object birthDayValue = fooWrapper.getPropertyValue("birthDay");  
+
+        System.out.println(nameValue);
+        System.out.println(birthDayValue);
+    }
 }
