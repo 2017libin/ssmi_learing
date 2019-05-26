@@ -23,7 +23,7 @@ import org.springframework.format.annotation.NumberFormat;
 public class User {
 	private String name;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	//@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthDay;
 
 	public User() {

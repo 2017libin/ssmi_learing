@@ -29,6 +29,7 @@ public class BeanWrapperTests {
     public void formattingConversionServiceWithBeanWrapper(){
         User user = new User();
         BeanWrapperImpl fooWrapper = new BeanWrapperImpl(user);
+      
         //DefaultConversionService conversionService = new DefaultConversionService();
         //fooWrapper.setConversionService(conversionService);
         DefaultFormattingConversionService conversionService= new DefaultFormattingConversionService();

@@ -29,6 +29,7 @@ import cn.osxm.ssmi.chp07.User;
  * @author osxm:oscarxueming
  */
 
+@Controller
 public class InitBinderController {
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
@@ -57,5 +58,14 @@ public class InitBinderController {
 			}
 			setValue(date);
 		}
+	}
+	
+	@RequestMapping("/user/add")
+	public ModelAndView  addUser(User user) {
+		System.out.println(user.getBirthDay());
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("userView");
+		modelAndView.addObject("user", user);
+		return modelAndView;
 	}
 }

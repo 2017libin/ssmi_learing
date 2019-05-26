@@ -1,27 +1,30 @@
 /**
- * @Title: MyDatePropertyEditor.java
- * @Package cn.osxm.ssmi.chp08.databinder
+ * @Title: MyDateClassEditor.java
+ * @Package cn.osxm.ssmi.chp08.propertyeditor
  * @Description: TODO
  * @author osxm:oscarxueming
- * @date 2019年5月18日 下午5:42:33
+ * @date 2019年5月26日 上午10:46:10
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.databinder;
+package cn.osxm.ssmi.chp08.propertyeditor;
+
 import java.beans.PropertyEditorSupport;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.springframework.beans.propertyeditors.ClassEditor;
+
 /**
-  * @ClassName: MyDatePropertyEditor
+  * @ClassName: MyDateClassEditor
   * @Description: TODO
   * @author osxm:oscarxueming
   */
 
-public class MyDatePropertyEditor extends PropertyEditorSupport {
-    @Override
+public class MyDateClassEditor extends PropertyEditorSupport{
+	@Override
     public void setAsText(String text) throws IllegalArgumentException {
-
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = null;
         try {

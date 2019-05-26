@@ -20,9 +20,15 @@
 		<property name="converters">
 			<list>
 				<bean class="cn.osxm.ssmi.chp08.convertservice.MyUserConvert" />
+				<bean class="cn.osxm.ssmi.chp08.convertservice.MyDateConvert" />
 			</list>
 		</property>
 	</bean>
-
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 前缀 -->
+		<property name="prefix" value="/WEB-INF/view/" />
+		<!-- 后缀 -->
+		<property name="suffix" value=".jsp" />
+	</bean>
 
 </beans>

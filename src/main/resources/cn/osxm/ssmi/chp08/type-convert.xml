@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       	http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/security  http://www.springframework.org/schema/security/spring-security.xsd">
+	<!-- <mvc:default-servlet-handler /> -->
+	
+	 <!-- <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">  
+	   <property name="propertyEditorRegistrars">
+            <list>
+              <bean class="cn.osxm.ssmi.chp08.propertyeditor.MyDatePropertyEditor"/> 
+            </list>
+        </property> 
+	</bean>  -->
+   <!-- 	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">  
+	   <property name="propertyEditorRegistrars">
+            <list>
+              <bean class="cn.osxm.ssmi.chp08.propertyeditor.MyDatePropertyEditor"/> 
+            </list>
+        </property> 
+	 
+	</bean>  -->
+  <!-- <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+  <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+	   <property name="converters">
+	        <list>
+	            <bean class="cn.osxm.ssmi.chp08.convertservice.MyDateConvert"/>
+	        </list>
+	    </property>
+   </bean>
+	<bean id="user" class="cn.osxm.ssmi.chp08.User">
+		<property name="name" value="Zhang San" />
+		<!-- <property name="birthDay" value="2019/06/10"/> --> <!-- Date Default Format yyyy/mmm/dd -->
+		<property name="birthDay" value="2019-06-10" />
+	</bean>
+
+
+
+
+	<!-- -<context:component-scan base-package="cn.osxm.ssmi.chp08" /> -->
+	<!-- <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer"> <property name="customEditors"> 
+		<map> <entry key="java.util.Date"> <bean class="com.UtilDatePropertyEditor"/> </entry> </map> </property> 
+		</bean> -->
+</beans>

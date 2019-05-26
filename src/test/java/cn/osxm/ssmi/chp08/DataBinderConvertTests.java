@@ -36,8 +36,8 @@ import org.springframework.validation.DataBinder;
 import org.springframework.web.context.WebApplicationContext;
 import org.testng.Assert;
 
-import cn.osxm.ssmi.chp08.databinder.MyDatePropertyEditor;
 import cn.osxm.ssmi.chp08.User;
+import cn.osxm.ssmi.chp08.propertyeditor.MyDatePropertyEditor;
 
 
 /**

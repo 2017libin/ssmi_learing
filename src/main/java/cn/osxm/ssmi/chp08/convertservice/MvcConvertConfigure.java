@@ -36,7 +36,8 @@ public class MvcConvertConfigure extends WebMvcConfigurationSupport{
     @PostConstruct
     public void addCustomConvert(){
         if (mvcConversionService!=null){
-            mvcConversionService.addConverter(new MyUserConvert());
+            //mvcConversionService.addConverter(new MyUserConvert());
+        	mvcConversionService.addConverter(new MyDateConvert());
         }
     }
 
