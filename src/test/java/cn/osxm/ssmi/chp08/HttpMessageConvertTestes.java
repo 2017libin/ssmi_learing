@@ -11,6 +11,8 @@ package cn.osxm.ssmi.chp08;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,7 +35,7 @@ import org.springframework.web.context.WebApplicationContext;
   * @author osxm:oscarxueming
   */
 @RunWith(SpringRunner.class)
-@ContextConfiguration(locations = "classpath:cn/osxm/ssmi/chp08/mvc-convert.xml")
+@ContextConfiguration(locations = "classpath:cn/osxm/ssmi/chp08/http-message-convert.xml")
 @WebAppConfiguration
 public class HttpMessageConvertTestes {
 	private MockMvc mockMvc;
@@ -45,11 +47,37 @@ public class HttpMessageConvertTestes {
 		 mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 	}
 	
-	@Test
+	//@Test
 	public void addUser() throws Exception {
 	//MvcResult mvcResult = 
 	mockMvc.perform(MockMvcRequestBuilders.get("/user/add").param("name", "Zhang San").param("birthDay", "2019?06-10"))
 				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
 
+	}
+	//@Test
+	public void staticMethodResponseEntity() throws Exception {
+	//MvcResult mvcResult = 
+		//HttpInputMessage
+	mockMvc.perform(MockMvcRequestBuilders.get("/staticMethodResponseEntity"))
+				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
+
+	}
+	//@Test
+	public void requestEntity() throws Exception { 
+		mockMvc.perform(MockMvcRequestBuilders.get("/requestEntityStr").content("This is Old String"))
+		.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
+	}
+    //@Test
+	public void requestEntityUser() throws Exception { 
+    	String userJson = "{\"name\":\"Zhang San\",\"birthDay\":\"2019-06-10\"}";
+		mockMvc.perform(MockMvcRequestBuilders.get("/requestEntityUser").content(userJson).contentType(MediaType.APPLICATION_JSON))
+		.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
+	}
+	
+	@Test
+	public void requestResponseBody() throws Exception { 
+		String userJson = "{\"name\":\"Zhang San\",\"birthDay\":\"2019-06-10\"}";
+		mockMvc.perform(MockMvcRequestBuilders.get("/requestResponseBody").content(userJson).contentType(MediaType.APPLICATION_JSON))
+		.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
 	}
 }

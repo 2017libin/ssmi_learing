@@ -11,7 +11,11 @@
 
      <context:component-scan base-package="cn.osxm.ssmi.chp08" />
      <mvc:annotation-driven />
-     
+     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="webBindingInitializer">
+			<bean class="cn.osxm.ssmi.chp08.databinder.MyWebBindingInitializer" />
+		</property>
+	 </bean>
      <!-- <bean class="org.springframework.core.convert.support.DefaultConversionService"/>
      
      <bean class="org.springframework.format.support.DefaultFormattingConversionService"/>-->
