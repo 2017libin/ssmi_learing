@@ -41,6 +41,33 @@ public class ValidatorTests {
             System.out.println(data.getPropertyPath().toString() + ":" + data.getMessage());
         }
     }
+    public void jsrValidateAnno() {
+    	/*@AssertFalse
+    	@AssertTrue
+    	@DecimalMax(value)
+    	@DecimalMin(value)
+    	//@Digits£¨integer£¬fraction£©
+    	@Email
+    	@Future
+    	@FutureOrPresent
+    	@Max(value)
+    	@Min£¨value£©
+    	@Negative
+    	@NegativeOrZero
+    	@NotBlank
+    	@NotEmpty
+    	@NotNull
+    	@Null
+    	@Past
+    	@PastOrPresent
+    	//@Pattern£¨value£©
+    	@Positive
+    	@PositiveOrZero
+    	@Size£¨max£¬min£©*/
+
+    
+    }
+    
     @Test
     public void jsrBvalValidateTest() {
         User user = new User();

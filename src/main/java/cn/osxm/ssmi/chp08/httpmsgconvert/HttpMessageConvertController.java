@@ -40,7 +40,7 @@ public class HttpMessageConvertController {
 	@GetMapping("/staticMethodResponseEntity")
 	ResponseEntity<String> staticMethodResponseEntity() {
 		//RequestResponseBodyMethodProcessor
-	    return ResponseEntity.ok("Hello World!");
+	    return ResponseEntity.ok("This is New String");
 	}
 	
 	@GetMapping("/requestEntityStr")
@@ -60,11 +60,13 @@ public class HttpMessageConvertController {
 	
 	@GetMapping("/requestEntityUser")
 	ResponseEntity<User> requestEntityUser(RequestEntity<User> requestEntity) {
-		User user = requestEntity.getBody();	
-		HttpHeaders responseHeaders = new HttpHeaders();
+		User user = requestEntity.getBody();		
 		user.setName("Li Si");
-		ResponseEntity<User> responseEntity =new ResponseEntity<>(user, responseHeaders, HttpStatus.OK );
-	    return responseEntity;
+		//HttpHeaders responseHeaders = new HttpHeaders();
+		//ResponseEntity<User> responseEntity =new ResponseEntity<>(user, responseHeaders, HttpStatus.OK );
+		 //return responseEntity;
+		 
+		return ResponseEntity.ok(user);
 	}
 	
 	@ResponseBody

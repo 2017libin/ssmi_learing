@@ -11,6 +11,9 @@ package cn.osxm.ssmi.chp08;
 
 import java.util.Date;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -21,10 +24,14 @@ import org.springframework.format.annotation.NumberFormat;
  */
 
 public class User {
+	@NotNull
 	private String name;
 
-	//@DateTimeFormat(pattern = "yyyy-MM-dd")
+	// @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthDay;
+
+	@Max(100)
+	private int age;
 
 	public User() {
 
@@ -54,5 +61,14 @@ public class User {
 
 	public void setBirthDay(Date birthDay) {
 		this.birthDay = birthDay;
+	}
+
+	public int getAge() {
+
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 }
