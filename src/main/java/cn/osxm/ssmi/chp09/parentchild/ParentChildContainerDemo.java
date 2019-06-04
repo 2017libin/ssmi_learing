@@ -7,14 +7,14 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp05.parentchild;
+package cn.osxm.ssmi.chp09.parentchild;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import cn.osxm.ssmi.chp04.CallbackDemo;
-import cn.osxm.ssmi.chp05.parentchild.parent.UserDao;
-import cn.osxm.ssmi.chp05.parentchild.parent.UserService;
+import cn.osxm.ssmi.chp09.parentchild.parent.UserDao;
+import cn.osxm.ssmi.chp09.parentchild.parent.UserService;
 /**
   * @ClassName: ParentChildContainerDemo
   * @Description: TODO

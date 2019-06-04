@@ -11,6 +11,6 @@
        http://www.springframework.org/schema/security  http://www.springframework.org/schema/security/spring-security.xsd">
 	<!-- <mvc:default-servlet-handler /> -->
 
-	<context:component-scan base-package="cn.osxm.ssmi.chp08" />
+	<context:component-scan base-package="cn.osxm.ssmi.chp10" />
 
 </beans>

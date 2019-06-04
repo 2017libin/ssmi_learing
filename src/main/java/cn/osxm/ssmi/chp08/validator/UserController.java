@@ -10,11 +10,14 @@
 package cn.osxm.ssmi.chp08.validator;
 
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,10 +42,14 @@ public class UserController {
    
     
     @RequestMapping("/saveUser") 
-    //@Validated
     public User save(@Validated User user,BindingResult bindingResult) {
-        //User user = new User();
-        user.setAge(180);
+		List<ObjectError> list = bindingResult.getAllErrors(); // 得到绑定的结果的所有错误
+		for (ObjectError objectError : list) {
+			FieldError fe = (FieldError) objectError;
+			System.out.println(fe.getField()); // 错误的属性, age
+			System.out.println(fe.getRejectedValue()); // 错误的值,180
+			System.out.println(fe.getCode()); // 错误码,Max
+		}
         return user;
     }
 }

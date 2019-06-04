@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp05.parentchild;
+package cn.osxm.ssmi.chp09.parentchild;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

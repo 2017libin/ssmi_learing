@@ -52,7 +52,7 @@ public class SpringMVCValiatorTests {
 	@Autowired
 	private UserService userService;
 
-	// @Test
+	//@Test
 	public void get() {
 		userService.get("Zhang San");
 	}
@@ -64,15 +64,15 @@ public class SpringMVCValiatorTests {
 		userService.add(user);
 	}
 
-	@Test
+    //@Test
 	public void mvcGet() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/getUser").param("name", ""))
 				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
 	}
 
-	// @Test
+	 @Test
 	public void mvcSave() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/saveUser").param("age", "180"))
+		mockMvc.perform(MockMvcRequestBuilders.get("/saveUser").param("name", "Zhang San").param("age", "180"))
 				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
 	}
 }

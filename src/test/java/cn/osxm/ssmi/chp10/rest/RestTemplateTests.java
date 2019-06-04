@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp09.rest;
+package cn.osxm.ssmi.chp10.rest;
 
 import java.net.URI;
 import java.util.HashMap;

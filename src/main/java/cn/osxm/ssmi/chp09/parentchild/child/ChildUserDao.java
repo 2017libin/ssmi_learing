@@ -7,10 +7,10 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp05.parentchild.child;
+package cn.osxm.ssmi.chp09.parentchild.child;
 import org.springframework.stereotype.Repository;
 
-import cn.osxm.ssmi.chp05.parentchild.parent.UserDao;
+import cn.osxm.ssmi.chp09.parentchild.parent.UserDao;
 /**
   * @ClassName: ChildUserDao
   * @Description: TODO

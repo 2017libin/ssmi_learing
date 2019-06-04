@@ -35,7 +35,7 @@ import cn.osxm.ssmi.com.User;
 @Controller(value="chp8UserController")
 public class UserController {
 
-	//@GetMapping(path = "/user/getModelView")
+	@GetMapping(path = "/user/getModelView")
 	// public ModelAndView getUserModelView(HttpServletRequest
 	// request,HttpServletResponse response,@RequestParam String param1) throws
 	// ServletException, IOException {
@@ -60,7 +60,7 @@ public class UserController {
 		return modelAndView;
 	}
 
-	//@PostMapping(path = "/user/postModelView")
+	@PostMapping(path = "/user/postModelView")
 	public ModelAndView postModelView(HttpServletRequest request, @RequestParam(required = false) String param1,
 			@RequestAttribute(required = false) String reqAttr1, @RequestBody(required = false) String body1)
 			throws Exception {

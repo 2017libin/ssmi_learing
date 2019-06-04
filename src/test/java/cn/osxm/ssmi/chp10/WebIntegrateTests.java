@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp09;
+package cn.osxm.ssmi.chp10;
 
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;

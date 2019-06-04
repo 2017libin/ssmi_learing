@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp09;
+package cn.osxm.ssmi.chp10;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -55,7 +55,7 @@ public class StandaloneModelViewTests {
 		mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
 	}
 
-	@Test
+	//@Test
 	public void getUserModelView() throws Exception {
 		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/user/getModelView"); // 构造请求
 		ResultActions resultActions = this.mockMvc.perform(requestBuilder); // 执行请求，返回结果
@@ -94,10 +94,11 @@ public class StandaloneModelViewTests {
 				content(sBody)).andExpect(status().isOk()).andDo(print());
 	}
 
-	@Test
+	//@Test
 	public void getHttpParamsTest() throws Exception {
 		// 1. url
-		// mockMvc.perform(get("/user/getModelView?param1=value1")).andExpect(status().isOk()).andDo(print());
+		 //mockMvc.perform(get("/user/getModelView?param1=value1")).andExpect(status().isOk()).andDo(print());
+		 mockMvc.perform(post("/user/getModelView?param1=value1")).andExpect(status().isOk()).andDo(print());
 		// 2. param()方法
 		// mockMvc.perform(get("/user/getModelView").param("param1",
 		// "value1")).andExpect(status().isOk()).andDo(print());
@@ -109,14 +110,17 @@ public class StandaloneModelViewTests {
 		// "value1")).andExpect(status().isOk()).andDo(print());
 
 		// 返回结果
-		MvcResult result = mockMvc.perform(get("/user/getModelView").requestAttr("reqAttr1", "value1"))
-				.andExpect(status().isOk()).andDo(print()).andReturn();
+		//MvcResult result = mockMvc.perform(get("/user/getModelView").requestAttr("reqAttr1", "value1"))
+		//		.andExpect(status().isOk()).andDo(print()).andReturn();
 	}
 
-	// @Test
+	 @Test
 	public void postHttpParamsTest() throws Exception {
-		mockMvc.perform(post("/user/postModelView").param("param1", "value1").requestAttr("reqAttr1", "value1"))
-				.andExpect(status().isOk()).andDo(print());
+		mockMvc.perform(post("/user/postModelView?param1=value1"))
+		.andExpect(status().isOk()).andDo(print());
+		
+		//mockMvc.perform(post("/user/postModelView").param("param1", "value1").requestAttr("reqAttr1", "value1"))
+		//		.andExpect(status().isOk()).andDo(print());
 		// String sParamsStr = "param1=value1";
 		// mockMvc.perform(get("/user/getModelView").contentType(MediaType.APPLICATION_FORM_URLENCODED).content(sParamsStr)).andExpect(status().isOk()).andDo(print());
 

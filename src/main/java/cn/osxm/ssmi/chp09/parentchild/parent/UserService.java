@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp05.parentchild.parent;
+package cn.osxm.ssmi.chp09.parentchild.parent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
