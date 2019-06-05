@@ -21,8 +21,9 @@ public class MyAnnoWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 
 	@Override
 	protected String[] getServletMappings() {
-		  return new String[] { "/" };
+		return new String[] { "/" };
 	}
+
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class<?>[] { MyAppConfig.class };
@@ -32,7 +33,5 @@ public class MyAnnoWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 	protected Class<?>[] getServletConfigClasses() {
 		return new Class<?>[] { MyAppWebConfig.class };
 	}
-
-
 
 }
