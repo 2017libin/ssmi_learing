@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var userObj = {
+		"name" : "Zhang San",
+		"age" : "30"
+	};
+	for (attr in userObj) {
+		alert(attr + "=" + userObj[attr]);
+	}
+	//typeof(userObj)=="object"; //object
+	//alert(typeof(userObj)); 
+	var userObjStr = '{"name":"Zhang San","age":"30"}';
+	//alert(typeof(userObjStr)); //string
+
+	//var json = JSON.stringify(userObj); 
+	//alert(json);
+	JSON.parse(userObjStr);
+	alert(JSON.stringify(userObj));
+	alert(userObj.name);
+
+	var userArray = [ {
+		"name" : "Zhang San",
+		"age" : "30"
+	} ];
+	var userObj2 = {
+		"name" : "Li Si",
+		"age" : "32"
+	};
+	userArray.push(userObj2);
+	alert(userArray.length);
+
+	for ( let index in userArray) {
+		alert(userArray[index]);
+	};
+</script>
+</head>
+<body>
+
+</body>
+</html>
