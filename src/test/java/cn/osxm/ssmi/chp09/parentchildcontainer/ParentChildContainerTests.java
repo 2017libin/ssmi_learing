@@ -7,15 +7,15 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08.parentchildcontainer;
+package cn.osxm.ssmi.chp09.parentchildcontainer;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.osxm.ssmi.chp08.parentchild.child.ChildUserDao;
-import cn.osxm.ssmi.chp08.parentchild.parent.ParentUsrDao;
-import cn.osxm.ssmi.chp08.parentchild.parent.UserService;
+import cn.osxm.ssmi.chp09.parentchild.child.ChildUserDao;
+import cn.osxm.ssmi.chp09.parentchild.parent.ParentUsrDao;
+import cn.osxm.ssmi.chp09.parentchild.parent.UserService;
 /**
   * @ClassName: ParentChildContainerTests
   * @Description: TODO

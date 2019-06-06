@@ -31,7 +31,7 @@ import org.junit.Test;
 public class HttpClientTests {
 	@Test
     public void get() throws ClientProtocolException, IOException {
-        String url = "http://p1:7001/nplm/sessionInfo";
+        String url = "http:///nplm/sessionInfo";
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(url);
         CloseableHttpResponse response = httpclient.execute(httpGet);
@@ -47,7 +47,7 @@ public class HttpClientTests {
     
     @Test
     public void post() throws ClientProtocolException, IOException {
-        String url = "http://p1:7001/nplm/sessionInfo";
+        String url = "http:///nplm/sessionInfo";
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost(url);
         CloseableHttpResponse response = httpclient.execute(httpPost);
