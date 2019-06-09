@@ -9,7 +9,7 @@
 		name : "Zhang San",
 		"age" : "30"
 	};
-	for (attr in userObj) {
+	for (var attr in userObj) {
 		alert(attr + "=" + userObj[attr]);
 	}
 	//typeof(userObj)=="object"; //object
@@ -20,23 +20,33 @@
 	//var json = JSON.stringify(userObj); 
 	//alert(json);
 	JSON.parse(userObjStr);
-	alert(JSON.stringify(userObj));
-	alert(userObj.name);
+	//alert(JSON.stringify(userObj));
+	//alert(userObj.name);
 
 	var userArray = [ {
 		"name" : "Zhang San",
 		"age" : "30"
 	} ];
+	//alert(typeof(userArray));
+	//alert(userArray instanceof Object);
+	//alert(userArray instanceof Array);
 	var userObj2 = {
 		"name" : "Li Si",
 		"age" : "32"
 	};
 	userArray.push(userObj2);
-	alert(userArray.length);
+	//alert(userArray.length);
 
 	for ( let index in userArray) {
-		alert(userArray[index]);
+		//alert(userArray[index]);
 	};
+	
+	
+	var userObj = {"name" : "Zhang San","age" : "30"};
+	var userName = userObj.name;
+	userName = userObj["name"];
+	var userArray = ["Zhang San","Li Si","Wang Wu"];
+	userName = userArray[0];
 </script>
 </head>
 <body>

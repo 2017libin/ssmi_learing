@@ -30,7 +30,7 @@ import org.springframework.web.client.RestTemplate;
   * @author osxm:oscarxueming
   */
 
-@Component
+//@Component
 public class SimpleRestClient {
     private static RestTemplate restTemplate;
 

@@ -55,9 +55,15 @@ public class JsonUserControllerTests {
 				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
 	}
 
-	@Test
+	//@Test
 	public void getJsonUserResponseBodyAnno() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/json/getJsonUserResponseBodyAnno"))
+				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
+	}
+	@Test
+	public void getJsonUserRequestBodyAnno() throws Exception {
+		String userJsonStr = "{\"userId\":100,\"userName\":\"Zhang San\"}";
+		mockMvc.perform(MockMvcRequestBuilders.get("/json/getJsonUserRequestBodyAnno").contentType("application/json").content(userJsonStr))
 				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
 	}
 }

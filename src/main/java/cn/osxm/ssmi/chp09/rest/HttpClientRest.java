@@ -39,7 +39,7 @@ import org.springframework.web.client.RestTemplate;
   * @author osxm:oscarxueming
   */
 
-@Component
+//@Component
 @Lazy(false)
 public class HttpClientRest {
     private static RestTemplate restTemplate;

@@ -17,7 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 //import com.fasterxml.jackson.core.JsonProcessingException;
 //import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,6 +34,7 @@ import cn.osxm.ssmi.chp09.User;
  */
 
 @Controller
+//@RestController
 public class JsonUserController {
 
 	@GetMapping("/json/getUserByWrite")
@@ -39,10 +43,10 @@ public class JsonUserController {
 		response.setContentType("application/json");
 		PrintWriter out;
 		User user = new User(1, "Zhang San");
-		// ObjectMapper mapper = new ObjectMapper();
-		// String userJsonStr = mapper.writeValueAsString(user);
+		ObjectMapper mapper = new ObjectMapper();
+		String userJsonStr = mapper.writeValueAsString(user);
 		out = response.getWriter();
-		// out.write(userJsonStr);
+		out.write(userJsonStr);
 		out.flush();
 	}
 
@@ -62,6 +66,11 @@ public class JsonUserController {
 	@GetMapping("/json/getJsonUserResponseBodyAnno")
 	public User getJsonUserResponseBodyAnno() {
 		User user = new User(1, "Zhang San");
+		return user;
+	}
+	
+	@GetMapping("/json/getJsonUserRequestBodyAnno")
+	public User getJsonUserRequestBodyAnno(@RequestBody User user) {
 		return user;
 	}
 
