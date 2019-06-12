@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.osxm.ssmi.com.User;
+import cn.osxm.ssmi.chp09.User;
 import cn.osxm.ssmi.com.anno.UserServiceImpl;
 /**
   * @ClassName: RestUserController
@@ -32,68 +32,67 @@ import cn.osxm.ssmi.com.anno.UserServiceImpl;
 @RestController
 public class RestUserController {
 
-    public List<User> userList = new ArrayList<User>();
+	 public List<User> userList = new ArrayList<User>();
 
-    // 测试数据
-    public RestUserController() {
-        User user1 = new User(1, "User1");
-        User user2 = new User(1, "User2");
-        User user3 = new User(1, "User3");
-        userList.add(user1);
-        userList.add(user2);
-        userList.add(user3);
-    }
+	    // 测试数据
+	    public RestUserController() {
+	        User user1 = new User(1, "User1");
+	        User user2 = new User(2, "User2");
+	        User user3 = new User(3, "User3");
+	        userList.add(user1);
+	        userList.add(user2);
+	        userList.add(user3);
+	    }
 
-    // 查询所有
-    @GetMapping("/rest/users")
-    public Object getAll() {
-        System.out.println("GET 查询所有");
-        return userList;
-    }
+	    // 查询所有
+	    @GetMapping("/users")
+	    public Object getAll() {
+	        System.out.println("GET 查询所有");
+	        return userList;
+	    }
 
-    // 查询单个
-    @GetMapping("/rest/users/{id}")
-    public Object getOne(@PathVariable("id") Integer id) {
-        System.out.println("GET 查询单个");
-        User user = null;
-        for (User u : userList) {
-            if (u.getId() == id) {
-                user = u;
-                break;
-            }
-        }
-        return user;
-    }
+	    // 查询单个
+	    @GetMapping("/users/{id}")
+	    public Object getOne(@PathVariable("id") Integer id) {
+	        System.out.println("GET 查询单个");
+	        User user = null;
+	        for (User u : userList) {
+	            if (u.getUserId() == id) {
+	                user = u;
+	                break;
+	            }
+	        }
+	        return user;
+	    }
 
-    // 添加
-    @PostMapping("/rest/users")
-    public Object add(@RequestBody User user) {
-        System.out.println("POST添加");
-        userList.add(user);
-        return userList;
-    }
+	    // 添加
+	    @PostMapping("/users")
+	    public Object add(@RequestBody User user) {
+	        System.out.println("POST添加");
+	        userList.add(user);
+	        return user;
+	    }
 
-    // 修改
-    @PutMapping("/rest/users/{id}")
-    public Object modify(@PathVariable("id") Integer id, @RequestBody User user) {
-        System.out.println("PUT修改");
-        for (User u : userList) {
-            if (u.getId() == id) {
-                u.setName(user.getName());
-            }
-        }
-        return user;
-    }
+	    // 修改
+	    @PutMapping("/users/{id}")
+	    public Object modify(@PathVariable("id") Integer id, @RequestBody User user) {
+	        System.out.println("PUT修改");
+	        for (User u : userList) {
+	            if (u.getUserId() == id) {
+	                u.setUserName(user.getUserName());
+	            }
+	        }
+	        return user;
+	    }
 
-    // 删除单个
-    @DeleteMapping("/rest/users/{id}")
-    public Object delete(@PathVariable("id") Integer id) {
-        for (User u : userList) {
-            if (u.getId() == id) {
-                userList.remove(u);
-            }
-        }
-        return userList;
-    }
-
+	    // 删除单个
+	    @DeleteMapping("/users/{id}")
+	    public Object delete(@PathVariable("id") Integer id) {
+	        for (User u : userList) {
+	            if (u.getUserId() == id) {
+	                userList.remove(u);
+	            }
+	        }
+	        return userList;
+	    }
 }

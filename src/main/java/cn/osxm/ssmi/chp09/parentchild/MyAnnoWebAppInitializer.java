@@ -17,19 +17,21 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * @author osxm:oscarxueming
  */
 
-public class MyAnnoWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class MyAnnoWebAppInitializer 
+//extends AbstractAnnotationConfigDispatcherServletInitializer 
+{
 
-	@Override
+	//@Override
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}
 
-	@Override
+	//@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class<?>[] { MyAppConfig.class };
 	}
 
-	@Override
+	//@Override
 	protected Class<?>[] getServletConfigClasses() {
 		return new Class<?>[] { MyAppWebConfig.class };
 	}

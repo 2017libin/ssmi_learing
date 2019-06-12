@@ -3,14 +3,24 @@
  * @Package cn.osxm.ssmi.chp09
  * @Description: TODO
  * @author osxm:oscarxueming
- * @date 2019ƒÍ6‘¬7»’ …œŒÁ10:31:52
+ * @date 2019Âπ¥6Êúà7Êó• ‰∏äÂçà10:31:52
  * @version V1.0
  */
 
 package cn.osxm.ssmi.chp09;
 
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 /**
   * @ClassName: MessageController
@@ -21,8 +31,36 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MessageController {
 
+	@Autowired
+	private HttpServletRequest request;
+
+	@Autowired
+	private MessageSource messageSource;
+	
+	
+	@Autowired
+	private ApplicationContext applicationContext;
+	
     @GetMapping("/message/login")
     public String login() {
         return "login";
+    }
+    
+    @GetMapping("/getLocalFromRequest")
+    public ModelAndView getRequestLocale() {
+    	//LocaleResolver
+    	ModelAndView mv = new ModelAndView();
+    	Locale locale = RequestContextUtils.getLocale(request);  //AcceptHeaderLocaleResolver
+    	//MockHttpServletRequest
+        //FixedLocaleResolver 
+    	String acceptlanguage =  request.getHeader("Accept-Language");
+    	//request.getLocale()
+    	System.out.println("Accept-Language="+acceptlanguage);
+    	mv.setViewName("locale");
+    	String userName = applicationContext.getMessage("username", null, locale);
+    	messageSource.getMessage("username", null, locale);
+    	System.out.println(userName);
+    	return mv;
+    	//ÔÅ±	CookieLocaleResolver
     }
 }

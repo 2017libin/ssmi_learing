@@ -20,11 +20,13 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
   */
 
 public class I18nMessageTests {
-	 // @Test
+	@Test
     public void javaBaseI18n() {
         String baseName = "cn.osxm.ssmi.chp09.i18n.messages";
-        String engUserName = ResourceBundle.getBundle(baseName, new Locale("en", "EN")).getString("username");
+        String engUserName = ResourceBundle.getBundle(baseName, new Locale("en", "US")).getString("username");
+        engUserName = ResourceBundle.getBundle(baseName, new Locale("en")).getString("username");
         String chineseUserName = ResourceBundle.getBundle(baseName, new Locale("zh", "CN")).getString("username");
+  
         System.out.println(engUserName);
         System.out.println(chineseUserName);
     }

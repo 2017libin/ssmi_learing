@@ -19,21 +19,23 @@ import org.springframework.web.servlet.support.AbstractDispatcherServletInitiali
  * @author osxm:oscarxueming
  */
 
-public class MyWebAppInitializer extends AbstractDispatcherServletInitializer {
+public class MyWebAppInitializer 
+//extends AbstractDispatcherServletInitializer
+{
 
-	@Override
+	//@Override
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}
 
-	@Override
+	//@Override
 	protected WebApplicationContext createRootApplicationContext() {
 		XmlWebApplicationContext applicationContext = new XmlWebApplicationContext();
 		applicationContext.setConfigLocation("/WEB-INF/spring/applicationContext.xml");
 		return applicationContext;
 	}
 
-	@Override
+	//@Override
 	protected WebApplicationContext createServletApplicationContext() {
 		XmlWebApplicationContext applicationContext = new XmlWebApplicationContext();
 		applicationContext.setConfigLocation("/WEB-INF/spring/dispatcher-config.xml");

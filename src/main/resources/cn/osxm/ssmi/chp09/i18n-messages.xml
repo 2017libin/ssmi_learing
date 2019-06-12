@@ -11,7 +11,7 @@
        http://www.springframework.org/schema/security  http://www.springframework.org/schema/security/spring-security.xsd">
 	<!-- <mvc:default-servlet-handler /> -->
 
-	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	 <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		 <!--  <property name="basenames">
 			<list>
 				<value>cn/osxm/ssmi/chp09/i18n/messages</value>
@@ -19,7 +19,7 @@
 		</property>-->
 		<property name="basename" value="classpath:cn/osxm/ssmi/chp09/i18n/messages"/>	
 		<property name="useCodeAsDefaultMessage" value="true"/>
-		<!-- 国际化信息所在的文件名 -->                     
+		  <!-- 国际化信息所在的文件名 -->                     
    <!-- <property name="basename" value="classpath:cn.osxm.ssmi.chp09.i18n.messages" />   
      如果在国际化资源文件中找不到对应代码的信息，就用这个代码作为名称             
     <property name="useCodeAsDefaultMessage" value="No User" /> -->    

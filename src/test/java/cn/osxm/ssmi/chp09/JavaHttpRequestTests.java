@@ -10,6 +10,7 @@
 package cn.osxm.ssmi.chp09;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
@@ -26,10 +27,14 @@ public class JavaHttpRequestTests {
 	  @Test
 	    public void javaNetHttpRequest() throws Exception {
 	        String urlPath = "https://www.baidu.com/";
-	        URL realUrl = new URL(urlPath); //创建URL
-	        URLConnection connection = realUrl.openConnection();//创建连接
+	        URL url = new URL(urlPath); //创建URL
+	        //URLConnection connection = url.openConnection();//创建连接
+	        HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 	        connection.setRequestProperty("accept","*/*"); //设置属性
+	        connection.setRequestMethod("GET");
+	        connection.setRequestProperty("Content-Type", "application/json; charset=utf8");
 	        connection.connect(); //建立连接
+	        
 	        Map<String,List<String>> map = connection.getHeaderFields();//获取响应头
 	        BufferedReader in = new BufferedReader(new InputStreamReader(
 	                connection.getInputStream())); //获取响应流

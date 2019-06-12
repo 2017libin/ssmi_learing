@@ -22,9 +22,11 @@ import org.springframework.web.servlet.DispatcherServlet;
  * @author osxm:oscarxueming
  */
 
-public class MyWebApplicationInitializer implements WebApplicationInitializer {
+public class MyWebApplicationInitializer 
+//implements WebApplicationInitializer 
+{
 
-	@Override
+	//@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext annoAppContext = new AnnotationConfigWebApplicationContext();
 		// servletContext.getServlet("default");

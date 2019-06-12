@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.testng.Assert;
@@ -30,11 +31,22 @@ public class SpringI18nMessageTests {
     @Autowired
     private ApplicationContext applicationContext;
     
+    @Autowired
+    private MessageSource  messageSource;
+    
     @Test
     public void getMessage() {
-        String username = applicationContext.getMessage("username", null,Locale.ENGLISH);
-        Assert.assertEquals(username, "Zhang San");
+    	String username = messageSource.getMessage("username", null, Locale.CHINA);
+    	System.out.println(username);
+    	username = messageSource.getMessage("username1", null, "User Name",Locale.CHINA);
+    	System.out.println(username);
+        username = applicationContext.getMessage("username", null,Locale.US);
         System.out.println(username);
+        //AbstractApplicationContext.initMessageSource();
+        //Assert.assertEquals(username, "User Name");
+        //ReloadableResourceBundleMessageSource
+        //String chineseUsername = applicationContext.getMessage("username", null,Locale.CHINESE);
+        //System.out.println(chineseUsername);
     }
 }
 
