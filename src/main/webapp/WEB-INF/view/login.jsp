@@ -8,10 +8,10 @@
 </head>
 <body>
 
-	<spring:message code="login.username" />
+	<spring:message code="username" />
 	：
 	<br>
-	<spring:message code="login.password" />
+	<spring:message code="password" />
 	：
 </body>
 </html>
