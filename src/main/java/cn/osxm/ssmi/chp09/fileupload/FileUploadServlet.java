@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp09.file;
+package cn.osxm.ssmi.chp09.fileupload;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
