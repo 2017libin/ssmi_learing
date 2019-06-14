@@ -7,11 +7,7 @@
 <title>Login</title>
 </head>
 <body>
-
-	<spring:message code="username" />
-	：
-	<br>
-	<spring:message code="password" />
-	：
+	<spring:message code="username" />：<br>
+	<spring:message code="password" />：
 </body>
 </html>

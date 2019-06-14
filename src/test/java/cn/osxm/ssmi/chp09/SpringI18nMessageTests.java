@@ -36,9 +36,10 @@ public class SpringI18nMessageTests {
     
     @Test
     public void getMessage() {
-    	String username = messageSource.getMessage("username", null, Locale.CHINA);
+    	String username = messageSource.getMessage("username", new String[]{"±‰¡ø"}, Locale.CHINA);
     	System.out.println(username);
-    	username = messageSource.getMessage("username1", null, "User Name",Locale.CHINA);
+    	//username = messageSource.getMessage("username1", null, "User Name",Locale.CHINA);
+    	username = messageSource.getMessage("username1", null,Locale.CHINA);
     	System.out.println(username);
         username = applicationContext.getMessage("username", null,Locale.US);
         System.out.println(username);
