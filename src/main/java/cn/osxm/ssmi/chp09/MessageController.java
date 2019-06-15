@@ -31,7 +31,6 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 @Controller
 public class MessageController {
-
 	@Autowired
 	private HttpServletRequest request;
 
@@ -85,6 +84,6 @@ public class MessageController {
     	messageSource.getMessage("username", null, locale);
     	System.out.println(userName);
     	return mv;
-    	//飦?	CookieLocaleResolver
+    	//	CookieLocaleResolver
     }
 }

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,8 +6,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="POST" enctype="multipart/form-data" action="fileupload">
-		<input type="file" name="myfile">
+Apache Commons FileUpload:<br>
+	<form method="POST" enctype="multipart/form-data" action="commonsfileupload">
+		<input type="file" name="upfile">
+        <input type="submit" value="Upload"> 
+	</form>
+Servlet FileUpload:<br>
+		<form method="POST" enctype="multipart/form-data" action="servletfileupload">
+		<input type="file" name="upfile">
         <input type="submit" value="Upload"> 
 	</form>
 </body>
