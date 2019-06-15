@@ -48,6 +48,7 @@ public class MessageController {
         myLanguageCookie.setPath("/ssmi");
         response.addCookie(myLanguageCookie);
         //request.getCookies()
+        //RequestContextUtils.getLocaleResolver(request).setLocale(request, response, new Locale("en"));
         return "login";
     }
     

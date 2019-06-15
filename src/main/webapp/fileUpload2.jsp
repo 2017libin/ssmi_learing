@@ -9,11 +9,13 @@
 Apache Commons FileUpload:<br>
 	<form method="POST" enctype="multipart/form-data" action="commonsfileupload">
 		<input type="file" name="upfile">
+
         <input type="submit" value="Upload"> 
 	</form>
 Servlet FileUpload:<br>
-		<form method="POST" enctype="multipart/form-data" action="servletfileupload">
-		<input type="file" name="upfile">
+		<form method="POST" enctype="multipart/form-data" action="servletUploadServlet">
+		<input type="file" name="myfile">
+		<input type="text" name="mytext">
         <input type="submit" value="Upload"> 
 	</form>
 </body>
