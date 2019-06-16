@@ -69,12 +69,12 @@
 		<property name="defaultErrorView"> <value>error</value> </property> <property name="defaultStatusCode"> 
 		<value>500</value> </property> <property name="warnLogCategory"> <value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value> 
 		</property> </bean> -->
-	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"> 
-		</bean> -->
-	<bean name="multipartResolver"
+	 <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"> 
+		</bean> 
+	<!--<bean name="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="102400000"></property>
-	</bean>
+	</bean>-->
 
 
 	<bean id="messageSource"

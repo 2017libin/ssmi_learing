@@ -45,6 +45,24 @@ import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequ
 @Controller
 public class SpringFileUploadController {
 
+    @RequestMapping("/springCommonFileUploadNoMultipartResolverBean")
+    public String springCommonFileUploadNoMultipartResolverBean(HttpServletRequest request) throws IOException, ServletException {
+        MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+        MultipartHttpServletRequest multipartRequest = resolver.resolveMultipart(request);
+        MultipartFile file = multipartRequest.getFile("myfile");
+        file.transferTo(new File("D:/uploads/" + file.getOriginalFilename()));
+        return "result";
+    }
+    
+    @RequestMapping("/springServletFileUploadNoMultipartResolverBean")
+    public String springServletFileUploadNoMultipartResolverBean(HttpServletRequest request) throws IOException, ServletException {
+        MultipartResolver resolver = new StandardServletMultipartResolver();
+        MultipartHttpServletRequest multipartRequest = resolver.resolveMultipart(request);
+        MultipartFile file = multipartRequest.getFile("myfile");
+        file.transferTo(new File("D:/uploads/" + file.getOriginalFilename()));
+        return "result";
+    }
+    
 	@RequestMapping("/springServletFileUpload")
 	public String springServletFileUpload(HttpServletRequest request) throws IOException, ServletException {
 		/*

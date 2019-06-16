@@ -39,7 +39,8 @@ public class Servlet3FileUploadInitializer
 
 //@Override
 	protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-		registration.setMultipartConfig(getMultipartConfigElement());
+		// registration.setMultipartConfig(getMultipartConfigElement());
+		registration.setMultipartConfig(new MultipartConfigElement("C:/temp/"));
 	}
 
 	private MultipartConfigElement getMultipartConfigElement() {
