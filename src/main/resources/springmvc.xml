@@ -69,21 +69,23 @@
 		<property name="defaultErrorView"> <value>error</value> </property> <property name="defaultStatusCode"> 
 		<value>500</value> </property> <property name="warnLogCategory"> <value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value> 
 		</property> </bean> -->
-	 <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"> 
-		</bean> 
-	<!--<bean name="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="102400000"></property>
-	</bean>-->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</bean>
+	<!--<bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		<property name="maxUploadSize" value="102400000"></property> </bean> -->
 
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="classpath:cn/osxm/ssmi/chp09/i18n/messages" />
 	</bean>
-	<!-- <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" > <property 
-		name="cookieName" value="myLanguage"/> 单位为秒。若设置为-1，则cookie不会被持久化（客户端关闭浏览器后即被删除） <property name="cookieMaxAge" 
-		value="100000"/> </bean> -->
+	<!--  <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" 
+		<property name="cookieName" value="myLanguage" />
+		<property name="cookieMaxAge" value="100000" />
+		<property name="defaultLocale" value="zh_CN" />
+	</bean>-->
+
 	<!--<bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver" > <property 
 		name="defaultLocale" value="zh_CN"/> </bean> -->
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">

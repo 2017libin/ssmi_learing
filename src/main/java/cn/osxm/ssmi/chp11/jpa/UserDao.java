@@ -1,4 +1,4 @@
-package cn.osxm.ssmi.chp10.jpa;
+package cn.osxm.ssmi.chp11.jpa;
 
 import java.util.List;
 

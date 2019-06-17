@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp10.hibernate;
+package cn.osxm.ssmi.chp11.hibernate;
 
 import java.io.File;
 

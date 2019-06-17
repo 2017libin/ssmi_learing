@@ -1,4 +1,4 @@
-package cn.osxm.ssmi.chp10;
+package cn.osxm.ssmi.chp11;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

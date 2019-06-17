@@ -1,22 +1,32 @@
 /**
- * @Title: Foo.java
+ * @Title: UserEntity.java
  * @Package cn.osxm.ssmi.chp10
  * @Description: TODO
  * @author osxm:oscarxueming
- * @date 2018年12月25日 上午6:18:45
+ * @date 2019年1月14日 下午9:35:38
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp10;
+package cn.osxm.ssmi.chp11;
 
 /**
- * @ClassName: Foo
+ * @ClassName: UserEntity
  * @Description: TODO
  * @author osxm:oscarxueming
  */
 
-public class Foo {
+public class UserEntity {
+	private String id;
+
 	private String name;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
