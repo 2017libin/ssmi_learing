@@ -24,7 +24,7 @@ import cn.osxm.ssmi.chp02.User;
   */
 
 public class HibernateDemo {
-    /**
+	   /**
      * @Title: main
      * @Description: TODO
      * @param args
@@ -32,11 +32,12 @@ public class HibernateDemo {
 
     public static void main(String[] args) {
         String classPath = HibernateDemo.class.getResource("/").getPath();
-        Configuration configuration = new Configuration().configure(new File(classPath+"cn/osxm/ssmi/chp10/hibernate.cfg.xml"));
+        Configuration configuration = new Configuration().configure(new File(classPath+"cn/osxm/ssmi/chp11/hibernate.cfg.xml"));
         SessionFactory factory = configuration.buildSessionFactory();
         Session session = factory.openSession();
         User user = session.get(User.class, "001");
         System.out.println(user.getName());
+      
         session.close();
     }
 }

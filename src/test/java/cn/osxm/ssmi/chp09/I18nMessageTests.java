@@ -8,6 +8,7 @@
  */
 
 package cn.osxm.ssmi.chp09;
+import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -15,18 +16,20 @@ import org.junit.Test;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 /**
   * @ClassName: I18nMessageTests
-  * @Description: TODO
+  * @Description: TODO1
   * @author osxm:oscarxueming
   */
 
 public class I18nMessageTests {
 	@Test
-    public void javaBaseI18n() {
-        String baseName = "cn.osxm.ssmi.chp09.i18n.message";
+    public void javaBaseI18n() throws UnsupportedEncodingException {
+        String baseName = "cn.osxm.ssmi.chp09.i18n.messages";
         String engUserName = ResourceBundle.getBundle(baseName, new Locale("en", "US")).getString("username");
         //engUserName = ResourceBundle.getBundle(baseName, new Locale("en")).getString("username");
-        //String chineseUserName = ResourceBundle.getBundle(baseName, new Locale("zh", "CN")).getString("username");
-  
+        String chineseUserName = ResourceBundle.getBundle(baseName, new Locale("zh", "CN")).getString("username");
+        chineseUserName =  new String(ResourceBundle.getBundle(baseName, new Locale("zh", "CN")).getString("username").getBytes("ISO-8859-1"), "UTF8");
+        
+        System.out.println(chineseUserName);
         System.out.println(engUserName);
         //System.out.println(chineseUserName);
     }
