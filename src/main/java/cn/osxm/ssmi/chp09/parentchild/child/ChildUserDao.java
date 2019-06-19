@@ -25,7 +25,7 @@ public class ChildUserDao implements UserDao {
       * Description:
       * @param id
       * @return
-      * @see cn.osxm.ssmi.chp05.parentchild.parent.UserDao#getUserName(java.lang.String)
+      * @see cn.osxm.ssmi.chp05.UserDAO.parent.UserDao#getUserName(java.lang.String)
       */
 
     @Override

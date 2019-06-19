@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- Spring 数据源-->
+    <!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+    </bean>-->
+    <!-- DBCP2连接池数据源-->
+   <!--  <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+	</bean>-->
+	<!-- C3P0连接池数据源-->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" />
+		<property name="user" value="root" />
+		<property name="password" value="123456" />
+	</bean>
+	
+	<!--Druid连接池数据源
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+	    <property name="driverClassName" value="${driverClassName}"></property>? ??
+	? ? <property name="url" value="${url}"></property>? ??? ?
+	    <property name="username" value="${uname}"></property>?? ?
+	    <property name="password" value="${password}"></property>
+	</bean>-->
+	<!--
+	<bean id="jndiDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/mydatasource"/>
+	</bean>-->
+    
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+     <bean id="userDao" class="cn.osxm.ssmi.chp11.UserDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+    </bean>
+</beans>
