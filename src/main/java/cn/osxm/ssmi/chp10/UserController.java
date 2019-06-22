@@ -7,7 +7,7 @@
  * @version V1.0
  */
 
-package cn.osxm.ssmi.chp08;
+package cn.osxm.ssmi.chp10;
 
 import java.io.IOException;
 
@@ -32,7 +32,7 @@ import cn.osxm.ssmi.com.User;
  * @author osxm:oscarxueming
  */
 
-@Controller(value="chp8UserController")
+@Controller(value="chp10UserController")
 public class UserController {
 
 	@GetMapping(path = "/user/getModelView")
@@ -47,6 +47,9 @@ public class UserController {
 
 		String param = request.getParameter("param1");
 		System.out.println("param1=" + param);
+		
+		String param2 = request.getParameter("param2");
+		System.out.println("param2=" + param2);
 
 //        String reqAttr1 = request.getAttribute("reqAttr1")!=null? request.getAttribute("reqAttr1").toString():null;
 //        System.out.println("reqAttr1="+reqAttr1);
@@ -65,7 +68,7 @@ public class UserController {
 			@RequestAttribute(required = false) String reqAttr1, @RequestBody(required = false) String body1)
 			throws Exception {
 		// public ModelAndView postModelView() throws Exception{
-		ModelAndView modelAndView = new ModelAndView();
+   		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("userView");
 		modelAndView.addObject("user", new User("Oscar"));
 
@@ -75,5 +78,15 @@ public class UserController {
 		return modelAndView;
 	}
 
+	@PostMapping(path = "/user/jsonInContent")
+	public ModelAndView jsonInContent(@RequestBody(required = false) User user)
+			throws Exception {
+		// public ModelAndView postModelView() throws Exception{
+   		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("userView");
+		modelAndView.addObject("user", user);
+		return modelAndView;
+	}
+	
 }
 
