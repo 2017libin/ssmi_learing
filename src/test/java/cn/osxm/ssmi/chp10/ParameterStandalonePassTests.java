@@ -39,7 +39,7 @@ public class ParameterStandalonePassTests {
 		// MockMvcBuilders.standaloneSetup(controller).setMessageConverters(messageConverters).build();
 	}
 
-	//@Test
+	// @Test
 	public void postHttpParamsTest() throws Exception {
 		mockMvc.perform(post("/parametepass/save").param("id", "100").param("name", "Zhang San"))
 				.andExpect(status().isOk()).andDo(print());
@@ -47,8 +47,11 @@ public class ParameterStandalonePassTests {
 
 	@Test
 	public void postJsonHttpParamsTest() throws Exception {
-		String sJsonStr = "{\"id\":\"100\",\"name\":\"Zhang San\"}";
-		mockMvc.perform(post("/parametepass/jsonSave").contentType(MediaType.APPLICATION_JSON).content(sJsonStr))
+		String sJsonStr = "{\"id\":\"100\",\"name\":\"’≈»˝Zhang San\"}";
+		mockMvc.perform(post("/parametepass/jsonSave").header("Content-Type", "application/json").content(sJsonStr))
 				.andExpect(status().isOk()).andDo(print());
+//		mockMvc.perform(post("/parametepass/jsonSave").contentType(MediaType.APPLICATION_JSON).content(sJsonStr))
+//				.andExpect(status().isOk()).andDo(print());
 	}
+
 }
