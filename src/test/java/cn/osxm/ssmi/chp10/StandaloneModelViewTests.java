@@ -33,9 +33,10 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 
 import cn.osxm.ssmi.chp07.ResponseAnnoController;
-import cn.osxm.ssmi.chp10.UserController;
 import cn.osxm.ssmi.com.User;
 
 //import com.jayway.jsonpath.JsonPath;
@@ -53,6 +54,9 @@ public class StandaloneModelViewTests {
 	static void setup() {
 		UserController userController = new UserController();
 		mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
+		CookieLocaleResolver localeResolver  = new CookieLocaleResolver();
+		
+		StandaloneMockMvcBuilder mockMvc = MockMvcBuilders.standaloneSetup(userController).setLocaleResolver(localeResolver);
 	}
 
 	// @Test
@@ -146,7 +150,7 @@ public class StandaloneModelViewTests {
 				.andExpect(handler().methodName("getUserModelView")).andExpect(header().exists("Content-Language"))
 				// .andExpect(content().contentType(MediaType.TEXT_HTML))
 				.andExpect(header().string("Content-Language", "en"));
-		// .andExpect(header().string("content-type", "text/html")) ;
+		// .andExpect(header().string("content-type", "text/html")) ;HeaderResultMatchers maxAge CookieResultMatchers,
 	}
 
 	// @Test

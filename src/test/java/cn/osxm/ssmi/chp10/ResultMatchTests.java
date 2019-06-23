@@ -16,6 +16,7 @@ import javax.servlet.http.Cookie;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -51,7 +52,25 @@ public class ResultMatchTests {
         StatusResultMatchers statusResultMatchers = MockMvcResultMatchers.status();
         ResultMatcher resultMatcher = statusResultMatchers.isOk();
         resultActions.andExpect(resultMatcher);
+        resultActions.andDo(MockMvcResultHandlers.print());      
+    }
+    
 
+   // @Test
+    public void resultMatchers() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.status().isOk());
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.header().exists("Accept-Language"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.cookie().value("myCookie", "myCookieValue"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON));
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.model().attribute("username", "Zhang San"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.view().name("login"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Zhang San"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.xpath("/account/name").string("Zhang San"));   
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.request().attribute("username", "Zhang San"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.handler().handlerType(UserController.class));
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.flash().attribute("myFlashAttr", "Value1"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.forwardedUrl("/login"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/myurl")).andExpect(MockMvcResultMatchers.redirectedUrl("/login"));
     }
 }
 
