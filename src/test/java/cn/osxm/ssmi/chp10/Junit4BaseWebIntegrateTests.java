@@ -38,25 +38,25 @@ import org.springframework.web.context.WebApplicationContext;
 @ContextConfiguration("classpath:cn/osxm/ssmi/chp08/applicationContext.xml")
 @WebAppConfiguration
 public class Junit4BaseWebIntegrateTests {
-  private MockMvc mockMvc;
+	  private MockMvc mockMvc;
 
-  @Autowired
-  private WebApplicationContext wac;
+	  @Autowired
+	  private WebApplicationContext wac;
 
-  @Before
-  public void setup() {
-      mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-  }
+	  @Before
+	  public void setup() {
+	      mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+	  }
 
-  @Test
-  public void getUserName() throws Exception {
-      MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/user/1")).andExpect(MockMvcResultMatchers.status().is(200))
-              .andDo(MockMvcResultHandlers.print()).andReturn();
-      String result = mvcResult.getResponse().getContentAsString();
-      System.out.println("返回结果：" + result);
+	  @Test
+	  public void getUserName() throws Exception {
+	      MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/user/1")).andExpect(MockMvcResultMatchers.status().is(200))
+	              .andDo(MockMvcResultHandlers.print()).andReturn();
+	      String result = mvcResult.getResponse().getContentAsString();
+	      System.out.println("返回结果：" + result);
 
-      this.mockMvc.perform(get("/user/1").accept(MediaType.parseMediaType("application/json;charset=UTF-8"))).andExpect(MockMvcResultMatchers.status().isOk())
-              .andExpect(MockMvcResultMatchers.content().string("user1"));
-  }
+	      this.mockMvc.perform(get("/user/1").accept(MediaType.parseMediaType("application/json;charset=UTF-8"))).andExpect(MockMvcResultMatchers.status().isOk())
+	              .andExpect(MockMvcResultMatchers.content().string("user1"));
+	  }
 }
 

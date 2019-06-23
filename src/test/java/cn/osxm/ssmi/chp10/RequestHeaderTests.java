@@ -23,35 +23,33 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 /**
-  * @ClassName: RequestHeaderTests
-  * @Description: TODO
-  * @author osxm:oscarxueming
-  */
+ * @ClassName: RequestHeaderTests
+ * @Description: TODO
+ * @author osxm:oscarxueming
+ */
 
 public class RequestHeaderTests {
-	 private static MockMvc mockMvc;
+	private static MockMvc mockMvc;
 
-	    @BeforeAll
-	    static void setup() {
-	        RequestHeaderController controller = new RequestHeaderController();
-	        mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-	    }
-	    
-	    //@Test
-	    public void headercookie() throws Exception {
-	        Cookie myCookie = new Cookie("myCookie","myCookie Value");
-	       mockMvc.perform(get("/requestheader/cookie").cookie(myCookie))
-	               .andExpect(status().isOk()).andDo(print());
-	        //mockMvc.perform(get("/requestheader/cookie").header("Cookie","myCookie=myCookie"))//不支持
-	        //.andExpect(status().isOk()).andDo(print());
-	    }
-	    
-	    @Test
-	    public void locale() throws Exception {
-	       mockMvc.perform(get("/requestheader/locale").locale(Locale.CHINA))
-	               .andExpect(status().isOk()).andDo(print());
+	@BeforeAll
+	static void setup() {
+		RequestHeaderController controller = new RequestHeaderController();
+		mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+	}
+
+	// @Test
+	public void headercookie() throws Exception {
+		Cookie myCookie = new Cookie("myCookie", "myCookie Value");
+		mockMvc.perform(get("/requestheader/cookie").cookie(myCookie)).andExpect(status().isOk()).andDo(print());
+		// mockMvc.perform(get("/requestheader/cookie").header("Cookie","myCookie=myCookie"))//不支持
+		// .andExpect(status().isOk()).andDo(print());
+	}
+
+	@Test
+	public void locale() throws Exception {
+		mockMvc.perform(get("/requestheader/locale").locale(Locale.CHINA)).andExpect(status().isOk()).andDo(print());
 //	        mockMvc.perform(get("/requestheader/locale").header("Accept-Language","en"))
 //	        .andExpect(status().isOk()).andDo(print());
-	        
-	    }
+
+	}
 }
