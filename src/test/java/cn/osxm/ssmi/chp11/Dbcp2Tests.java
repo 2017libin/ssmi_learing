@@ -9,8 +9,10 @@
 
 package cn.osxm.ssmi.chp11;
 import java.sql.Connection;
+import java.sql.Statement;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.junit.Test;
 /**
   * @ClassName: Dbcp2Tests
   * @Description: TODO
@@ -18,6 +20,8 @@ import org.apache.commons.dbcp2.BasicDataSource;
   */
 
 public class Dbcp2Tests {
+	
+	@Test
     public void test() throws Exception{
         String dirver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC";
@@ -34,7 +38,11 @@ public class Dbcp2Tests {
         dataSource.setMinIdle(8);// 最小空闲连接
         dataSource.setMaxIdle(16); // 最大空闲连接       
         dataSource.setMaxWaitMillis(6 * 10000);// 超时等待时间毫秒        
-        Connection conn = dataSource.getConnection();
+        Connection conn = dataSource.getConnection();//        PoolableConnection
+        String sql = "select * fro user";
+        Statement statement = conn.createStatement();
+        statement.executeQuery(sql);
+        conn.close();
         
         
         // 只会发现当前连接失效，再创建一个连接供当前查询使用
