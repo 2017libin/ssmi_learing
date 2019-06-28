@@ -54,6 +54,7 @@ public class C3p0Tests {
 		dataSource.setMaxPoolSize(10);
 		dataSource.setMinPoolSize(3);
 
+		dataSource.setMaxIdleTimeExcessConnections(6000);
 		dataSource.setAcquireIncrement(3);
 
 		Connection conn = dataSource.getConnection();
