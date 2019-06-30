@@ -18,29 +18,29 @@ package cn.osxm.ssmi.chp11.thread;
 public class ThreadSynchronizedSecurity {
 	static int iTotal = 0;
 
-	static int iAddTimes = 10;
+	static int iAddTimes = 1;
 
+    public void addOne() {
+        iAddTimes++;
+        iTotal++;
+        System.out.println(Thread.currentThread().getName() + "--->第  " + iAddTimes + " 次加1.");
+    }
+    
 	class Calculator implements Runnable {
 
 		@Override
 		public void run() {
 
-			while (iAddTimes > 0) {
+			while (iAddTimes <=10) {
 				synchronized (this) {
-					if (iAddTimes <= 0) {
+					if (iAddTimes >10) {
 						return;
 					}
-					System.out.println(Thread.currentThread().getName() + "--->第  " + iAddTimes + " 次加1.");
-					iTotal += 1;
-					iAddTimes--;
-					try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+				
+					addOne();
 				}
 			}
-			if (iAddTimes <= 0) {
+			if (iAddTimes >10) {
 				System.out.println(Thread.currentThread().getName() + "--->计算结束，计算结果=" + iTotal + ".");
 			}
 		}
@@ -65,5 +65,4 @@ public class ThreadSynchronizedSecurity {
 		thread3.start();
 		thread4.start();
 	}
-
 }

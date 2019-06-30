@@ -18,30 +18,27 @@ package cn.osxm.ssmi.chp11.thread;
 public class NoThreadSecurity {
     static int iTotal = 0;
 
-    static int iAddTimes = 10;
+    static int iAddTimes = 1;
 
-    class Calculator implements Runnable {
-
+    public void addOne() {
+        iAddTimes++;
+        iTotal++;
+    }
+    class MyCalculator implements Runnable {
         @Override
         public void run() {
-            while (iAddTimes > 0) {
+            while (iAddTimes <= 10) {
                 System.out.println(Thread.currentThread().getName() + "--->第  " + iAddTimes + " 次加1.");
-                iAddTimes--;
-                iTotal += 1;
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                addOne();
             }
-            if (iAddTimes <= 0) {
+            if (iAddTimes >10) {
                 System.out.println(Thread.currentThread().getName() + "--->计算结束，计算结果="+iTotal+".");
             }
         }
     }
 
     public static void main(String[] args) {
-        Calculator calculator = new NoThreadSecurity().new Calculator();
+        MyCalculator calculator = new NoThreadSecurity().new MyCalculator();
         Thread thread1 = new Thread(calculator, "1号计算器");
         Thread thread2 = new Thread(calculator, "2号计算器");
         Thread thread3 = new Thread(calculator, "3号计算器");
@@ -50,6 +47,5 @@ public class NoThreadSecurity {
         thread2.start();
         thread3.start();
         thread4.start();
-
     }
 }

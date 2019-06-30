@@ -16,59 +16,54 @@ package cn.osxm.ssmi.chp11.thread;
   */
 
 public class ThreadSynchroniazedMethodSecurity {
-    static int iTotal = 0;
+	  static int iTotal = 0;
 
-    static int iAddTimes = 10;
+	    static int iAddTimes = 1;
 
-    class Calculator implements Runnable {
+	    class Calculator implements Runnable {
 
-        @Override
-        public void run() {
-            while (iAddTimes > 0) {
-                synAddMethod();
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+	        @Override
+	        public void run() {
+	            while (iAddTimes <= 10) {
+	                synAddMethod();
 
-                if (iAddTimes <= 0) {
-                    System.out.println(Thread.currentThread().getName() + "--->计算结束，计算结果=" + iTotal + ".");
-                }
-            }
+	                if (iAddTimes > 10) {
+	                    System.out.println(Thread.currentThread().getName() + "--->计算结束，计算结果=" + iTotal + ".");
+	                }
+	            }
 
-        }
+	        }
 
-        synchronized void synAddMethod() {
-            synchronized (this) {
-                if (iAddTimes <= 0) {
-                    return;
-                }
-                System.out.println(Thread.currentThread().getName() + "--->第  " + iAddTimes + " 次加1.");
-                iTotal += 1;
-                iAddTimes--;
-            }
-        }
+	        synchronized void synAddMethod() {
+	            synchronized (this) {
+	                if (iAddTimes > 10) {
+	                    return;
+	                }
+	                iAddTimes++;
+	                iTotal++;
+	                System.out.println(Thread.currentThread().getName() + "--->第  " + iAddTimes + " 次加1.");
+	            }
+	        }
 
-    }
+	    }
 
-    /**
-     * @Title: main
-     * @Description: TODO
-     * @param args
-     */
+	    /**
+	     * @Title: main
+	     * @Description: TODO
+	     * @param args
+	     */
 
-    public static void main(String[] args) {
-        Calculator calculator = new ThreadSynchroniazedMethodSecurity().new Calculator();
-        Thread thread1 = new Thread(calculator, "1号计算器");
-        Thread thread2 = new Thread(calculator, "2号计算器");
-        Thread thread3 = new Thread(calculator, "3号计算器");
-        Thread thread4 = new Thread(calculator, "4号计算器");
-        thread1.start();
-        thread2.start();
-        thread3.start();
-        thread4.start();
+	    public static void main(String[] args) {
+	        Calculator calculator = new ThreadSynchroniazedMethodSecurity().new Calculator();
+	        Thread thread1 = new Thread(calculator, "1号计算器");
+	        Thread thread2 = new Thread(calculator, "2号计算器");
+	        Thread thread3 = new Thread(calculator, "3号计算器");
+	        Thread thread4 = new Thread(calculator, "4号计算器");
+	        thread1.start();
+	        thread2.start();
+	        thread3.start();
+	        thread4.start();
 
-    }
+	    }
 
 }

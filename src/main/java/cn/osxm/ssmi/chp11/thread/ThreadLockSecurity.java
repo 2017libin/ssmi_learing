@@ -19,44 +19,50 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 
 public class ThreadLockSecurity {
-	static int iTotal = 0;
+	   static int iTotal = 0;
 
-	static int iAddTimes = 10;
+	    static int iAddTimes = 1;
 
-	class Calculator implements Runnable {
-		Lock lock = new ReentrantLock();
+	    public void addOne() {
+	        System.out.println(Thread.currentThread().getName() + "--->第  " + iAddTimes + " 次加1.");
+	        iAddTimes++;
+	        iTotal++;       
+	    }
 
-		@Override
-		public void run() {
-			while (iAddTimes > 0) {
-				try {
-					lock.lock();
+	    class Calculator implements Runnable {
+	        Lock lock = new ReentrantLock();
+	        @Override
+	        public void run() {
+	            while (iAddTimes <10) {
+	                try {
+	                    lock.lock();
 
-					if (iAddTimes <= 0) {
-						return;
-					}
-					System.out.println(Thread.currentThread().getName() + "--->第  " + iAddTimes + " 次加1.");
-					iTotal += 1;
-					iAddTimes--;
+	                    if (iAddTimes > 10) {
+	                        return;
+	                    }
+	                    addOne();
 
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				} finally {
-					lock.unlock();
-
-					try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-
-				}
-			}
-
-			if (iAddTimes <= 0) {
-				System.out.println(Thread.currentThread().getName() + "--->计算结束，计算结果=" + iTotal + ".");
-			}
-		}
-
-	}
+	                } catch (Exception e1) {
+	                    e1.printStackTrace();
+	                } finally {
+	                    lock.unlock();
+	                }
+	            }
+	            if (iAddTimes > 10) {
+	                System.out.println(Thread.currentThread().getName() + "--->计算结束，计算结果=" + iTotal + ".");
+	            }
+	        }
+	    }
+	    public static void main(String[] args) {
+	        // TODO Auto-generated method stub
+	        Calculator calculator = new ThreadLockSecurity().new Calculator();
+	        Thread thread1 = new Thread(calculator, "1号计算器");
+	        Thread thread2 = new Thread(calculator, "2号计算器");
+	        Thread thread3 = new Thread(calculator, "3号计算器");
+	        Thread thread4 = new Thread(calculator, "4号计算器");
+	        thread1.start();
+	        thread2.start();
+	        thread3.start();
+	        thread4.start();
+	    }
 }
