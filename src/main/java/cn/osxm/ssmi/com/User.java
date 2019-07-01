@@ -20,72 +20,86 @@ import java.util.Date;
 
 public class User implements Serializable {
 
-	private static final long serialVersionUID = 5041799435667583775L;
+    private static final long serialVersionUID = 5041799435667583775L;
 
-	private int id;
+    private int id;
 
-	private String name;
+    private String name;
 
-	private int deptId;
+    private int deptId;
 
-	private int age;
+    private int age;
 
+    private String email;
 
-	public User() {
+    public User() {
 
-	}
+    }
 
-	public User(int id, String name) {
-		this.id = id;
-		this.name = name;
-	}
+    public User(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
-	public int getId() {
+    public User(int id, String name,String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+    
+    
+    public int getId() {
 
-		return id;
-	}
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public User(String name) {
-		this.name = name;
-	}
+    public User(String name) {
+        this.name = name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public int getDeptId() {
-		return deptId;
-	}
+    public int getDeptId() {
+        return deptId;
+    }
 
-	public void setDeptId(int deptId) {
-		this.deptId = deptId;
-	}
+    public void setDeptId(int deptId) {
+        this.deptId = deptId;
+    }
 
-	public int getAge() {
+    public int getAge() {
 
-		return age;
-	}
+        return age;
+    }
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+    public void setAge(int age) {
+        this.age = age;
+    }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	// use by method component, @Bean注解的属性 initMethod
-	public void userInit() {
-		System.out.println("Method user() Bean: initMethod");
-	}
+    // use by method component, @Bean注解的属性 initMethod
+    public void userInit() {
+        System.out.println("Method user() Bean: initMethod");
+    }
 
-	public void userDestroy() {
-		System.out.println("Method user() Bean: destroyMethod");
-	}
+    public void userDestroy() {
+        System.out.println("Method user() Bean: destroyMethod");
+    }
 }

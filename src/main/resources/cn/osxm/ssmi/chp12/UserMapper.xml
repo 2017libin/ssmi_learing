@@ -17,9 +17,15 @@
 		select * from user where name = #{name}
 	</select>
 
-	<resultMap id="detailedUserResultMap" type="cn.osxm.ssmi.com.User" autoMapping="false">
-		<id property="id" column="id" />
+	<resultMap id="detailedUserResultMap" type="cn.osxm.ssmi.com.User" autoMapping="true">
+		<!-- <id property="id" column="id" />
 		<result property="email" column="email_address" />
+		-->
+		<constructor> 
+		    <idArg column="id" javaType="_int"/>
+		    <arg   column="name" javaType="String"/>
+		    <arg   column="email_address" javaType="String"/>
+		  </constructor>
 	</resultMap>
 	<select id="selectUserDetail" resultMap="detailedUserResultMap">
 		select * from User where id = #{id}
