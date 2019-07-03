@@ -20,6 +20,7 @@
 	<plugins>
 		<plugin interceptor="cn.osxm.ssmi.chp12.plugin.MyPlugin" />
 	</plugins>
+	
 
 	<!-- 2. 环境配置 -->
 	<environments default="development">

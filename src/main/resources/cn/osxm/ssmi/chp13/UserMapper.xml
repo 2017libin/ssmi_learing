@@ -16,25 +16,37 @@
 
 	<!-- 包含if的动态sql -->
 	<select id="findUserListWithNameIf" resultType="cn.osxm.ssmi.com.User">
-		select * from User where id is not null
-		<if test="name != null">
-			<!-- AND name = #{name} -->
-			AND name like '%${name}%'
-		</if>
+		<!-- select * from User where id is not null-->
+		<!--select * from User where-->
+		select * from User
+		<where>
+			<if test="name != null">
+				<!-- AND name = #{name} -->
+				 name like '%${name}%'
+			</if>
+		</where>
 	</select>
 
 	<select id="findUserListWithChoose" resultType="cn.osxm.ssmi.com.User">
-		select * from User where id is not null
-		<choose>
-			<when test="name != null">
-				AND name like '%${name}%'
-			</when>
-			<when test="deptId != null">
-				AND deptId = #{deptId}
-			</when>
-			<otherwise>
-				AND name is not null
-			</otherwise>
-		</choose>
+		select * from User
+		<where>
+			<choose>
+				<when test="name != null">
+					AND name like '%${name}%'
+				</when>
+				<when test="deptId != null">
+					AND deptId = #{deptId}
+				</when>
+				<otherwise>
+					AND name is not null
+				</otherwise>
+			</choose>
+		</where>		
+	</select>
+	<select id="findUserListWithForEach" resultType="cn.osxm.ssmi.com.User">
+		select * from User
+		 <foreach collection="useridList" item="user_id" open="where id in(" close=")" separator=",">
+              #{user_id}
+         </foreach>	
 	</select>
 </mapper>

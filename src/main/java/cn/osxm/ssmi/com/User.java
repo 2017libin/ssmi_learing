@@ -19,87 +19,95 @@ import java.util.Date;
  */
 
 public class User implements Serializable {
+	  private static final long serialVersionUID = 5041799435667583775L;
 
-    private static final long serialVersionUID = 5041799435667583775L;
+	    private int id;
 
-    private int id;
+	    private String name;
 
-    private String name;
+	    private int deptId;
 
-    private int deptId;
+	    private int age;
 
-    private int age;
+	    private String email;
 
-    private String email;
+	    private String country;
 
-    public User() {
+	    public User() {
 
-    }
+	    }
 
-    public User(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+	    public User(int id, String name) {
+	        this.id = id;
+	        this.name = name;
+	    }
 
-    public User(int id, String name,String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
-    
-    
-    public int getId() {
+	    public User(int id, String name, String email) {
+	        this.id = id;
+	        this.name = name;
+	        this.email = email;
+	    }
 
-        return id;
-    }
+	    public int getId() {
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	        return id;
+	    }
 
-    public User(String name) {
-        this.name = name;
-    }
+	    public void setId(int id) {
+	        this.id = id;
+	    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	    public User(String name) {
+	        this.name = name;
+	    }
 
-    public String getName() {
-        return name;
-    }
+	    public void setName(String name) {
+	        this.name = name;
+	    }
 
-    public int getDeptId() {
-        return deptId;
-    }
+	    public String getName() {
+	        return name;
+	    }
 
-    public void setDeptId(int deptId) {
-        this.deptId = deptId;
-    }
+	    public int getDeptId() {
+	        return deptId;
+	    }
 
-    public int getAge() {
+	    public void setDeptId(int deptId) {
+	        this.deptId = deptId;
+	    }
 
-        return age;
-    }
+	    public int getAge() {
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+	        return age;
+	    }
 
-    public String getEmail() {
-        return email;
-    }
+	    public void setAge(int age) {
+	        this.age = age;
+	    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	    public String getEmail() {
+	        return email;
+	    }
 
-    // use by method component, @Bean注解的属性 initMethod
-    public void userInit() {
-        System.out.println("Method user() Bean: initMethod");
-    }
+	    public void setEmail(String email) {
+	        this.email = email;
+	    }
 
-    public void userDestroy() {
-        System.out.println("Method user() Bean: destroyMethod");
-    }
+	    public String getCountry() {
+	        return country;
+	    }
+
+	    public void setCountry(String country) {
+	        this.country = country;
+	    }
+
+	    // use by method component, @Bean注解的属性 initMethod
+	    public void userInit() {
+	        System.out.println("Method user() Bean: initMethod");
+	    }
+
+	    public void userDestroy() {
+	        System.out.println("Method user() Bean: destroyMethod");
+	    }
 }

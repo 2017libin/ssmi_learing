@@ -8,6 +8,7 @@
  */
 
 package cn.osxm.ssmi.chp13;
+
 import java.io.InputStream;
 import java.util.List;
 
@@ -17,49 +18,59 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import cn.osxm.ssmi.com.User;
+
 /**
-  * @ClassName: DynamicSqlDemo
-  * @Description: TODO
-  * @author osxm:oscarxueming
-  */
+ * @ClassName: DynamicSqlDemo
+ * @Description: TODO
+ * @author osxm:oscarxueming
+ */
 
 public class DynamicSqlDemo {
 
 	/**
-	  * @Title: main
-	  * @Description: TODO
-	  * @param args
-	  */
+	 * @Title: main
+	 * @Description: TODO
+	 * @param args
+	 */
+	public static void main(String[] args) throws Exception {
+		// 1.根据XML配置构建 SqlSessionFactory
+		String resource = "cn/osxm/ssmi/chp13/mybatis-config.xml";
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+		// 2.从SqlSessionFactory打开一个SqlSession
+		SqlSession session = sqlSessionFactory.openSession();
+		// 3.执行DB操作并关闭Session
+		try {
 
-	   public static void main(String[] args) throws Exception {
-	        // 1.根据XML配置构建 SqlSessionFactory
-	        String resource = "cn/osxm/ssmi/chp13/mybatis-config.xml";
-	        InputStream inputStream = Resources.getResourceAsStream(resource);
-	        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-	        // 2.从SqlSessionFactory打开一个SqlSession
-	        SqlSession session = sqlSessionFactory.openSession();
-	        // 3.执行DB操作并关闭Session
-	        try {
-	            
-	          
-	            UserMapper mapper = session.getMapper(UserMapper.class);
-	            System.out.println("begin:if的使用");
-	            List<User> list = mapper.findUserListWithNameIf("Chen ");
-	            for(User user:list) {
-	                System.out.println(user.getName());
-	            }
-	            System.out.println("end:if的使用");
-	            
-	            System.out.println("begin:choose的使用");
-	            list = mapper.findUserListWithChoose(null,1);
-	            for(User user:list) {
-	                System.out.println(user.getName());
-	            }
-	            System.out.println("end:choose的使用");
-	        } finally {
-	            session.close();
-	        }
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			System.out.println("begin:if的使用");
+			List<User> list = mapper.findUserListWithNameIf("use");
+			for (User user : list) {
+				System.out.println(user.getName());
+			}
+			System.out.println("end:if的使用");
 
-	    }
+			System.out.println("begin:choose的使用");
+			list = mapper.findUserListWithChoose(null, 1);
+			for (User user : list) {
+				System.out.println(user.getName());
+			}
+			System.out.println("end:choose的使用");
+
+			System.out.println("begin:foreach的使用");
+			List<String> useridList = new ArrayList<String>();
+			useridList.add("1");
+			useridList.add("2");
+			list = mapper.findUserListWithForEach(useridList);
+			for (User user : list) {
+				System.out.println(user.getName());
+			}
+			System.out.println("end:foreach的使用");
+
+		} finally {
+			session.close();
+		}
+
+	}
 
 }

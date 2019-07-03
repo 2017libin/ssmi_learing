@@ -4,14 +4,26 @@
 		<!--这个输出控制台的配置 -->
 		<Console name="Console" target="SYSTEM_OUT">
 			<!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
-			<ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" />
+			<ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY" />
 			<!-- 输出日志的格式 -->
 			<PatternLayout pattern="%d{DEFAULT} %c{1} %p [%t] %m%n" />
 		</Console>
+		<RollingFile name="RollingFileLog" fileName="${sys:user.home}/logs/rollfile.log"
+			filePattern="${sys:user.home}/logs/$${date:yyyy-MM}/rollfile-%d{yyyy-MM-dd}-%i.log">
+			<ThresholdFilter level="all" onMatch="ACCEPT" onMismatch="DENY" />
+			<PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="4"/>
+				<SizeBasedTriggeringPolicy size="100 MB"/>
+				<DefaultRolloverStrategy max="3"/>
+			</Policies>
+		</RollingFile>
 	</Appenders>
 	<Loggers>
 		<Root level="all">
 			<AppenderRef ref="Console" />
 		</Root>
+		<logger name="org.apache.ibatis" level="DEBUG"></logger>
+		<logger name="cn.osxm.ssmi.chp13" level="DEBUG"></logger>
 	</Loggers>
 </Configuration>
