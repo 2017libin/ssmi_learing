@@ -33,5 +33,6 @@
 	<mappers>
 		<mapper resource="cn/osxm/ssmi/chp13/UserMapper.xml" />
 		<mapper resource="cn/osxm/ssmi/chp13/DemoMapper.xml" />
+	    <mapper class="cn.osxm.ssmi.chp13.UserAnnoMapper"/>
 	</mappers>
 </configuration>
