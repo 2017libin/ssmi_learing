@@ -49,4 +49,15 @@
               #{user_id}
          </foreach>	
 	</select>
+	
+	<insert id="insertUser"  useGeneratedKeys="true" keyProperty="id">
+		insert into User (name,age) values (#{name},#{age})
+	</insert>
+	
+	<insert id="insertUserOracle" parameterType="cn.osxm.ssmi.com.User">
+	   <selectKey keyProperty="id" resultType="int" order="BEFORE">
+         select user_id_seq.nextval as id from dual
+       </selectKey>
+		insert into T_User (id,name,age) values (#{id},#{name},#{age})
+	</insert>
 </mapper>

@@ -30,4 +30,7 @@ public interface UserMapper {
 	public List<User> findUserListWithNameIf(@Param("name") String name);
 
 	public List<User> findUserListWithChoose(@Param("name") String name, @Param("deptId") int deptId);
+	
+	public void insertUser(User user);
+	public void insertUserOracle(User user);
 }

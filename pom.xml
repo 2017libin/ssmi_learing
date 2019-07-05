@@ -103,6 +103,12 @@
 			<version>5.0.8.RELEASE</version>
 		</dependency>
 		<!-- Db Access -->
+		<!-- Oralce -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>	
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
