@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<context:component-scan base-package="cn.osxm.ssmi.chp14" />
+
+	<!-- <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"> <property name="driverClassName" 
+		value="com.mysql.cj.jdbc.Driver" /> <property name="url" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" /> <property 
+		name="username" value="root" /> <property name="password" value="123456" /> </bean> -->
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" />
+		<property name="user" value="root" />
+		<property name="password" value="123456" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	
+   <!--  <bean id="userDao" class="cn.osxm.ssmi.chp14.UserDaoImpl">
+	     <constructor-arg ref="jdbcTemplate" />
+	</bean>-->
+	
+	<!--<bean id="userDaoSupport" class="cn.osxm.ssmi.chp14.UserDaoSupportImpl">
+	  <property name="dataSource" ref="dataSource"></property>
+	</bean>-->
+	
+	<bean id="hibernateSessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>cn/osxm/ssmi/chp11/hibernate/user.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.HSQLDialect
+			</value>
+		</property>
+	</bean>
+	
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="SessionFactory" ref="hibernateSessionFactory"/>
+	</bean>
+    <bean id="userDaoHibernateSupport" class="cn.osxm.ssmi.chp14.UserDaoHibernateDaoSupportImpl">
+	  <property name="sessionFactory" ref="hibernateSessionFactory"/>
+	</bean>
+</beans>

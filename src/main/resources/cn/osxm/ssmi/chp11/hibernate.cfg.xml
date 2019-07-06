@@ -33,7 +33,7 @@
         
         
         
-        <!-- C3P0连接池设定--> 
+        <!-- C3P0连接池设定
 
 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider </property> 
 
@@ -47,11 +47,11 @@
 		
 		<property name="hibernate.c3p0.idle_test_period">120</property> 
 		
-		<property name="hibernate.c3p0.acquire_increment">2</property> 
+		<property name="hibernate.c3p0.acquire_increment">2</property> --> 
         
         
         <!--3、加载配置文件  -->
         <!--基于xml映射文件： 映射文件加载。路径 -->
-        <mapping resource="cn/osxm/ssmi/chp11/User.hbm.xml"></mapping>
+        <mapping resource="cn/osxm/ssmi/chp11/hibernate/User.hbm.xml"></mapping>
     </session-factory>
-</hibernate-configuration
+</hibernate-configuration>

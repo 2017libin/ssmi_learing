@@ -62,7 +62,7 @@ public class DynamicSqlDemo {
 			List<String> useridList = new ArrayList<String>();
 			useridList.add("1");
 			useridList.add("2");
-			list = mapper.findUserListWithForEach(useridList);
+			//list = mapper.findUserListWithForEach(useridList);
 			for (User user : list) {
 				System.out.println(user.getName());
 			}

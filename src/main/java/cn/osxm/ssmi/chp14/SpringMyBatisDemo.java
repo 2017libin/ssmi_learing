@@ -16,34 +16,40 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import cn.osxm.ssmi.com.User;
 
 /**
-  * @ClassName: SpringMyBatisDemo
-  * @Description: TODO
-  * @author osxm:oscarxueming
-  */
+ * @ClassName: SpringMyBatisDemo
+ * @Description: TODO
+ * @author osxm:oscarxueming
+ */
 
 public class SpringMyBatisDemo {
 
 	/**
-	  * @Title: main
-	  * @Description: TODO
-	  * @param args
-	  */
+	 * @Title: main
+	 * @Description: TODO
+	 * @param args
+	 */
+
+	/**
+	 * @Title: main
+	 * @Description: TODO
+	 * @param args
+	 */
 
 	public static void main(String[] args) {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-mybatis.xml", SpringMyBatisDemo.class);
-        //1.方式1-映射器
-        UserMapper userMapper = (UserMapper) context.getBean("userMapper");
-        System.out.println(userMapper.getUser("1"));
-        
-        //2.方式2-SqlSession
-        SqlSession sqlSession = (SqlSession) context.getBean("sqlSession");
-        User user = sqlSession.selectOne("cn.osxm.ssmi.chp14.UserMapper.getUser", "1");
-        System.out.println(user);
-        //3.方式3-SqlSessionDaoSupport
-        UserDao userDao = (UserDao) context.getBean("userDao");
-        user = userDao.getUser("1");
-        System.out.println(user);
+		// 1.方式1-映射器
+		UserMapper userMapper = (UserMapper) context.getBean("userMapper");
+		System.out.println(userMapper.getUser("1"));
+
+		// 2.方式2-SqlSession
+		SqlSession sqlSession = (SqlSession) context.getBean("sqlSession");
+		User user = sqlSession.selectOne("cn.osxm.ssmi.chp14.UserMapper.getUser", "1");
+		System.out.println(user);
+		// 3.方式3-SqlSessionDaoSupport
+		UserDaoMyBatisImpl userDao = (UserDaoMyBatisImpl) context.getBean("userDao");
+		user = userDao.getUser("1");
+		System.out.println(user);
 
 	}
 

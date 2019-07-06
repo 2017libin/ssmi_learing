@@ -40,10 +40,10 @@ public class CacheTest {
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		session1 = sqlSessionFactory.openSession();
-		session2 = sqlSessionFactory.openSession();
+		session2 = sqlSessionFactory.openSession(); 
 	}
 
-	// @Test
+	//@Test
 	public void level1SameMethodSameParem() {
 		UserMapper mapper = session1.getMapper(UserMapper.class);
 		System.out.println("第一次查询");
@@ -85,9 +85,9 @@ public class CacheTest {
 		session1.close();
 
 		mapper = session2.getMapper(UserMapper.class);
-		System.out.println("不同Session相同查询");
+		System.out.println("第二次不同Session相同的查询");
 		map = mapper.selectUserMap(1);
-		System.out.println("不同Session相同查询" + map.toString());
+		System.out.println("第二次不同Session相同的查询结果" + map.toString());
 	}
 
 	// @Test
