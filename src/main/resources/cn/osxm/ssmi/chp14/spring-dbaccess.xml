@@ -9,19 +9,26 @@
 
 	<context:component-scan base-package="cn.osxm.ssmi.chp14" />
 
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+    </bean>
 	<!-- <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"> <property name="driverClassName" 
 		value="com.mysql.cj.jdbc.Driver" /> <property name="url" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" /> <property 
 		name="username" value="root" /> <property name="password" value="123456" /> </bean> -->
 
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	<!--  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" />
 		<property name="user" value="root" />
 		<property name="password" value="123456" />
-	</bean>
+	</bean>-->
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
 	
@@ -33,7 +40,7 @@
 	  <property name="dataSource" ref="dataSource"></property>
 	</bean>-->
 	
-	<bean id="hibernateSessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	<!-- <bean id="hibernateSessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mappingResources">
 			<list>
@@ -52,5 +59,9 @@
 	</bean>
     <bean id="userDaoHibernateSupport" class="cn.osxm.ssmi.chp14.UserDaoHibernateDaoSupportImpl">
 	  <property name="sessionFactory" ref="hibernateSessionFactory"/>
-	</bean>
+	</bean>-->
+	
+	<!-- JPA -->
+	<bean id="entityManagerFactory" class= "org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
+    </bean> 
 </beans>

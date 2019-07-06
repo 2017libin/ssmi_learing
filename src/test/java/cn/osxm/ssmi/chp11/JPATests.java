@@ -22,13 +22,13 @@ import org.junit.Test;
   */
 
 public class JPATests {
-	 //@Test
+	//@Test
     public void createTable() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("ssmi");
         factory.close();
     }
     
-    @Test
+    //@Test
     public void add() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("ssmi");
         EntityManager em = factory.createEntityManager();
@@ -42,7 +42,7 @@ public class JPATests {
     }
     
     
-    //@Test
+    @Test
     public void query() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("ssmi");
         EntityManager em = factory.createEntityManager();
