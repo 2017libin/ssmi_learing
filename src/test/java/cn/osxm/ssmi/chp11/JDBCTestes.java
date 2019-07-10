@@ -174,7 +174,7 @@ public class JDBCTestes {
     public void callableStatementUsage() throws Exception {
         CallableStatement cstmt = connection.prepareCall("{call my_procedure(?)}");   
         cstmt.registerOutParameter(1, java.sql.Types.VARCHAR);   
-        cstmt.executeUpdate();  
+        //cstmt.executeUpdate();  
         cstmt.execute();
         byte  x= cstmt.getByte(1);   
         System.out.println("x=" + x);

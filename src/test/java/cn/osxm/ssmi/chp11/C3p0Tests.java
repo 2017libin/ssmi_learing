@@ -37,10 +37,10 @@ public class C3p0Tests {
 
 	@BeforeClass
 	public static void set() {
-		dirver = "oracle.jdbc.OracleDriver";
+		/*dirver = "oracle.jdbc.OracleDriver";
 		url = "jdbc:oracle:thin:@pc-hfplm:1521:orcl";
 		username = "oscar999";
-		password = "oscar999";
+		password = "oscar999";*/
 	}
 
 	// @Test
@@ -124,7 +124,7 @@ public class C3p0Tests {
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
 
 		Connection conn = dataSource.getConnection();
-		String sql = "select * from my_user";
+		String sql = "select * from user";
 		Statement statement = conn.createStatement();
 		ResultSet rset = statement.executeQuery(sql);
 		while (rset.next()) {
