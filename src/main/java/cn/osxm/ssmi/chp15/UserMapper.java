@@ -8,12 +8,15 @@
  */
 
 package cn.osxm.ssmi.chp15;
+
+import cn.osxm.ssmi.com.User;
+
 /**
-  * @ClassName: UserMapper
-  * @Description: TODO
-  * @author osxm:oscarxueming
-  */
+ * @ClassName: UserMapper
+ * @Description: TODO
+ * @author osxm:oscarxueming
+ */
 
 public interface UserMapper {
-	 public User getUser(int id);
+	public User getUser(int id);
 }

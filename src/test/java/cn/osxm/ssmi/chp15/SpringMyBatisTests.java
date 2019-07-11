@@ -25,7 +25,7 @@ import cn.osxm.ssmi.com.User;
 @ContextConfiguration(locations = "classpath:cn/osxm/ssmi/chp15/spring-mybatis.xml")
 public class SpringMyBatisTests {
 
-    @Autowired
+	@Autowired
     public UserMapper userMapper;
     
     @Test
@@ -33,5 +33,4 @@ public class SpringMyBatisTests {
         User user = userMapper.getUser(1);
         System.out.println(user.getName());
     }
-
 }
