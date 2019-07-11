@@ -8,6 +8,9 @@
  */
 
 package cn.osxm.ssmi.chp14.transaction;
+
+import cn.osxm.ssmi.com.User;
+
 /**
   * @ClassName: UserDao
   * @Description: TODO

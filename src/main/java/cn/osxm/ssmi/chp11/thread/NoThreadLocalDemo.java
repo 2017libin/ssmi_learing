@@ -8,7 +8,7 @@
  */
 
 package cn.osxm.ssmi.chp11.thread;
-import cn.osxm.ssmi.chp11.thread.NoThreadSecurity.Calculator;
+
 /**
   * @ClassName: NoThreadLocalDemo
   * @Description: TODO

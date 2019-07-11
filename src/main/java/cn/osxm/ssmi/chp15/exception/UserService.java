@@ -8,6 +8,9 @@
  */
 
 package cn.osxm.ssmi.chp15.exception;
+
+import org.springframework.stereotype.Service;
+
 /**
   * @ClassName: UserService
   * @Description: TODO

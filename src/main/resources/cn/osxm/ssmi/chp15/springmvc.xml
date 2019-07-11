@@ -63,8 +63,46 @@
 		<property name="resolveLazily" value="true" />
 
 	</bean>
-
-
+  
+     <!-- 自定义的实现类 -->
+    <bean id="exceptionHandler" class="com.enh.test.CustomExceptionHandler"/>
+  	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<!-- 为所有的异常定义默认的异常处理页面，exceptionMappings未定义的异常使用本默认配置 -->  
+		 <property name="order" value="-1"/>
+		<property name="defaultErrorView" value="error"/>
+		 <!-- 定义异常处理页面用来获取异常信息的变量名，默认名为exception -->  
+		<property name="exceptionAttribute" value="ex"></property>  
+		<property name="defaultStatusCode">
+			<value>500</value>
+		</property>
+		  <!-- 
+		　　　　定义需要特殊处理的异常，用类名或完全路径名作为key，异常页文件名作为值，
+		　　　　将不同的异常映射到不同的页面上。
+		　　 -->  
+		    <property name="exceptionMappings">  
+		        <props>  
+		            <prop key="IOException">error/ioexp</prop>  
+		            <prop key="java.sql.SQLException">error/sqlexp</prop>  
+		        </props>  
+		    </property>  
+		<property name="warnLogCategory">
+			<value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>
+		</property>
+		<!-- 表示当抛出异常但没有在exceptionMappings里面找到对应的异常时 返回名叫defaultView的视图-->
+		<property name="defaultErrorView" value="defaultView"/>
+		    <!-- 定义在发生异常时视图跟返回码的对应关系 -->
+		<property name="statusCodes">
+			<props>
+				<!-- 表示在发生NumberFormatException时返回视图number，然后这里定义发生异常时视图number对应的HttpServletResponse的返回码是500 -->
+				<prop key="error">500</prop>
+				<prop key="null">503</prop>
+				<!-- <prop key="runtime">502</prop> -->
+			</props>
+		</property>
+		<!-- 表示在发生异常时默认的HttpServletResponse的返回码是多少，默认是200 -->
+		<property name="defaultStatusCode" value="404"/>
+		
+	</bean>
 
 	<!-- 配置ViewResolver 。可用多个ViewResolver 。使用order属性排序。 InternalResourceViewResolver 放在最后 -->
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">

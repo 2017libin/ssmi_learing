@@ -140,5 +140,5 @@ public class ThreadDemo {
      * public void doAdd(CountDownLatch countDownLatch) { for (int i = 0; i < 4;
      * i++) { new Thread(new Runnable() { public void run() { for (int j = 0; j <
      * 25; j++) { count++; } countDownLatch.countDown(); } }).start(); } }
-     *//
+     */
 }
