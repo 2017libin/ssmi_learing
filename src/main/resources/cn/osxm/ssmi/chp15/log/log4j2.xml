@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Properties>
+		<Property name="filename">D:/logs/test.log</Property>
+	</Properties>
+	<ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY" />
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<!--<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" /> -->
+			<!--<PatternLayout pattern="%c %logger %C %F %M %p %m %ex %d %t %tid %pid" /> -->
+			<!--<PatternLayout pattern="%highlight{%d %-5level [%t]%l - %msg%n}" /> -->
+			<!--<PatternLayout pattern="%l %L" /> -->
+			<PatternLayout
+				pattern="%highlight{[%p] %-d{yyyy-MM-dd HH:mm:ss} --> %l%n}{FATAL=red, ERROR=red, WARN=yellow, INFO=cyan, DEBUG=cyan,TRACE=blue}" />
+		</Console>
+		<File name="File" fileName="${filename}">
+			<!--<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" /> -->
+			<PatternLayout
+				pattern="%highlight{[%p] %-d{yyyy-MM-dd HH:mm:ss} --> %l%n}{FATAL=red, ERROR=red, WARN=yellow, INFO=cyan, DEBUG=cyan,TRACE=blue}" />
+		</File>
+	</Appenders>
+	<Loggers>
+		<Logger name="cn.osxm" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="File" />
+		</Logger>
+		<Root level="error">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>
