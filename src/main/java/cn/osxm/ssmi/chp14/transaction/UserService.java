@@ -18,7 +18,11 @@ import cn.osxm.ssmi.com.User;
   */
 
 public interface UserService {
-	  public void addUser(User user);
-	    
-	    public void addUserNoCommit(User user);
+	   public int addUser(User user)  ;
+	   
+	   public int addUserException(User user) throws Exception ;
+	   
+	   public int addUserRuntimeException(User user) ;
+	   
+	   public int addUserCatchRuntimeException(User user) ;
 }

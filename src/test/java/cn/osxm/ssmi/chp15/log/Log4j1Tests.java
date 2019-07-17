@@ -15,9 +15,9 @@ package cn.osxm.ssmi.chp15.log;
   */
 
 public class Log4j1Tests {
-	 /*  protected static final org.apache.log4j.Logger log4jLogger =  org.apache.log4j.LogManager.getLogger(Log4j1Tests.class);
-    @Test
-    public void log() {
-        log4jLogger.info("test");
-    }*/
+	  protected static final org.apache.log4j.Logger log4jLogger =  org.apache.log4j.LogManager.getLogger(Log4j1Tests.class);
+	    @Test
+	    public void log() {
+	        log4jLogger.info("test");
+	    }
 }

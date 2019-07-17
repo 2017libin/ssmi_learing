@@ -11,7 +11,7 @@ import org.junit.Test;
 
 public class LogTests {
 
-    protected static final org.apache.logging.log4j.Logger log4jLogger = org.apache.logging.log4j.LogManager.getLogger();
+	protected static final org.apache.logging.log4j.Logger log4jLogger = org.apache.logging.log4j.LogManager.getLogger();
 
     protected static final org.apache.commons.logging.Log jclLogger = org.apache.commons.logging.LogFactory.getLog(LogTests.class);
 

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="OFF">
+<Configuration status="ERROR">
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 		</Console>
 	</Appenders>
 	<Loggers>
-		<logger name="com.osxm" level="DEBUG"></logger>
-		<logger name="org.mybatis" level="DEBUG"></logger>
-		<Root level="trace">
+		<!-- <logger name="cn.osxm.UserMapper.selectUser" level="TRACE"></logger>-->
+		 <logger name="cn.osxm.UserMapper" level="TRACE"></logger>
+		 <!-- <logger name="org.apache.ibatis" level="TRACE"></logger>-->
+		 <!-- <logger name="org.mybatis" level="DEBUG"></logger>-->
+		<Root level="ERROR">
 			<AppenderRef ref="Console" />
 		</Root>
 	</Loggers>

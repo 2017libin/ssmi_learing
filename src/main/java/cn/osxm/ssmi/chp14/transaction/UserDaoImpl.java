@@ -30,35 +30,35 @@ import cn.osxm.ssmi.com.User;
 //@Repository(value = "userDao")
 public class UserDaoImpl implements UserDao {
 
-  // @Autowired
-  private JdbcTemplate jdbcTemplate;
+	  // @Autowired
+	  private JdbcTemplate jdbcTemplate;
 
-  public UserDaoImpl(JdbcTemplate jdbcTemplate) {
-      this.jdbcTemplate = jdbcTemplate;
-  }
+	  public UserDaoImpl(JdbcTemplate jdbcTemplate) {
+	      this.jdbcTemplate = jdbcTemplate;
+	  }
 
-  @Override
-  public void add(User user) {
-      String sql = "insert into user(name) values(?)";
-      jdbcTemplate.update(sql, user.getName());
-  }
-  
-  @Override
-  public void addNoCommit(User user) {
-      String sql = "insert into user(name) values(?)";
-      try {
-          Connection connection = jdbcTemplate.getDataSource().getConnection();
-          connection.setAutoCommit(false);
-          PreparedStatement pstmt =  connection.prepareStatement(sql);
-          pstmt.setString(1, user.getName());
-          pstmt.execute();
-          pstmt.close();
-          connection.close();
-      } catch (SQLException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-      }        
-      //jdbcTemplate.update(sql, user.getName());
-  }
+	  @Override
+	  public void add(User user) {
+	      String sql = "insert into user(name) values(?)";
+	      jdbcTemplate.update(sql, user.getName());
+	  }
+	  
+	  @Override
+	  public void addNoCommit(User user) {
+	      String sql = "insert into user(name) values(?)";
+	      try {
+	          Connection connection = jdbcTemplate.getDataSource().getConnection();
+	          connection.setAutoCommit(false);
+	          PreparedStatement pstmt =  connection.prepareStatement(sql);
+	          pstmt.setString(1, user.getName());
+	          pstmt.execute();
+	          pstmt.close();
+	          connection.close();
+	      } catch (SQLException e) {
+	          // TODO Auto-generated catch block
+	          e.printStackTrace();
+	      }        
+	      //jdbcTemplate.update(sql, user.getName());
+	  }
 
 }

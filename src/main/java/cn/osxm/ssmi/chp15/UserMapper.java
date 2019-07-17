@@ -9,6 +9,8 @@
 
 package cn.osxm.ssmi.chp15;
 
+import java.util.Map;
+
 import cn.osxm.ssmi.com.User;
 
 /**
@@ -19,4 +21,7 @@ import cn.osxm.ssmi.com.User;
 
 public interface UserMapper {
 	public User getUser(int id);
+
+	public Map selectUser(int id);
+
 }
