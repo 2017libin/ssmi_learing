@@ -3,6 +3,8 @@
  */
 package cn.osxm.ssmi.chp15;
 
+import org.junit.Test;
+
 /**
  * @author xuemi
  *

@@ -8,6 +8,9 @@
  */
 
 package cn.osxm.ssmi.chp15.log;
+
+import org.junit.Test;
+
 /**
   * @ClassName: Log4j1Tests
   * @Description: TODO
