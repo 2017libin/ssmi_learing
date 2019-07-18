@@ -27,7 +27,7 @@ import cn.osxm.ssmi.com.User;
   * @author osxm:oscarxueming
   */
 
-//@Repository(value = "userDao")
+@Repository(value = "userDao")
 public class UserDaoImpl implements UserDao {
 
 	  // @Autowired

@@ -13,6 +13,7 @@
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
 	</bean>-->
+	<context:component-scan base-package="cn.osxm.ssmi.chp14.transaction" />
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" />
