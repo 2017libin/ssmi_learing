@@ -45,14 +45,14 @@ public class LoggerTests {
 	       logger.debug("This is Slf4 Log Test");
 	    }
 	    
-	    @Test
+	    //@Test
 	    public void myBatisLog() {
 	        org.apache.ibatis.logging.Log logger = org.apache.ibatis.logging.LogFactory.getLog("cn.osxm.ssmi.chp13");
 	        logger.debug("This is MyBatis Log Test");
 	    }
 	    
 	    
-	    //@Test
+	    @Test
 	    public void mybatisLog() {
 	        UserMapper mapper = session.getMapper(UserMapper.class);
 	        User user = mapper.selectUser(1);
