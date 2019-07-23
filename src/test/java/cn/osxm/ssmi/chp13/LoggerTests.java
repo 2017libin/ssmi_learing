@@ -57,6 +57,7 @@ public class LoggerTests {
 	        UserMapper mapper = session.getMapper(UserMapper.class);
 	        User user = mapper.selectUser(1);
 	        System.out.println(user.getCountry());
+	        user = mapper.selectUser(1);
 	    }
 	    @AfterClass
 	    public static void tearDown() {        
