@@ -29,7 +29,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class MyRestJsonExceptionHandler
 //extends ResponseEntityExceptionHandler  //继承会把HTTP异常一并处理。
 {
-
 	@ExceptionHandler({ MyJsonException.class })
 	public Map myJsonExceptionHandler() {
 		Map exceptionMap = new HashMap();

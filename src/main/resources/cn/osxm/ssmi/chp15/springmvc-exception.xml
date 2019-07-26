@@ -11,7 +11,7 @@
 	<!-- 自动扫描 -->
 	<mvc:annotation-driven />
 
-	<context:component-scan base-package="cn.osxm.ssmi.chp15.exception" />
+	<context:component-scan base-package="cn.osxm.ssmi.chp15" />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />

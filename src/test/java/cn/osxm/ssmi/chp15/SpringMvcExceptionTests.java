@@ -2,11 +2,10 @@
  * @Title: SpringMvcExceptionTests.java
  * @Package cn.osxm.ssmi.chp15
  * @Description: TODO
- * @author osxm:oscarxueming
- * @date 2019年7月11日 下午6:06:36
+ * @author oscarchen
+ * @date 2019年7月26日
  * @version V1.0
  */
-
 package cn.osxm.ssmi.chp15;
 
 import org.junit.Before;
@@ -28,9 +27,8 @@ import org.springframework.web.context.WebApplicationContext;
 /**
  * @ClassName: SpringMvcExceptionTests
  * @Description: TODO
- * @author osxm:oscarxueming
+ * @author oscarchen
  */
-
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations = { "classpath:cn/osxm/ssmi/chp15/springmvc-exception.xml" })
@@ -48,13 +46,13 @@ public class SpringMvcExceptionTests {
 		this.session = new MockHttpSession();
 	}
 
-	// @Test
+	@Test
 	public void exceptionHandlerAnno() throws Exception {
 		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/exception/exceptionHandler"))
 				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();
 	}
 
-	@Test
+	// @Test
 	public void responseStatus() throws Exception {
 		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/exception/responseStatus"))
 				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+    <!DOCTYPE generatorConfiguration    
+            PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"    
+            "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<properties resource="application-dev.properties" />
+	<context id="sqlserverTables" defaultModelType="flat"
+		targetRuntime="MyBatis3">
+
+		<!-- 生成一对一配置 -->
+		<plugin type="cc.bandaotixi.plugins.OneToOnePlugin"></plugin>
+		<!-- 生成一对多配置 -->
+		<plugin type="cc.bandaotixi.plugins.OneToManyPlugin"></plugin>
+
+		<plugin type="cc.bandaotixi.plugins.BatchInsertPlugin"></plugin>
+		<plugin type="cc.bandaotixi.plugins.BatchUpdatePlugin"></plugin>
+
+		<!-- 生成的pojo，将implements Serializable -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+		<!-- <commentGenerator> 是否去除自动生成的注释 true：是 ： false:否 <property name="suppressAllComments" 
+			value="true" /> </commentGenerator> -->
+		<!--添加数据库的注释 -->
+		<commentGenerator
+			type="cc.bandaotixi.plugins.BDTCommentGenerator">
+			<property name="javaFileEncoding" value="UTF-8" />
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+		<!-- 数据库链接URL、用户名、密码 -->
+		<jdbcConnection
+			driverClass="${spring.datasource.driverClassName}"
+			connectionURL="${spring.datasource.url}"
+			userId="${spring.datasource.username}"
+			password="${spring.datasource.password}">
+		</jdbcConnection>
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer true，把JDBC DECIMAL 和 
+			NUMERIC 类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- 生成model模型，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径,如./src/main/java， 
+			也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下 -->
+		<javaModelGenerator
+			targetPackage="com.lidong.demo.model" targetProject="./src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!--对应的mapper.xml文件 -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="./src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 对应的Mapper接口类文件 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.lidong.demo.dao" targetProject="./src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
+		<table tableName="user" domainObjectName="User"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" selectByPrimaryKeyQueryId="false">
+			<!--根据数据库字段名称转成驼峰写法 -->
+			<!--写法问题： oracle 数据库，字段不区分大小写，数据库中全是大写，驼峰写法：设置false 字段名称在驼峰中使用下划线"_" 例如：file_name 
+				转为fileName -->
+			<!--写法问题： mysql 数据库，字段区分大小写，驼峰写法：设置true时 字段名称正常写法 例如：fileName 转为fileName; 
+				设置false 则是filename -->
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="userId" sqlStatement="MySql"
+				identity="true" />
+			<oneToOne mappingTable="dept" column="deptId"
+				joinColumn="deptId" />
+			<oneToMany mappingTable="Kpi" column="userId"
+				joinColumn="userId" />
+			<!-- 有对应实体的时候，把字段忽略生成 -->
+			<ignoreColumn column="dept" />
+		</table>
+		<table tableName="dept" domainObjectName="Dept"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" selectByPrimaryKeyQueryId="false">
+			<generatedKey column="deptId" sqlStatement="MySql"
+				identity="true" />
+		</table>
+	</context>
+</generatorConfiguration>      

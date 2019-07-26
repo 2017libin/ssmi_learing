@@ -24,4 +24,6 @@ public interface UserMapper {
 
 	public Map selectUser(int id);
 
+	public void insertUser(User user);
+
 }

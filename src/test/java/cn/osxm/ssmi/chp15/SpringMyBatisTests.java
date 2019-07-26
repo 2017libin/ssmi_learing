@@ -11,6 +11,12 @@ package cn.osxm.ssmi.chp15;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -28,9 +34,17 @@ public class SpringMyBatisTests {
 	@Autowired
     public UserMapper userMapper;
     
-    @Test
+    //@Test
     public void beanMapper() {
         User user = userMapper.getUser(1);
         System.out.println(user.getName());
+    }
+    
+    
+    @Test
+    @Transactional
+    @Rollback
+    public void testTrans() {
+        userMapper.insertUser(new User(1,"Zhang San"));
     }
 }
