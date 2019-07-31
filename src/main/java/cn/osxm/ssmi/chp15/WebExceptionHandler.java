@@ -8,15 +8,13 @@
  */
 
 package cn.osxm.ssmi.chp15;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.web.HttpMediaTypeNotSupportedException;
-import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
@@ -33,12 +31,12 @@ public class WebExceptionHandler {//GlobalExceptionHandler
   /**
    * 400 - Bad Request
    */
- /* @ResponseStatus(HttpStatus.BAD_REQUEST)
-  @ExceptionHandler(HttpMessageNotReadableException.class)
-  public ServiceResponse handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
-      logger.error("参数解析失败", e);
-      return ServiceResponseHandle.failed("could_not_read_json");
-  }*/
+  //@ResponseStatus(HttpStatus.BAD_REQUEST)
+  //@ExceptionHandler(HttpMessageNotReadableException.class)
+  //public Map<String,String> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
+      //logger.error("参数解析失败", e);
+      //return ("could_not_read_json");
+  //}
 
   /**
    * 405 - Method Not Allowed

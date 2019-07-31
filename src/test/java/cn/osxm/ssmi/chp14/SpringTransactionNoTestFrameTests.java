@@ -80,7 +80,7 @@ public class SpringTransactionNoTestFrameTests {
 	    
 	    //@Test
 	    public void platformTransactionManagerTranTemplate() throws SQLException {
-	        String sql = "insert into user(name) values(?)";
+	        final String sql = "insert into user(name) values(?)";
 	        TransactionTemplate transactionTemplate = new TransactionTemplate(transactionManager);  
 	        transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);//Ä¬ÈÏÖµPROPAGATION_REQUIRED
 	        //transactionTemplate.setIsolationLevel(TransactionDefinition.ISOLATION_READ_COMMITTED);  

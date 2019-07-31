@@ -32,7 +32,10 @@ import cn.osxm.ssmi.com.User;
 @Controller
 public class UserController {
 
-	   @ExceptionHandler(value = { MyException.class })
+	 @Autowired
+	    private UserMapper userMapper;
+
+	    @ExceptionHandler(value = { MyException.class })
 	    public ModelAndView userExceptionHandler(Exception e) {
 	        ModelAndView mv = new ModelAndView();
 	        mv.setViewName("error");
@@ -83,5 +86,13 @@ public class UserController {
 	    public String simpleMappingExceptionResolver() throws Exception {
 	        throw new MyMappingException("My Simple Mapping Exception Test");
 	    }
+
+	    @RequestMapping("/springlog/getuser")
+	    public String springlog() throws Exception {
+	        userMapper.getUser(1);
+	        return "user";
+	    }
+	    
+
 
 }

@@ -35,7 +35,7 @@ public class LauncherTest {
 	                        selectClass(MyTest.class)
 	                )
 	                .filters(
-	                        org.junit.platform.engine.discovery.ClassNameFilter.includeClassNamePatterns(".*Tests")
+	                      //  org.junit.platform.engine.discovery.ClassNameFilter.includeClassNamePatterns(".*Tests")
 	                )
 	                .build();
 	 

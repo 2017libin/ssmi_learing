@@ -3,29 +3,40 @@
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	 xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+	 xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
 	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 	 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
-     http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+     http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd
+     http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+	<!--<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" />
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
-	</bean>
-
+	</bean>-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+    </bean>
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath*:cn/osxm/ssmi/chp15/mappers/**/*.xml" />
 		<property name="configuration">
 			<bean class="org.apache.ibatis.session.Configuration">
 				<property name="mapUnderscoreToCamelCase" value="true" />
+				<!-- <property name="logImpl" value="org.apache.ibatis.logging.log4j2.Log4j2Impl" />
+				<property name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl" />-->
 			</bean>
 		</property>
 	</bean>
 
+
+	<mvc:annotation-driven />
 	<!-- <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>-->
@@ -40,6 +51,8 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>-->
 	<mybatis:scan base-package="cn.osxm.ssmi.chp15" />
+	
+	<context:component-scan base-package="cn.osxm.ssmi.chp15" />
 	<!-- 二种属性配置一即可， sqlSessionTemplate优先-->
 	<!--<bean id="userDao" class="cn.osxm.ssmi.chp14.UserDao">
 	

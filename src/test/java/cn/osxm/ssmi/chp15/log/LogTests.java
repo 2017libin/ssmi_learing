@@ -15,7 +15,7 @@ public class LogTests {
 
     protected static final org.apache.commons.logging.Log jclLogger = org.apache.commons.logging.LogFactory.getLog(LogTests.class);
 
-    // @Test
+    @Test
     public void log4jLog() {
         String loggerName = "Log4j";
         log4jLogger.trace(loggerName + " Trace Log");
@@ -49,7 +49,7 @@ public class LogTests {
         jclLogger.fatal(loggerName + " Fatal Log");
     }
     
-    @Test
+    //@Test
     public void log4jLogPattern() {
         log4jLogger.fatal("My Log4j Pattern");
         
