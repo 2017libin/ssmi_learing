@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="userService" class="cn.osxm.ssmi.chp17.UserService" />
+	<bean id="myBeforeAdvice" class="cn.osxm.ssmi.chp17.advice.MyMethodBeforeAdvice"/>
+	<bean id="userServiceNoInterface" class="cn.osxm.ssmi.chp17.UserServiceNoInterface" />
+	<bean id="myMethodInterceptor" class="cn.osxm.ssmi.chp17.interceptor.MyMethodInterceptor"/>
+	
+	<!-- 1.获取代理Bean，并织入Advice增强 -->	
+	<bean id="userServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="interfaces" value="cn.osxm.ssmi.chp17.IUserService"/><!-- 可以省略 -->
+		<property name="target">
+		   <ref bean="userService"/>
+		</property>
+		<property name="interceptorNames">
+		    <list>  
+                <value>myBeforeAdvice</value>  
+            </list>  
+        </property>
+	</bean>		
+    <bean id="userServiceNoInterfaceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="targetName" value="userServiceNoInterface" /> 
+		<property name="interceptorNames" value="myBeforeAdvice" />
+		<property name="proxyTargetClass" value="true"/>
+	</bean>
+	
+	<!-- 2.获取代理Bean，并织入Advice增强 -->	
+	<bean id="userServiceProxyWithInterceptor" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="targetName" value="userServiceNoInterface" /> 
+		<property name="interceptorNames" value="myMethodInterceptor" />
+		<property name="proxyTargetClass" value="true"/>
+	</bean>
+</beans>
