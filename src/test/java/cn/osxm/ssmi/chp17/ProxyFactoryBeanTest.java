@@ -25,14 +25,14 @@ public class ProxyFactoryBeanTest {
         userService.add();
     }
     
-   //@Test
+   @Test
     public void testClassProxy() {
         ApplicationContext context=new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp17/proxyFactoryBean.xml");
         UserServiceNoInterface userServiceNoInterface= (UserServiceNoInterface) context.getBean("userServiceNoInterfaceProxy");
         userServiceNoInterface.add();
     }
     
-    @Test
+   // @Test
     public void testClassProxyWithInterceptor() {
         ApplicationContext context=new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp17/proxyFactoryBean.xml");
         UserServiceNoInterface userServiceProxyWithInterceptor= (UserServiceNoInterface) context.getBean("userServiceProxyWithInterceptor");

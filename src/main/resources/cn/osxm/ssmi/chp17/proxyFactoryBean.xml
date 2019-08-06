@@ -26,7 +26,7 @@
     <bean id="userServiceNoInterfaceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="targetName" value="userServiceNoInterface" /> 
 		<property name="interceptorNames" value="myBeforeAdvice" />
-		<property name="proxyTargetClass" value="true"/>
+		<!-- <property name="proxyTargetClass" value="true"/>-->
 	</bean>
 	
 	<!-- 2.获取代理Bean，并织入Advice增强 -->	
