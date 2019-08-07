@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       	http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- <aop:aspectj-autoproxy proxy-target-class="true" />-->
+    
+	<bean id="userService" class="cn.osxm.ssmi.chp17.UserService"/>
+	<bean id="myAspect" class="cn.osxm.ssmi.chp17.springaspect.MyAspect" />
+	
+	<bean id="myBeforeAdvice" class="cn.osxm.ssmi.chp17.advice.MyBeforeAdvice"/>
+	
+	
+    <aop:config>
+      <aop:pointcut id="myPointcut" expression="execution(* cn.osxm..*Service.add(..))"/>    
+        <!-- <aop:advisor pointcut-ref="myPointcut" advice-ref="myBeforeAdvice"/> -->
+       <aop:advisor pointcut="execution(* cn.osxm..*Service.add(..))" advice-ref="myBeforeAdvice"/>
+       <!--<aop:aspect ref="myAspect">
+        <aop:pointcut id="myPointcut" expression="execution(* cn.osxm..*Service.add(..))"/>    
+         <aop:before pointcut-ref="myPointcut" method="myBeforeMethod" /> 
+        <aop:after pointcut-ref="myPointcut" method="myBeforeMethod" />
+        <aop:around pointcut-ref="log" method="around"/>       
+        <aop:after-returning pointcut-ref="" method=""/>
+        <aop:after-throwing pointcut-ref="" method=""/>
+      </aop:aspect>-->  
+   </aop:config>
+   
+   
+   
+   
+   
+</beans>
