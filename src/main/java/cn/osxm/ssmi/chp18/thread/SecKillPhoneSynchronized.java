@@ -21,10 +21,10 @@ public class SecKillPhoneSynchronized {
 			public void run() {
 				while (iTotal > 0) {
 					synchronized (this) {
-						if (iTotal < 1) {
-							System.out.println("手机抢完了.");
-							break;
-						}
+						//if (iTotal < 1) {
+						//	System.out.println("手机抢完了.");
+						//	break;
+						//}
 						iTotal--;
 						System.out.println(Thread.currentThread().getName() + ",抢了1个手机,还剩" + iTotal + "个.");
 						// try {
