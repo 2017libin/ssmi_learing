@@ -9,8 +9,6 @@
 
 package cn.osxm.ssmi.chp08;
 
-import javax.validation.ValidatorFactory;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

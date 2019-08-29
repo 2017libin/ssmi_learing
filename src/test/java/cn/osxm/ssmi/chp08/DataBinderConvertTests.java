@@ -9,7 +9,6 @@
 
 package cn.osxm.ssmi.chp08;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,11 +20,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.core.convert.ConversionService;
-import org.springframework.core.convert.support.DefaultConversionService;
-import org.springframework.format.Formatter;
 import org.springframework.format.datetime.DateFormatter;
-import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.format.support.FormattingConversionServiceFactoryBean;
 import org.springframework.test.context.ContextConfiguration;
@@ -35,9 +30,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
 import org.springframework.web.context.WebApplicationContext;
 import org.testng.Assert;
-
-import cn.osxm.ssmi.chp08.User;
-import cn.osxm.ssmi.chp08.propertyeditor.MyDatePropertyEditor;
 
 
 /**
@@ -53,6 +45,7 @@ public class DataBinderConvertTests {
 	//@Autowired
 	//private DefaultConversionService defaultConversionService;
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private WebApplicationContext webApplicationContext;
 	
@@ -92,6 +85,7 @@ public class DataBinderConvertTests {
 	
 	
 	//@Test
+	@SuppressWarnings("rawtypes")
 	public void conversionTest() {
 		List list = mvcConversionService.convert("1,2,3,4,5", List.class);
 		System.out.println(list);

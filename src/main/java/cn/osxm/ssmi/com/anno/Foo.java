@@ -9,7 +9,6 @@
 
 package cn.osxm.ssmi.com.anno;
 
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

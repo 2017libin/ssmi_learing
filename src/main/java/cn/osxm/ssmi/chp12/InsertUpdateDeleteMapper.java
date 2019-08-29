@@ -24,7 +24,9 @@ public interface InsertUpdateDeleteMapper {
 
 	    public int deleteUser(User user);
 
-	    public Map selectUserWithSqlElement(int id);
+	    @SuppressWarnings("rawtypes")
+		public Map selectUserWithSqlElement(int id);
 
-	    public Map selectUserWithSqlElementParams(int id);
+	    @SuppressWarnings("rawtypes")
+		public Map selectUserWithSqlElementParams(int id);
 }

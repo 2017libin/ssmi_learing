@@ -18,7 +18,8 @@ import javax.transaction.UserTransaction;
  */
 public class JavaTranactionTests {
 
-	   public void jdbcTrans() throws Exception{
+	   @SuppressWarnings("unused")
+	public void jdbcTrans() throws Exception{
 	        String driverClassName = "com.mysql.cj.jdbc.Driver";
 	        String url = "jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC";
 	        String username = "root";

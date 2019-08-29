@@ -12,8 +12,6 @@ package cn.osxm.ssmi.chp05.anno;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.osxm.ssmi.com.notif.NoticeService;
-
 /**
  * @ClassName: AutowiredAnnoDemo
  * @Description: TODO

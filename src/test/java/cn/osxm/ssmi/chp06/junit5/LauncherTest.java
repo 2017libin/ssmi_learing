@@ -23,12 +23,14 @@ import static org.junit.platform.engine.discovery.DiscoverySelectors.*;
   */
 
 public class LauncherTest {
-	 public void launcher() {
+	 @SuppressWarnings("unused")
+	public void launcher() {
 	        LauncherFactory lf;
 	        LauncherDiscoveryRequestBuilder lr;
 	    }
 
-	    public void laucherExecute() {
+	    @SuppressWarnings("unused")
+		public void laucherExecute() {
 	        LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
 	                .selectors(
 	                        selectPackage("cn.osxn"),

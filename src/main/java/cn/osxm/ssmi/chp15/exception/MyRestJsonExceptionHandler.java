@@ -13,12 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 /**
  * @ClassName: MyRestJsonExceptionHandler
@@ -31,6 +29,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class MyRestJsonExceptionHandler 
 //extends ResponseEntityExceptionHandler  //继承会把HTTP异常一并处理。
 {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler({ MyJsonException.class })
 	public Map myJsonExceptionHandler() {

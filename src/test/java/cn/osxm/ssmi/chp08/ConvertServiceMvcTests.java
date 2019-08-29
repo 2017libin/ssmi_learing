@@ -25,7 +25,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @WebAppConfiguration
 public class ConvertServiceMvcTests {
 
-    @Autowired
+    @SuppressWarnings("unused")
+	@Autowired
     private DefaultConversionService defaultConversionService;
     
 

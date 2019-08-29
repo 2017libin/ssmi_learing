@@ -11,10 +11,8 @@ package cn.osxm.ssmi.chp15.log;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collection;
 import java.util.Map;
 
-import org.apache.ibatis.cache.Cache;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -53,7 +51,8 @@ public class MyBatisLogTest {
     }
 
     // @Test
-    public void level1Cache() {
+    @SuppressWarnings("rawtypes")
+	public void level1Cache() {
         UserMapper mapper = session.getMapper(UserMapper.class);
         System.out.println("第一次查询");
         Map map = mapper.selectUser(1);
@@ -65,7 +64,8 @@ public class MyBatisLogTest {
     }
 
     // @Test
-    public void logLevel() {
+    @SuppressWarnings({ "unused", "rawtypes" })
+	public void logLevel() {
         org.apache.ibatis.logging.LogFactory.useLog4JLogging();
         UserMapper mapper = session.getMapper(UserMapper.class);
         System.out.println("方法1查询");
@@ -76,7 +76,8 @@ public class MyBatisLogTest {
 
     }
 
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void level2Cache() {
         UserMapper mapper = session1.getMapper(UserMapper.class);
         System.out.println("第一次查询");

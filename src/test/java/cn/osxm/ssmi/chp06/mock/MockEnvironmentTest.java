@@ -37,7 +37,8 @@ public class MockEnvironmentTest {
 	AbstractApplicationContext applicationContext = null;
 
     // @Before
-    public void setUp() {
+    @SuppressWarnings({ "unused", "serial" })
+	public void setUp() {
         // MockEnvironment environment = new MockEnvironment();
 
         // environment.setProperty("my.name", "ÕÅÈý");
@@ -86,7 +87,8 @@ public class MockEnvironmentTest {
     }
 
     // @Test
-    public void testAnno() {
+    @SuppressWarnings("resource")
+	public void testAnno() {
         MockEnvironment env = new MockEnvironment();
         env.setProperty("name", "123456");
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -101,7 +103,8 @@ public class MockEnvironmentTest {
     }
 
     // @Test
-    public void test11() {
+    @SuppressWarnings("resource")
+	public void test11() {
         MockEnvironment env = new MockEnvironment();
         env.setProperty("name", "123456");
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();

@@ -15,7 +15,7 @@ package cn.osxm.ssmi.chp17;
   */
 public class AdviceInvokeSequence {
     public static void main(String[] args) {
-        try {
+      /*  try {
             // 正常执行
             AdviceInvokeSequence(false);
             System.out.println("=====分割线=====");
@@ -24,7 +24,7 @@ public class AdviceInvokeSequence {
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        }*/
     }
 
     /**
@@ -33,7 +33,7 @@ public class AdviceInvokeSequence {
      * @param isException
      * @throws Exception
      */
-    public static void AdviceInvokeSequence(boolean isException) throws Exception {
+   /* public static void AdviceInvokeSequence(boolean isException) throws Exception {
         try {
             aroundAdvice(isException);
             afterReturningAdvice();
@@ -44,7 +44,7 @@ public class AdviceInvokeSequence {
         } finally {
             afterAdvice();
         }
-    }
+    }*/
 
     /**
      * 环绕增强
@@ -52,7 +52,8 @@ public class AdviceInvokeSequence {
      * @param isException
      * @throws Exception
      */
-    private static void aroundAdvice(boolean isException) throws Exception {
+    @SuppressWarnings("unused")
+	private static void aroundAdvice(boolean isException) throws Exception {
         System.out.println("around before advice");
         try {
             JoinPoint_Proceed(isException);
@@ -92,14 +93,16 @@ public class AdviceInvokeSequence {
     /**
      * 后置增强
      */
-    private static void afterAdvice() {
+    @SuppressWarnings("unused")
+	private static void afterAdvice() {
         System.out.println("after advice");
     }
 
     /**
      * 正常返回增强
      */
-    private static void afterReturningAdvice() {
+    @SuppressWarnings("unused")
+	private static void afterReturningAdvice() {
         System.out.println("afterReturning");
     }
 
@@ -109,7 +112,8 @@ public class AdviceInvokeSequence {
      * @param e
      * @throws Exception
      */
-    private static void afterThrowingAdvice(Exception e) throws Exception {
+    @SuppressWarnings("unused")
+	private static void afterThrowingAdvice(Exception e) throws Exception {
         System.out.println("afterThrowing:" + e.getMessage());
         throw e;
     }

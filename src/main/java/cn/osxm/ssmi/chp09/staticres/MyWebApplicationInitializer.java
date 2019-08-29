@@ -12,7 +12,6 @@ package cn.osxm.ssmi.chp09.staticres;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
-import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -27,6 +26,7 @@ public class MyWebApplicationInitializer
 {
 
 	//@Override
+	@SuppressWarnings("unused")
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext annoAppContext = new AnnotationConfigWebApplicationContext();
 		// servletContext.getServlet("default");

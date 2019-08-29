@@ -12,12 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import cn.osxm.ssmi.chp04.anno.MyAppConfig;
 import cn.osxm.ssmi.chp05.javacfg.AppConfig;
-
 import cn.osxm.ssmi.com.Foo;
 /**
   * @ClassName: SpringJUnitConfigAnnoTests

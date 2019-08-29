@@ -9,8 +9,6 @@
 
 package cn.osxm.ssmi.com.notif;
 
-import org.springframework.stereotype.Component;
-
 /**
  * @ClassName: NoticeService
  * @Description: TODO

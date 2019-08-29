@@ -42,7 +42,8 @@ public class Junit4WebIntegrateTests {
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build(); //初始化MockMvc 
     }
 
-    @Test
+    @SuppressWarnings("unused")
+	@Test
     public void getUserName() throws Exception { //测试方法
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/mvcHello"))
                 .andExpect(MockMvcResultMatchers.status().is(200))

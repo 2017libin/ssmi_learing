@@ -8,18 +8,11 @@
  */
 
 package cn.osxm.ssmi.chp10;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import javax.servlet.http.Cookie;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
@@ -45,7 +38,8 @@ public class ResultMatchTests {
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
-    @Test
+    @SuppressWarnings("static-access")
+	@Test
     public void resultMatch() throws Exception {
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/user/getModelView"); // 构造请求
         ResultActions resultActions = this.mockMvc.perform(requestBuilder); // 执行请求，返回结果

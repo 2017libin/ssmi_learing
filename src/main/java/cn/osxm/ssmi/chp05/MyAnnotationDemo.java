@@ -10,7 +10,6 @@
 package cn.osxm.ssmi.chp05;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
@@ -27,6 +26,7 @@ public class MyAnnotationDemo {
 	}
 
 	// 入口方法
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Exception {
 		MyAnnotationDemo myAnnotationDemo = new MyAnnotationDemo();
 		//获取使用在类上的自定义注解
@@ -37,7 +37,7 @@ public class MyAnnotationDemo {
 
 		// 获取使用在方法上的自定义注解
 		Method annoMethod = myAnnotationDemo.getClass().getMethod("annoMethod");
-		annoMethod.invoke(myAnnotationDemo, null);
+		//annoMethod.invoke(myAnnotationDemo, null);
 		Annotation[] methodAnnotations = annoMethod.getAnnotations();
 		if (annoMethod.isAnnotationPresent(MyAnnotation.class)) {
 			System.out.println("方法添加了MyAnnotation注解，再干点其他事.....");

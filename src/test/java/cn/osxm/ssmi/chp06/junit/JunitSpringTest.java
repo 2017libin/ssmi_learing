@@ -21,7 +21,8 @@ import org.springframework.context.ApplicationContext;
 
 public class JunitSpringTest {
 
-    private ApplicationContext context;
+    @SuppressWarnings("unused")
+	private ApplicationContext context;
 
     //@Before
     @BeforeClass

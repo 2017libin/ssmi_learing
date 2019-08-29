@@ -50,6 +50,7 @@ public class StandaloneModelViewTests {
 
 	private static MockMvc mockMvc;
 
+	@SuppressWarnings("unused")
 	@BeforeAll
 	static void setup() {
 		UserController userController = new UserController();
@@ -60,6 +61,7 @@ public class StandaloneModelViewTests {
 	}
 
 	// @Test
+	@SuppressWarnings({ "static-access", "unused" })
 	public void getUserModelView() throws Exception {
 		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/user/getModelView"); // 构造请求
 		ResultActions resultActions = this.mockMvc.perform(requestBuilder); // 执行请求，返回结果
@@ -161,6 +163,7 @@ public class StandaloneModelViewTests {
 	}
 
 	// @Test
+	@SuppressWarnings("unused")
 	public void forwardResultMatcherTest() throws Exception {
 		mockMvc.perform(get("/user/getModelView")).andExpect(view().name("userView"))
 				// .andExpect(forwardedUrl("/WEB-INF/view/userView.jsp"))

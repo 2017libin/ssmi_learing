@@ -10,7 +10,6 @@
 package cn.osxm.ssmi.chp12;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Properties;
 
 import org.apache.ibatis.reflection.factory.DefaultObjectFactory;
@@ -21,8 +20,10 @@ import org.apache.ibatis.reflection.factory.DefaultObjectFactory;
   * @Description: TODO
   * @author osxm:oscarxueming
   */
+@SuppressWarnings("serial")
 public class MyObjectFactory extends DefaultObjectFactory {
-    public Object create(Class type) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public Object create(Class type) {
         return super.create(type);
     }
 

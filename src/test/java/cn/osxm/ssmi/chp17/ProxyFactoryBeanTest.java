@@ -19,13 +19,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
   */
 public class ProxyFactoryBeanTest {
 	 //@Test
-    public void testInterfaceProxy() {
+    @SuppressWarnings("resource")
+	public void testInterfaceProxy() {
         ApplicationContext context=new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp17/proxyFactoryBean.xml");
         IUserService userService= (IUserService) context.getBean("userServiceProxy");
         userService.add();
     }
     
-   @Test
+   @SuppressWarnings("resource")
+@Test
     public void testClassProxy() {
         ApplicationContext context=new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp17/proxyFactoryBean.xml");
         UserServiceNoInterface userServiceNoInterface= (UserServiceNoInterface) context.getBean("userServiceNoInterfaceProxy");
@@ -33,7 +35,8 @@ public class ProxyFactoryBeanTest {
     }
     
    // @Test
-    public void testClassProxyWithInterceptor() {
+    @SuppressWarnings("resource")
+	public void testClassProxyWithInterceptor() {
         ApplicationContext context=new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp17/proxyFactoryBean.xml");
         UserServiceNoInterface userServiceProxyWithInterceptor= (UserServiceNoInterface) context.getBean("userServiceProxyWithInterceptor");
         userServiceProxyWithInterceptor.add();

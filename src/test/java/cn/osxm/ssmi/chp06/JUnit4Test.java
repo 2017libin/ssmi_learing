@@ -24,7 +24,8 @@ import org.junit.Test;
 public class JUnit4Test {
 	 private int iNo = 0;
 	    
-	    @Before
+	    @SuppressWarnings("unused")
+		@Before
 	    public void mySetUp() {
 	        // "Initial Some ...."
 	        iNo = 1;

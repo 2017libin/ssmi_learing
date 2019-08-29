@@ -13,6 +13,7 @@ package cn.osxm.ssmi.chp15.exception;
   * @Description: TODO
   * @author oscarchen
   */
+@SuppressWarnings("serial")
 public class MyMappingException extends Exception {
     public MyMappingException(String msg) {
         super(msg);

@@ -12,11 +12,9 @@ package cn.osxm.ssmi.chp06;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.BlockJUnit4ClassRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -40,7 +38,8 @@ public class WebIntegratetTest {
 
     private MockMvc mockMvc;
     
-    private MockHttpSession session;
+    @SuppressWarnings("unused")
+	private MockHttpSession session;
 
     @Before
     public void setUp() {

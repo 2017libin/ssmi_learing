@@ -9,13 +9,9 @@
 
 package cn.osxm.ssmi.chp08;
 
-import java.util.Date;
-
 import org.junit.Test;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.format.support.DefaultFormattingConversionService;
-
-import cn.osxm.ssmi.chp08.User;
 
 /**
   * @ClassName: BeanWrapperTests

@@ -13,7 +13,6 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import cn.osxm.ssmi.com.User;
-import cn.osxm.ssmi.com.anno.Foo;
 
 /**
   * @ClassName: BeanAnnoDemo

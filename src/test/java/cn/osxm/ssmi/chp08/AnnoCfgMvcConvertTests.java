@@ -13,9 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.core.convert.ConversionService;
 import org.springframework.format.support.FormattingConversionService;
-import org.springframework.format.support.FormattingConversionServiceFactoryBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -35,7 +33,8 @@ public class AnnoCfgMvcConvertTests {
     //@Autowired
     //private  ConversionService conversionService ;
 
-     @Autowired
+     @SuppressWarnings("unused")
+	@Autowired
     private ApplicationContext applicationContext;
     
     @Test

@@ -9,7 +9,6 @@
 
 package cn.osxm.ssmi.chp05.javacfg;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import cn.osxm.ssmi.com.Bar;
@@ -21,6 +20,7 @@ import cn.osxm.ssmi.com.Bar;
  */
 
 public class ComponentAnnoDemo {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		//AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ComponentAnno.class);
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();

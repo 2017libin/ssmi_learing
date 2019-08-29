@@ -35,6 +35,7 @@ public class JDBCTransationTests {
 		connection = DriverManager.getConnection(url, username, password);
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void queryTrans() throws Exception {
 		String sql = "select * from user";

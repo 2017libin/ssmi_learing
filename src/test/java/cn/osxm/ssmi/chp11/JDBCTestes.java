@@ -115,7 +115,8 @@ public class JDBCTestes {
 
 
     //@Test
-    public void prepareStatementTime() throws Exception {
+    @SuppressWarnings("unused")
+	public void prepareStatementTime() throws Exception {
         long start = System.currentTimeMillis();
         
         String sql = "select * from user";
@@ -130,7 +131,8 @@ public class JDBCTestes {
     }
     
     //@Test
-    public void statementTime() throws Exception {
+    @SuppressWarnings("unused")
+	public void statementTime() throws Exception {
         long start = System.currentTimeMillis();
         
         String sql = "select * from user";

@@ -9,7 +9,6 @@
 
 package cn.osxm.ssmi.chp04;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -26,6 +25,7 @@ public class SimpleTypeDepDemo {
 	 * @Description: TODO
 	 * @param args
 	 */
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-beans.xml", SimpleTypeDepDemo.class);

@@ -38,6 +38,7 @@ public class SpringMvcExceptionTests {
 
 	private MockMvc mockMvc;
 
+	@SuppressWarnings("unused")
 	private MockHttpSession session;
 
 	@Before
@@ -46,6 +47,7 @@ public class SpringMvcExceptionTests {
 		this.session = new MockHttpSession();
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void exceptionHandlerAnno() throws Exception {
 		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/exception/exceptionHandler"))
@@ -53,6 +55,7 @@ public class SpringMvcExceptionTests {
 	}
 
 	// @Test
+	@SuppressWarnings("unused")
 	public void responseStatus() throws Exception {
 		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/exception/responseStatus"))
 				.andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();

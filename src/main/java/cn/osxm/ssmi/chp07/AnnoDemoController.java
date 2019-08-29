@@ -13,7 +13,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;

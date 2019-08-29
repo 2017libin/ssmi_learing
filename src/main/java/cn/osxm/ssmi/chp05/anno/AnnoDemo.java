@@ -28,6 +28,7 @@ public class AnnoDemo {
 	  * @param args
 	  */
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		CommonAnnotationBeanPostProcessor c;
 		PersistenceAnnotationBeanPostProcessor p;

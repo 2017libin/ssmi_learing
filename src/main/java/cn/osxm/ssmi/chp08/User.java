@@ -14,7 +14,6 @@ import java.util.Date;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 /**

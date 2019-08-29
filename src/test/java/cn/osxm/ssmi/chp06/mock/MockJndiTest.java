@@ -39,7 +39,8 @@ public class MockJndiTest {
         builder.activate();
         
     }  
-    @Test
+    @SuppressWarnings("resource")
+	@Test
     public void test() {
         AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml", MockJndiTest.class);
         UserDao userDao = (UserDao)applicationContext.getBean("userDao");

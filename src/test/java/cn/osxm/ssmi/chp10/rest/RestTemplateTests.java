@@ -9,15 +9,7 @@
 
 package cn.osxm.ssmi.chp10.rest;
 
-import java.net.URI;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
 import cn.osxm.ssmi.com.User;

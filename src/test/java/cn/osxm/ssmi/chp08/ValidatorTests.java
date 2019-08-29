@@ -9,8 +9,6 @@
 
 package cn.osxm.ssmi.chp08;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -18,7 +16,6 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 
 import org.junit.Test;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import cn.osxm.ssmi.com.User;
 

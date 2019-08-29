@@ -13,8 +13,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import cn.osxm.ssmi.chp04.anno.notif.Notice;
@@ -33,7 +31,7 @@ public class PrimaryAnno {
 
 	@Autowired
 	private User user;
-	
+
 	@Autowired
 	@Qualifier("mailNotice")
 	private Notice notice;

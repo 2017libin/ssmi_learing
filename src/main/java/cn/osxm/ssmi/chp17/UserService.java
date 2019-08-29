@@ -19,6 +19,7 @@ public class UserService implements IUserService {
         System.out.println("Add User");
     }
     
+	@SuppressWarnings("null")
 	@Override
 	public void except() {	
 		String s = null;

@@ -11,7 +11,6 @@ package cn.osxm.ssmi.chp08;
 
 import java.util.List;
 
-import org.junit.Test;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
 import org.springframework.validation.FieldError;

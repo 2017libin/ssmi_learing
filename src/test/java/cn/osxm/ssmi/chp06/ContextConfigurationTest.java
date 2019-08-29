@@ -13,11 +13,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import cn.osxm.ssmi.chp02.HelloService;
-import cn.osxm.ssmi.chp04.anno.MyAppConfig;
 
 /**
   * @ClassName: ContextConfigurationTest
@@ -38,5 +36,6 @@ public class ContextConfigurationTest {
         helloService.sayHello();
     }
     
-    ApplicationContextInitializer a;
+    @SuppressWarnings("rawtypes")
+	ApplicationContextInitializer a;
 }

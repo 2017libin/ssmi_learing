@@ -19,11 +19,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +32,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 
 /**
@@ -154,6 +151,7 @@ public class SpringFileUploadController {
 		//CookieLocaleResolver
 	}
 
+	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/springcommonupload2")
 	public ResponseEntity uploadPdf(@RequestParam(name = "myfile") MultipartFile file) throws IOException {
 		File convFile = new File("D:\\uploads\\" + file.getName());

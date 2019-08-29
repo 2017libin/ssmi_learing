@@ -24,7 +24,8 @@ import org.apache.commons.dbcp2.BasicDataSourceFactory;
 public class Dbcp2Tests {
 	
     // @Test
-    public void testBaseMysql() throws Exception {
+    @SuppressWarnings("resource")
+	public void testBaseMysql() throws Exception {
         String dirver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/ssmi?serverTimezone=UTC";
         String username = "root";
@@ -62,7 +63,8 @@ public class Dbcp2Tests {
 
     }
 
-    public void testPropertiesFile() throws Exception {
+    @SuppressWarnings("unused")
+	public void testPropertiesFile() throws Exception {
         BasicDataSource bs = null;
         // 用类加载器加载文件获得流
         Properties properties = new Properties();
@@ -74,7 +76,8 @@ public class Dbcp2Tests {
     }
 
     // @Test
-    public void testBaseOracle() throws Exception {
+    @SuppressWarnings("resource")
+	public void testBaseOracle() throws Exception {
         String dirver = "oracle.jdbc.OracleDriver";
         String url = "jdbc:oracle:thin:@pc-hfplm:1521:orcl";
         String username = "oscar999";

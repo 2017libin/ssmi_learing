@@ -28,6 +28,7 @@ import org.junit.jupiter.api.Test;
 public class CharacterCodeTest {
 
 	private static String chineseStr;
+	@SuppressWarnings("unused")
 	private static String chineseUnicodeStr;
 
 	@BeforeAll
@@ -56,6 +57,7 @@ public class CharacterCodeTest {
 	}
 
 	// @Test
+	@SuppressWarnings("resource")
 	public void jvmEncode() throws FileNotFoundException {
 		System.out.println(System.getProperty("sun.jnu.encoding"));// 文件名字编码
 		System.out.println(System.getProperty("file.encoding")); // 源文件编码
@@ -66,6 +68,7 @@ public class CharacterCodeTest {
 		System.out.println(input.getEncoding().toString());
 	}
 
+	@SuppressWarnings("unused")
 	public void charEncode() {
 		String aStr = "\u4E2D\u6587";
 		// Assert.isTrue(aStr.equals("中文"), "");
@@ -93,6 +96,7 @@ public class CharacterCodeTest {
 		System.out.println(gbkToIso8859);
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void iso8859() throws UnsupportedEncodingException {
 		byte[] utf = chineseStr.getBytes();

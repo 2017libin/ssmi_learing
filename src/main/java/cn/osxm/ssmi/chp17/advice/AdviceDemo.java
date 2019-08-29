@@ -28,6 +28,7 @@ public class AdviceDemo {
 	  * @param args
 	  */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
         ApplicationContext context=new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp16/applicationContext.xml");
         IUserService userService= (IUserService) context.getBean("userServiceProxy");

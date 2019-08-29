@@ -12,7 +12,6 @@ package cn.osxm.ssmi.chp04.depinject;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.osxm.ssmi.chp04.BeanInitialDemo;
 import cn.osxm.ssmi.com.Baz;
 
 /**
@@ -29,11 +28,12 @@ public class DepInjectXmlDemo {
 	 * @param args
 	 */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp04/depInject.xml");
-		Baz baz = (Baz)context.getBean("baz");
+		Baz baz = (Baz) context.getBean("baz");
 		System.out.println(baz.getFoo());
-		
+
 	}
 
 }

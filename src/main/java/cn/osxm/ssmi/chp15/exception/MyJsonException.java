@@ -14,6 +14,7 @@ package cn.osxm.ssmi.chp15.exception;
   * @author osxm:oscarxueming
   */
 
+@SuppressWarnings("serial")
 public class MyJsonException extends RuntimeException{
 
 }

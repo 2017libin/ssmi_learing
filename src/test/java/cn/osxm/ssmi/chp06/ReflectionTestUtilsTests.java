@@ -20,6 +20,7 @@ import org.springframework.test.util.ReflectionTestUtils;
  */
 
 public class ReflectionTestUtilsTests {
+	@SuppressWarnings("unused")
 	@Test
 	public void test() {
 		

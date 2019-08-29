@@ -11,7 +11,6 @@ package cn.osxm.ssmi.chp09.parentchild;
 
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
-import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
 
 /**
  * @ClassName: MyWebAppInitializer

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/hello")
 public class HelloController {
 
+	@SuppressWarnings("rawtypes")
 	@GetMapping("/say")
 	@ResponseBody
 	public Map say() {

@@ -28,6 +28,7 @@ public class DiffScopeInjectDemo {
 	  * @param args
 	  */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp04/depInject.xml");
 		Baz baz = (Baz)context.getBean("baz");

@@ -24,6 +24,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ProfileValueSourceConfigurationAnnoTests {
 
 	
+	@SuppressWarnings("unused")
 	public void testMethod() {
 		SystemProfileValueSource s;
 	}

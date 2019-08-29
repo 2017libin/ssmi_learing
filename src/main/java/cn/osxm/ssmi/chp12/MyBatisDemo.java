@@ -18,6 +18,7 @@ public class MyBatisDemo {
 	 * @throws Exception
 	 */
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Exception {
 		// 1.根据XML配置构建 SqlSessionFactory
 		String resource = "cn/osxm/ssmi/chp12/mybatis-config.xml";

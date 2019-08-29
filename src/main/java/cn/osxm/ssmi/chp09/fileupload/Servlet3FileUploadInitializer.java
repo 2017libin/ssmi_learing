@@ -43,6 +43,7 @@ public class Servlet3FileUploadInitializer
 		registration.setMultipartConfig(new MultipartConfigElement("C:/temp/"));
 	}
 
+	@SuppressWarnings("unused")
 	private MultipartConfigElement getMultipartConfigElement() {
 		MultipartConfigElement multipartConfigElement = new MultipartConfigElement(LOCATION, MAX_FILE_SIZE,
 				MAX_REQUEST_SIZE, FILE_SIZE_THRESHOLD);

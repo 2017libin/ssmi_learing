@@ -19,6 +19,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 
 public class AwareDemo {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ApplicationContext context = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp04/awareContext.xml");
@@ -28,11 +29,11 @@ public class AwareDemo {
 		User user = (User) context.getBean("user2");
 		System.out.println(user.getBeanName());
 
-		//bean类继承BeanFactoryAware，通过BeanFactory获取bean
+		// bean类继承BeanFactoryAware，通过BeanFactory获取bean
 		ImplBeanFactoryAware implBeanFactoryAware = (ImplBeanFactoryAware) context.getBean("implBeanFactoryAware");
 		System.out.println(implBeanFactoryAware.getUser());
-		
-		//获取事件发布器发布事件
+
+		// 获取事件发布器发布事件
 		UserService userService = (UserService) context.getBean("userService");
 		user = new User();
 		user.setName("Oscar");

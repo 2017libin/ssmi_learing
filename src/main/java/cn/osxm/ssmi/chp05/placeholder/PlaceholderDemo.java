@@ -25,6 +25,7 @@ public class PlaceholderDemo {
 	  * @param args
 	  */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp05/placeholder.xml");
         MyDataSource myDataSource= (MyDataSource)context.getBean("myDataSource");

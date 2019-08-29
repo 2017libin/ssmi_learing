@@ -27,7 +27,8 @@ import org.junit.jupiter.api.Test;
   */
 public class CharacterCodeTest {
 	   private static String chineseStr;
-	    private static String chineseUnicodeStr;
+	    @SuppressWarnings("unused")
+		private static String chineseUnicodeStr;
 	    
 	    @BeforeAll
 	    public static void setup() {
@@ -61,7 +62,8 @@ public class CharacterCodeTest {
 	    
 	    
 	    //@Test
-	    public void jvmEncode() throws FileNotFoundException {
+	    @SuppressWarnings("resource")
+		public void jvmEncode() throws FileNotFoundException {
 	        System.out.println(System.getProperty("sun.jnu.encoding"));//文件名字编码
 	        System.out.println(System.getProperty("file.encoding")); //源文件编码
 	        System.out.println(Charset.defaultCharset().toString());
@@ -72,7 +74,8 @@ public class CharacterCodeTest {
 	    
 	    
 	    
-	    public void charEncode() {
+	    @SuppressWarnings("unused")
+		public void charEncode() {
 	        String aStr = "\u4E2D\u6587";
 	        //Assert.isTrue(aStr.equals("中文"), "");
 	    }
@@ -102,7 +105,8 @@ public class CharacterCodeTest {
 	    
 	    
 	    
-	    @Test
+	    @SuppressWarnings("unused")
+		@Test
 	    public void iso8859() throws UnsupportedEncodingException {
 	        byte[] utf  = chineseStr.getBytes();
 	    }

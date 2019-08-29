@@ -8,6 +8,8 @@
  */
 package cn.osxm.ssmi.chp17.springaspect;
 
+import org.aspectj.lang.JoinPoint;
+
 /**
   * @ClassName: MyAspect
   * @Description: TODO

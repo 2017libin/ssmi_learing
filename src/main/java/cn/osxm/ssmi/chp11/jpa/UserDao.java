@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 
 public class UserDao {
 	
+	@SuppressWarnings("unchecked")
 	public List<UserEntity> findAll() {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("OSXM");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();

@@ -9,23 +9,20 @@
 
 package cn.osxm.ssmi.chp04.callback;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
-  * @ClassName: WithCallbackService
-  * @Description: TODO
-  * @author osxm:oscarxueming
-  */
+ * @ClassName: WithCallbackService
+ * @Description: TODO
+ * @author osxm:oscarxueming
+ */
 
-public class ImplCallbackService implements InitializingBean,DisposableBean{
+public class ImplCallbackService implements InitializingBean, DisposableBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-          System.out.println("[实现InitializingBean接口的afterPropertiesSet方法]初始化方法回调．．．");
+		System.out.println("[实现InitializingBean接口的afterPropertiesSet方法]初始化方法回调．．．");
 	}
 
 	@Override

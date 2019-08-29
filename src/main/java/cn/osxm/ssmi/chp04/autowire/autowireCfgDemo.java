@@ -12,7 +12,6 @@ package cn.osxm.ssmi.chp04.autowire;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.osxm.ssmi.chp04.anno.AnnoDemo;
 import cn.osxm.ssmi.com.Bar;
 
 /**
@@ -23,9 +22,11 @@ import cn.osxm.ssmi.com.Bar;
 
 public class autowireCfgDemo {
 	public static void main(String[] args) {
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp4/anno/autowireDepend.xml");
-		Bar bar = (Bar)context.getBean("bar");
-		System.out.println(bar.getFoo());;
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
+				"cn/osxm/ssmi/chp4/anno/autowireDepend.xml");
+		Bar bar = (Bar) context.getBean("bar");
+		System.out.println(bar.getFoo());
+		;
 		context.close();
 	}
 }

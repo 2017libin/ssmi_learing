@@ -17,7 +17,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.testng.Assert;
 /**
   * @ClassName: SpringI18nMessageTests
   * @Description: TODO

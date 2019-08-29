@@ -9,13 +9,8 @@
 
 package cn.osxm.ssmi.chp08.validator;
 
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import cn.osxm.ssmi.chp08.User;
 

@@ -12,9 +12,6 @@ package cn.osxm.ssmi.chp04.methodinj;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.osxm.ssmi.chp04.CallbackDemo;
-import cn.osxm.ssmi.chp04.callback.AllCallbackService;
-
 /**
  * @ClassName: MethodReplaceDemo
  * @Description: TODO
@@ -23,10 +20,11 @@ import cn.osxm.ssmi.chp04.callback.AllCallbackService;
 
 public class MethodReplaceDemo {
 	public static void main(String[] args) {
-		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml", MethodReplaceDemo.class);
 
-		OldEraPeople  oldEraPeople = (OldEraPeople)context.getBean("oldEraPeople");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml",
+				MethodReplaceDemo.class);
+
+		OldEraPeople oldEraPeople = (OldEraPeople) context.getBean("oldEraPeople");
 		String str = oldEraPeople.eat("ÕÅÈý");
 		System.out.println(str);
 		context.close();

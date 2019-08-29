@@ -17,7 +17,8 @@ package cn.osxm.ssmi.chp06.webbean;
 public class LoginAction {
 	  private String username;
 
-	    private String password;
+	    @SuppressWarnings("unused")
+		private String password;
 
 	    public String getUsername() {
 	        return username;

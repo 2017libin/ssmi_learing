@@ -87,11 +87,13 @@ public class AutowiredUsage {
 		return bazs;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Set getBazSet() {
 
 		return bazSet;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Map getBazMap() {
 
 		return bazMap;

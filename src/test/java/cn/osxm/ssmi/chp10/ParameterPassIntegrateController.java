@@ -22,6 +22,7 @@ import org.springframework.web.context.WebApplicationContext;
  */
 @SpringJUnitWebConfig(locations = { "classpath:cn/osxm/ssmi/chp10/springmvc.xml" })
 public class ParameterPassIntegrateController {
+	@SuppressWarnings("unused")
 	private MockMvc mockMvc;
 
 	@BeforeEach

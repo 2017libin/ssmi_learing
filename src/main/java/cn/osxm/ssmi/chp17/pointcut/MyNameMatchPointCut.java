@@ -17,9 +17,11 @@ import org.springframework.aop.support.NameMatchMethodPointcut;
   * @Description: TODO
   * @author oscarchen
   */
+@SuppressWarnings("serial")
 public class MyNameMatchPointCut extends NameMatchMethodPointcut {
 
-    public boolean matches(Method method, Class targetClass) {
+    @SuppressWarnings("rawtypes")
+	public boolean matches(Method method, Class targetClass) {
         this.setMappedName("add");
         // this.setMappedName("*User");
         return super.matches(method, targetClass);

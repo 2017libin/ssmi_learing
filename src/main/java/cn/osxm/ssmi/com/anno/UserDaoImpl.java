@@ -52,7 +52,8 @@ public class UserDaoImpl implements UserDao {
 	       
 	    }
 	    
-	    @Override
+	    @SuppressWarnings("rawtypes")
+		@Override
 	    public User getUserByName(String name) {
 	        String sql = "select * from user where name=?";
 	        List list = jdbcTemplate.queryForList(sql,name);

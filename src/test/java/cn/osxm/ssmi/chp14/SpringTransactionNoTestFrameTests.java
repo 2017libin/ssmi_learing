@@ -27,7 +27,6 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
 
-import cn.osxm.ssmi.chp14.transaction.UserService;
 import cn.osxm.ssmi.chp14.transaction.UserDao;
 import cn.osxm.ssmi.com.User;
 /**
@@ -40,7 +39,8 @@ public class SpringTransactionNoTestFrameTests {
 	  private static ApplicationContext context;
 	    private static PlatformTransactionManager transactionManager;
 	    private static JdbcTemplate jdbcTemplate;
-	    private static UserDao userDao;
+	    @SuppressWarnings("unused")
+		private static UserDao userDao;
 
 	    @BeforeClass
 	    public static void setup() {

@@ -20,6 +20,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
  * @author osxm:oscarxueming
  */
 
+@SuppressWarnings("resource")
 public class DbcpConnFactory {
 	private static final ThreadLocal<Connection> connHolder;
 	private static final BasicDataSource dataSource;

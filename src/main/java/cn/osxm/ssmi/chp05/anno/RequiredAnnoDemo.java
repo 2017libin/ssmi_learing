@@ -26,6 +26,7 @@ public class RequiredAnnoDemo {
 	 * @param args
 	 */
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml",

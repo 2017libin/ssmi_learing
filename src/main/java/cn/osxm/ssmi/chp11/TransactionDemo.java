@@ -25,7 +25,8 @@ public class TransactionDemo {
      * @param args
      */
 
-    public static void main(String[] args) {
+    @SuppressWarnings("resource")
+	public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-beans.xml", TransactionDemo.class);
         FooService fooService =(FooService) context.getBean("fooService");
         fooService.addFoo(new Foo());

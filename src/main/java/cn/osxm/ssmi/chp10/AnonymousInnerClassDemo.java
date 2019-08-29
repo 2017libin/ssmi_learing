@@ -8,8 +8,7 @@
  */
 
 package cn.osxm.ssmi.chp10;
-import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.ResultMatcher;
+
 /**
   * @ClassName: AnonymousInnerClassDemo
   * @Description: TODO

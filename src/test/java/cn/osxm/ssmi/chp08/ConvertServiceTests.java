@@ -9,18 +9,13 @@
 
 package cn.osxm.ssmi.chp08;
 import java.util.Date;
+
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.support.DefaultConversionService;
-import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.support.DefaultFormattingConversionService;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import cn.osxm.ssmi.chp08.convertservice.MyUserConvert;
-import cn.osxm.ssmi.chp08.User;
 /**
   * @ClassName: ConvertServiceTests
   * @Description: TODO
@@ -30,7 +25,8 @@ import cn.osxm.ssmi.chp08.User;
 //@ContextConfiguration(locations = "classpath:cn/osxm/ssmi/chp08/data-bind-convert.xml")
 public class ConvertServiceTests {
 	  //@Autowired
-	   private DefaultConversionService defaultConversionService;
+	   @SuppressWarnings("unused")
+	private DefaultConversionService defaultConversionService;
 	    
 	   //@Test
 	   public void convertIndepUse() {

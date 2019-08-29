@@ -36,6 +36,7 @@ public class ResultTypeMapDemo {
 	 * @throws IOException 
 	 */
 
+	@SuppressWarnings({ "unused", "rawtypes" })
 	public static void main(String[] args) throws IOException {
 
 		String resource = "cn/osxm/ssmi/chp12/mybatis-config.xml";

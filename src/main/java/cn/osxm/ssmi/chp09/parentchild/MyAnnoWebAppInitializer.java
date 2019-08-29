@@ -9,8 +9,6 @@
 
 package cn.osxm.ssmi.chp09.parentchild;
 
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
 /**
  * @ClassName: MyAnnoWebAppInitializer
  * @Description: TODO

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.osxm.ssmi.chp14.exception.MyException;
 import cn.osxm.ssmi.com.User;
 
 /**

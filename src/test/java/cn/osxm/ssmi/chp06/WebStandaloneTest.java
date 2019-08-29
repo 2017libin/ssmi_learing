@@ -8,8 +8,6 @@
  */
 
 package cn.osxm.ssmi.chp06;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
@@ -18,8 +16,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-import cn.osxm.ssmi.chp06.HelloController;
 /**
  * @ClassName: WebStandaloneTest
  * @Description: TODO

@@ -9,8 +9,6 @@
 
 package cn.osxm.ssmi.com.anno;
 
-import org.springframework.stereotype.Service;
-
 /**
   * @ClassName: Bar
   * @Description: TODO

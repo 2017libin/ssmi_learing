@@ -12,7 +12,6 @@ package cn.osxm.ssmi.chp05.placeholder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 
 import cn.osxm.ssmi.com.MyDataSource;
 /**

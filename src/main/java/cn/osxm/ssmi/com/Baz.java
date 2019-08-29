@@ -18,6 +18,7 @@ package cn.osxm.ssmi.com;
 public class Baz {
 
 	private Foo foo;
+	@SuppressWarnings("unused")
 	private Bar bar;
 
 	public Baz() {

@@ -24,7 +24,8 @@ public class ImportDemo {
      * @param args
      */
 
-   public static void main(String[] args) {
+   @SuppressWarnings({ "unused", "resource" })
+public static void main(String[] args) {
        
        ApplicationContext parentContext = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp5/import.xml");    
        

@@ -30,6 +30,7 @@ public class MyApsect {
 
 	}
 
+	@SuppressWarnings("unused")
 	@Before("myPointcut()")
 	public void beforeAdd(JoinPoint joinPoint) {
 		Object object = joinPoint.getTarget();

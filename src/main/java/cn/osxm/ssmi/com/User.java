@@ -10,7 +10,6 @@
 package cn.osxm.ssmi.com;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @ClassName: User

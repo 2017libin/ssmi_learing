@@ -3,7 +3,7 @@
  * @Package cn.osxm.ssmi.chp09
  * @Description: TODO
  * @author osxm:oscarxueming
- * @date 2019年6月7日 上午10:31:52
+ * @date 2019骞�6鏈�7鏃� 涓婂崍10:31:52
  * @version V1.0
  */
 
@@ -31,6 +31,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 @Controller
 public class MessageController {
+	@SuppressWarnings("unused")
 	@Autowired
 	private HttpServletRequest request;
 

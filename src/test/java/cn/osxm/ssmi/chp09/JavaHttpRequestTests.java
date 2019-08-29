@@ -12,7 +12,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +23,8 @@ import org.junit.Test;
   */
 
 public class JavaHttpRequestTests {
-	  @Test
+	  @SuppressWarnings("unused")
+	@Test
 	    public void javaNetHttpRequest() throws Exception {
 	        String urlPath = "https://www.baidu.com/";
 	        URL url = new URL(urlPath); //´´½¨URL

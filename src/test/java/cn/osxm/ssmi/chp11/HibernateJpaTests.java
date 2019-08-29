@@ -24,7 +24,8 @@ import org.junit.Test;
 
 public class HibernateJpaTests {
 
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void jpaConfigProps() {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ssmi");
         EntityManager entityManager = entityManagerFactory.createEntityManager();

@@ -9,7 +9,6 @@
 
 package cn.osxm.ssmi.chp09.json;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,6 +49,7 @@ public class JsonUserController {
 		out.flush();
 	}
 
+	@SuppressWarnings("unused")
 	@GetMapping("/json/getUserByOutputStream")
 	public void getJsonUserByResponseOutputStream(HttpServletResponse response, HttpServletRequest request)
 			throws Exception {

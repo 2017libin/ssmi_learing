@@ -11,7 +11,6 @@ package cn.osxm.ssmi.chp08.convertservice;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.support.FormattingConversionService;
-import org.springframework.format.support.FormattingConversionServiceFactoryBean;
 /**
   * @ClassName: ConvertConfigure
   * @Description: TODO

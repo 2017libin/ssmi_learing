@@ -17,7 +17,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -44,7 +43,8 @@ public class Junit5BaseWebIntegrateTests {
       mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
   }
 
-  @Test
+  @SuppressWarnings("static-access")
+@Test
   public void getUserName() throws Exception {
       MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/user/1")).andExpect(MockMvcResultMatchers.status().is(200))
               .andDo(MockMvcResultHandlers.print()).andReturn();

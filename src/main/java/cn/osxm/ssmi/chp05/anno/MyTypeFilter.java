@@ -25,6 +25,7 @@ import org.springframework.core.type.filter.TypeFilter;
  */
 
 public class MyTypeFilter implements TypeFilter {
+	@SuppressWarnings("unused")
 	@Override
 	public boolean match(MetadataReader metadataReader, MetadataReaderFactory metadataReaderFactory)
 			throws IOException {

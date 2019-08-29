@@ -23,6 +23,7 @@ import cn.osxm.ssmi.com.anno.UserServiceImpl;
 
 public class AnnoConfigDemo {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		System.out.println(context.getBean("foo"));

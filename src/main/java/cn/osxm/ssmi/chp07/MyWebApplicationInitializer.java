@@ -49,13 +49,15 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     }
 
     // ¸¸ÈÝÆ÷
-    private void initSpringConfig(ServletContext servletContext) {
+    @SuppressWarnings("unused")
+	private void initSpringConfig(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
         rootContext.register(AppConfig.class);
         servletContext.addListener(new ContextLoaderListener(rootContext));
     }
 
-    private void initSpringMVCConfig(ServletContext servletContext) {
+    @SuppressWarnings("unused")
+	private void initSpringMVCConfig(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext dispatcherContext = new AnnotationConfigWebApplicationContext();
         // dispatcherContext.register(RestServiceConfiguration.class);
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatch", new DispatcherServlet(dispatcherContext));
@@ -64,26 +66,30 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
         dispatcher.addMapping("/springmvc/*");
     }
 
-    private void initLogConfig(ServletContext servletContext) {
+    @SuppressWarnings("unused")
+	private void initLogConfig(ServletContext servletContext) {
         servletContext.setInitParameter("log4jConfigLocation", "file:${rdm.home}/log4j.properties");
         // servletContext.addListener(Log4jConfigListener.class);
         // PropertyConfigurator.configureAndWatch(System.getProperty("rdm.home") +
         // "/log4j.properties",60);
     }
 
-    private void registerServlet(ServletContext servletContext) {
+    @SuppressWarnings("unused")
+	private void registerServlet(ServletContext servletContext) {
         //ServletRegistration.Dynamic dynamic = servletContext.addServlet("staggingServlet", staggingServlet);
        //dynamic.setLoadOnStartup(3);
         //dynamic.addMapping("*.stagging");
     }
     
-    private void registerFilter(ServletContext servletContext) {
+    @SuppressWarnings("unused")
+	private void registerFilter(ServletContext servletContext) {
         //FilterRegistration.Dynamic filterRegistration = container.addFilter("SAMLFilter", DelegatingFilterProxy.class);
         //filterRegistration.addMappingForUrlPatterns(null, false, "/*");
         //filterRegistration.setAsyncSupported(true);
     }
     
-    private void registerListener(ServletContext servletContext) {
+    @SuppressWarnings("unused")
+	private void registerListener(ServletContext servletContext) {
         //servletContext.addListener(RequestContextListener.class);
     }
 }

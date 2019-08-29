@@ -44,6 +44,7 @@ public class RestTemplateTests {
 	}
 
 	// @Test
+	@SuppressWarnings("rawtypes")
 	public void simpleRestTemplate() {
 		String url = "http://localhost:8080/ssmi/users/1";
 		User user = simpleRestTemplate.getForObject(url, User.class);
@@ -62,6 +63,7 @@ public class RestTemplateTests {
 	}
 
 	// @Test
+	@SuppressWarnings({ "unused", "rawtypes" })
 	public void simpleRestTemplatePost() {
 		String url = "http://localhost:8080/ssmi/users";
 		HttpEntity<User> request = new HttpEntity<User>(new User(4, "User 4"));

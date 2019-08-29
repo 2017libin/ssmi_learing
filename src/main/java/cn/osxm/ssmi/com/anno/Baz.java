@@ -9,14 +9,9 @@
 
 package cn.osxm.ssmi.com.anno;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.context.annotation.Bean;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 /**
   * @ClassName: Baz
@@ -26,6 +21,7 @@ import org.springframework.stereotype.Repository;
 @Component
 public class Baz {
 
+	@SuppressWarnings("unused")
 	private Foo foo;
 
 	//@Required

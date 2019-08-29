@@ -11,9 +11,7 @@ package cn.osxm.ssmi.chp05.javacfg;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Configuration;
 
-import cn.osxm.ssmi.com.User;
 import cn.osxm.ssmi.com.Foo;
 
 /**
@@ -29,6 +27,7 @@ public class ImportAnnoConfigDemo {
 	 * @param args
 	 */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		ApplicationContext context = new AnnotationConfigApplicationContext(ImportAnnoConfig.class);
 		System.out.println(context.getBean(Foo.class));

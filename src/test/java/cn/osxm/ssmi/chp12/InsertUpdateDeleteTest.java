@@ -71,14 +71,16 @@ public class InsertUpdateDeleteTest {
         System.out.println("deleteUser Ó°ÏìÐÐÊý£º"+affectedRows);
     }
     
-    @Test
+    @SuppressWarnings("rawtypes")
+	@Test
     public void selectUserWithSqlElement() {
         InsertUpdateDeleteMapper mapper = session.getMapper(InsertUpdateDeleteMapper.class);
         Map userMap = mapper.selectUserWithSqlElement(1);
         System.out.println("selectUserWithSqlElement:"+userMap.toString());
     }
     
-    @Test
+    @SuppressWarnings("rawtypes")
+	@Test
     public void selectUserWithSqlElementParams() {
         InsertUpdateDeleteMapper mapper = session.getMapper(InsertUpdateDeleteMapper.class);
         Map userMap = mapper.selectUserWithSqlElementParams(1);

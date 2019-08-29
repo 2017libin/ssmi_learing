@@ -13,7 +13,6 @@ package cn.osxm.ssmi.chp06.testanno.junit4;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.annotation.IfProfileValue;
 import org.springframework.test.annotation.Repeat;
 import org.springframework.test.annotation.Timed;
 import org.springframework.test.context.ContextConfiguration;
@@ -34,6 +33,7 @@ public class TimeAndRepeatAnnoTests {
 	}
 
 	/// @Test
+	@SuppressWarnings("static-access")
 	@Timed(millis = 1000)
 	public void testMethod() {
 		System.out.println("testMethod");
@@ -46,6 +46,7 @@ public class TimeAndRepeatAnnoTests {
 	}
 
 	// @Test(timeout = 1000)
+	@SuppressWarnings("static-access")
 	public void testJunitTimeOut() {
 		System.out.println("begin testJunitTimeOut");
 		try {
@@ -58,6 +59,7 @@ public class TimeAndRepeatAnnoTests {
 	}
 
 	// @Test
+	@SuppressWarnings("static-access")
 	@Timed(millis = 1000)
 	public void testSpringTimeOut() throws InterruptedException {
 		System.out.println("begin testSpringTimeOut");

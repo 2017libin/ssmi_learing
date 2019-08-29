@@ -12,7 +12,6 @@ package cn.osxm.ssmi.chp05.anno;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.osxm.ssmi.chp05.PropertyEditorDemo;
 import cn.osxm.ssmi.com.anno.UserController;
 import cn.osxm.ssmi.com.anno.UserServiceImpl;
 
@@ -30,6 +29,7 @@ public class ComponentScanDemo {
 	 * @param args
 	 */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("componentScan.xml", ComponentScanDemo.class);
 		System.out.println("Service:"+context.getBean(UserServiceImpl.class));

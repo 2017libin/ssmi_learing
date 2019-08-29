@@ -22,6 +22,7 @@ import cn.osxm.ssmi.com.User;
 public interface UserMapper {
 	public User getUser(int id);
 
+	@SuppressWarnings("rawtypes")
 	public Map selectUser(int id);
 
 	public void insertUser(User user);

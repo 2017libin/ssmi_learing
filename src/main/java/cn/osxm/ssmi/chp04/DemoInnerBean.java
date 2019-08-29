@@ -9,8 +9,6 @@
 
 package cn.osxm.ssmi.chp04;
 
-import java.util.Map;
-
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

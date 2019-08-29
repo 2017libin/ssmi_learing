@@ -8,9 +8,6 @@
  */
 
 package cn.osxm.ssmi.chp07;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,7 +38,8 @@ public class RequestMappingTest {
 
     private MockMvc mockMvc;
 
-    private MockHttpSession session;
+    @SuppressWarnings("unused")
+	private MockHttpSession session;
 
     @Before
     public void setUp() {
@@ -50,7 +48,8 @@ public class RequestMappingTest {
     }
     
     //@Test
-    public void requestWithParams() {
+    @SuppressWarnings("unused")
+	public void requestWithParams() {
         try {
             String url = "/request?type=withParams";
 
@@ -65,7 +64,8 @@ public class RequestMappingTest {
             e.printStackTrace();
         }
     }
-    @Test
+    @SuppressWarnings("unused")
+	@Test
     public void requestWithHeader() {
         try {
             String url = "/request";

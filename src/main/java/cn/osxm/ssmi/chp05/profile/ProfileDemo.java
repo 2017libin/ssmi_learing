@@ -8,7 +8,6 @@
  */
 
 package cn.osxm.ssmi.chp05.profile;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -25,7 +24,8 @@ public class ProfileDemo {
      * @param args
      */
 
-   public static void main(String[] args) {
+   @SuppressWarnings("resource")
+public static void main(String[] args) {
 	   System.setProperty("spring.profiles.active", "qa");
 	   
 	   

@@ -38,7 +38,8 @@ public class HandlerMappingTest {
 
     private MockMvc mockMvc;
 
-    private MockHttpSession session;
+    @SuppressWarnings("unused")
+	private MockHttpSession session;
 
     @Before
     public void setUp() {

@@ -12,8 +12,6 @@ package cn.osxm.ssmi.chp05.javacfg;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import cn.osxm.ssmi.chp05.anno.BeanAnno;
-
 /**
   * @ClassName: ImportAnnoConfig
   * @Description: TODO

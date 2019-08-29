@@ -13,7 +13,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.junit.Test;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 /**
   * @ClassName: I18nMessageTests
   * @Description: TODO1

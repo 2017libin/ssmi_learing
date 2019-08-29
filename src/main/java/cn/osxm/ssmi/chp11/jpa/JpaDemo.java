@@ -31,6 +31,7 @@ public class JpaDemo {
 	 * @param args
 	 */
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ssmi");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();

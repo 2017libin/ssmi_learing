@@ -9,18 +9,11 @@
 
 package cn.osxm.ssmi.chp08;
 
-import java.util.Date;
-
 import org.junit.Test;
 import org.springframework.beans.MutablePropertyValues;
-import org.springframework.beans.PropertyValues;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
-
-import cn.osxm.ssmi.chp08.convertservice.MyDateConvert;
-import cn.osxm.ssmi.chp08.convertservice.MyDateFormatter;
-import cn.osxm.ssmi.chp08.propertyeditor.MyDatePropertyEditor;
 
 /**
   * @ClassName: DataBinderTests

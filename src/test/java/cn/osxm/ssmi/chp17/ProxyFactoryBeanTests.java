@@ -21,7 +21,8 @@ import cn.osxm.ssmi.chp17.IUserService;
   */
 
 public class ProxyFactoryBeanTests {
-	  @Test
+	  @SuppressWarnings("resource")
+	@Test
 	    public void testBefore() {
 	        ApplicationContext context=new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp16/ proxyFactoryBean.xml");
 	        IUserService userService= (IUserService) context.getBean("userServiceProxy");

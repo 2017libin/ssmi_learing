@@ -22,8 +22,9 @@ import java.util.Set;
  * @Description: TODO
  * @author osxm:oscarxueming
  */
-
+@SuppressWarnings("rawtypes")
 public class CollectionDepBeanClass {
+
 	private List myList = new ArrayList();
 	private Map myMap = new HashMap();
 	private Properties myProperties = new Properties();

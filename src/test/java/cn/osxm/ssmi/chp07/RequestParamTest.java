@@ -41,6 +41,7 @@ public class RequestParamTest {
 
 	private MockMvc mockMvc;
 
+	@SuppressWarnings("unused")
 	private MockHttpSession session;
 
 	@Before
@@ -50,6 +51,7 @@ public class RequestParamTest {
 	}
 
 	// @Test
+	@SuppressWarnings("unused")
 	public void requestParam() {
 		try {
 			String url = "/anno-demo/helloWithParam";

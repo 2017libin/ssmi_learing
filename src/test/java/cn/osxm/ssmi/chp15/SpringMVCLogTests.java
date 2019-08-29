@@ -13,7 +13,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -25,8 +24,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
-import cn.osxm.ssmi.com.User;
 /**
   * @ClassName: SpringMVCLogTests
   * @Description: TODO
@@ -45,7 +42,8 @@ public class SpringMVCLogTests {
 
     private MockMvc mockMvc; 
 
-    private MockHttpSession session;
+    @SuppressWarnings("unused")
+	private MockHttpSession session;
 
     @Before
     public void setUp() {
@@ -53,7 +51,8 @@ public class SpringMVCLogTests {
         this.session = new MockHttpSession();
     }
 
-    @Test
+    @SuppressWarnings("unused")
+	@Test
     public void exceptionHandlerAnno() throws Exception {
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/springlog/getuser"))
                 .andExpect(MockMvcResultMatchers.status().is(200)).andDo(MockMvcResultHandlers.print()).andReturn();

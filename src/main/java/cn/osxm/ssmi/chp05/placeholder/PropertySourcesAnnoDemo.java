@@ -27,6 +27,7 @@ public class PropertySourcesAnnoDemo {
 	  * @param args
 	  */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
 		  ApplicationContext context = new AnnotationConfigApplicationContext(PropertySourcesAnno.class);

@@ -11,9 +11,7 @@ package cn.osxm.ssmi.chp08.exceptionHandler;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
 /**
   * @ClassName: MyExceptionHandlerController
   * @Description: TODO
@@ -31,7 +29,8 @@ public class MyExceptionHandlerController {
         return mv;
     }*/
     
-    @GetMapping("/errorHandler")
+    @SuppressWarnings("null")
+	@GetMapping("/errorHandler")
     public String errorTest() {
         String str = null;
         if(str.equals("Test")) {

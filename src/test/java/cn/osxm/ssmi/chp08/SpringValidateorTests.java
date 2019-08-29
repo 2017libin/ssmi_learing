@@ -22,8 +22,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
-import cn.osxm.ssmi.com.User;
 /**
   * @ClassName: SpringValidateorTests
   * @Description: TODO
@@ -44,7 +42,8 @@ public class SpringValidateorTests {
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build(); //≥ı ºªØMockMvc 
     }
 
-    @Test
+    @SuppressWarnings("unused")
+	@Test
     public void validTest() throws Exception {
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/addUserWithValidator").param("age", "180"))
                 .andExpect(MockMvcResultMatchers.status().is(200))

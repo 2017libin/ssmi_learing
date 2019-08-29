@@ -13,9 +13,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.annotation.IfProfileValue;
-import org.springframework.test.annotation.ProfileValueSource;
-import org.springframework.test.annotation.Repeat;
-import org.springframework.test.annotation.Timed;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 

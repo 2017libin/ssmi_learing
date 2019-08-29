@@ -12,7 +12,6 @@ package cn.osxm.ssmi.chp14.transaction;
 import java.util.Properties;
 
 import javax.sql.DataSource;
-import javax.transaction.TransactionManager;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;

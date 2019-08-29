@@ -11,7 +11,6 @@ package cn.osxm.ssmi.chp12;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -22,7 +21,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import cn.osxm.ssmi.com.Dept;
-import cn.osxm.ssmi.com.User;
 /**
   * @ClassName: ResultMapUsageTest
   * @Description: TODO
@@ -73,7 +71,8 @@ public class ResultMapUsageTest {
 	    }
 
 	    // @Test
-	    public void testSelectDeptCollection() {
+	    @SuppressWarnings("unused")
+		public void testSelectDeptCollection() {
 	        DeptMapper mapper = session.getMapper(DeptMapper.class);
 	        Dept dept = mapper.selectDeptCollection(1);
 	        // System.out.println(dept.getDeptUsers().toString());

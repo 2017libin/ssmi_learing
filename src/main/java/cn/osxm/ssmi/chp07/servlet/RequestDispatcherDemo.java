@@ -22,7 +22,8 @@ public class RequestDispatcherDemo {
      * @param args
      */
 
-   public static void main(String[] args) {
+   @SuppressWarnings("unused")
+public static void main(String[] args) {
        // TODO Auto-generated method stub
        RequestDispatcher requestDispatcher;
        javax.servlet.http.HttpServletRequest request;

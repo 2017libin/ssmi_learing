@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.test.context.BootstrapWith;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.context.support.DefaultTestContextBootstrapper;
-import org.springframework.test.context.web.WebTestContextBootstrapper;
 
 /**
   * @ClassName: BootstrapWithTests

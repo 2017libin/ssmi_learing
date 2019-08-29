@@ -8,7 +8,6 @@
  */
 
 package cn.osxm.ssmi.chp05.profile;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 /**
   * @ClassName: MyDataSource

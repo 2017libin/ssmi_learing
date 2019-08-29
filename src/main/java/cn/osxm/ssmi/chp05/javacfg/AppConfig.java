@@ -11,8 +11,6 @@ package cn.osxm.ssmi.chp05.javacfg;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.dbcp2.BasicDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

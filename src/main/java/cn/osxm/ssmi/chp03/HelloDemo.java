@@ -20,8 +20,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class HelloDemo {
 	public static void main(String[] args) {
-		ApplicationContext context = new 
-			ClassPathXmlApplicationContext("applicationContext.xml", HelloDemo.class);
+		@SuppressWarnings("resource")
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml", HelloDemo.class);
 		HelloService helloService = (HelloService) context.getBean("helloService");
 		helloService.sayHello();
 	}

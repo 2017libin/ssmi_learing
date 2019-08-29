@@ -28,6 +28,7 @@ public class TransOperateAdviceDemo {
 	 * @param args
 	 */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-beans.xml",

@@ -10,10 +10,8 @@
 package cn.osxm.ssmi.chp06.testanno.junit5;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.test.annotation.IfProfileValue;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.EnabledIf;
 import org.springframework.test.context.junit.jupiter.SpringExtension;

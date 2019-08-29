@@ -8,9 +8,6 @@
  */
 
 package cn.osxm.ssmi.chp13;
-import java.util.Collection;
-import java.util.Properties;
-
 import org.apache.ibatis.reflection.factory.DefaultObjectFactory;
 
 import cn.osxm.ssmi.com.User;
@@ -20,10 +17,12 @@ import cn.osxm.ssmi.com.User;
   * @author osxm:oscarxueming
   */
 
+@SuppressWarnings("serial")
 public class MyObjectFactory extends DefaultObjectFactory {
 
     // 处理默认构造方法
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public Object create(Class type) {
         if (type.equals(User.class)) {
             User user = (User) super.create(type);

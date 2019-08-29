@@ -13,7 +13,6 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 import com.fasterxml.jackson.annotation.JsonView;

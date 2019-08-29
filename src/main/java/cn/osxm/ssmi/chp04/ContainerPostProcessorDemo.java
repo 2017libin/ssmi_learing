@@ -28,6 +28,7 @@ public class ContainerPostProcessorDemo {
 	 * @param args
 	 */
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml", ContainerPostProcessorDemo.class);
 		HelloService helloService = (HelloService)context.getBean("helloService");

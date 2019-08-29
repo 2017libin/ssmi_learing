@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,8 +25,6 @@ import org.springframework.validation.DataBinder;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-
-import cn.osxm.ssmi.chp08.validator.UserValidator;
 
 /**
  * @ClassName: SpringValidatorTests
@@ -44,6 +41,7 @@ public class SpringValidatorTests {
 	@Autowired
 	private ApplicationContext applicationContext;
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private User user;
 	

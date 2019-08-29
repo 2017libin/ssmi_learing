@@ -9,10 +9,8 @@
 
 package cn.osxm.ssmi.chp09.parentchild;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.osxm.ssmi.chp04.CallbackDemo;
 import cn.osxm.ssmi.chp09.parentchild.parent.UserDao;
 import cn.osxm.ssmi.chp09.parentchild.parent.UserService;
 /**
@@ -28,7 +26,8 @@ public class ParentChildContainerDemo {
      * @param args
      */
 
-   public static void main(String[] args) {
+   @SuppressWarnings("resource")
+public static void main(String[] args) {
       ApplicationContext parentContext = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp5/parent.xml");    
       ApplicationContext childContext = new ClassPathXmlApplicationContext(new String[] {"cn/osxm/ssmi/chp5/child.xml"},parentContext);  
       UserService userService = (UserService)childContext.getBean("userService");     

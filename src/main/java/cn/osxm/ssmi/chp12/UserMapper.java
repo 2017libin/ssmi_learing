@@ -30,6 +30,7 @@ public interface UserMapper {
 
 	public User selectUserMoreSimpleParam(int id, String name);
 
+	@SuppressWarnings("rawtypes")
 	public Map selectUserResultMap(String name);
 
 	public List<User> selectUserAssociation();

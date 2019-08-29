@@ -25,7 +25,8 @@ import cn.osxm.ssmi.chp09.parentchild.parent.UserService;
 public class ParentChildContainerTests {
 
     //@Test
-    public void twoContainer() {
+    @SuppressWarnings("resource")
+	public void twoContainer() {
         ApplicationContext  applicationContext1= new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp08/parent.xml");    
         ApplicationContext applicationContext2 = new ClassPathXmlApplicationContext(new String[] {"cn/osxm/ssmi/chp08/child.xml"});  
         org.junit.Assert.assertNotNull(applicationContext1.getBean(UserService.class));
@@ -33,7 +34,8 @@ public class ParentChildContainerTests {
         org.junit.Assert.assertNotNull(applicationContext2.getBean(ChildUserDao.class));
     }
     
-    @Test
+    @SuppressWarnings("resource")
+	@Test
     public void importAllInOne() {
         ApplicationContext  applicationContext= new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp08/import.xml");    
         org.junit.Assert.assertNotNull(applicationContext.getBean(UserService.class));
@@ -41,7 +43,8 @@ public class ParentChildContainerTests {
     }
     
    //@Test
-    public void parentChild() {
+    @SuppressWarnings("resource")
+	public void parentChild() {
         ApplicationContext  parentContext= new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp08/parent.xml");     
         ApplicationContext childContext = new ClassPathXmlApplicationContext(new String[] {"cn/osxm/ssmi/chp08/child.xml"},parentContext);  
         UserService userService = childContext.getBean(UserService.class); //子容器获取父容器对象

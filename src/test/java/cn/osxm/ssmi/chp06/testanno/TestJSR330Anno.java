@@ -20,7 +20,6 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import cn.osxm.ssmi.com.anno.Baz;
 import cn.osxm.ssmi.com.anno.Foo;
 /**
   * @ClassName: TestJSR330Anno
