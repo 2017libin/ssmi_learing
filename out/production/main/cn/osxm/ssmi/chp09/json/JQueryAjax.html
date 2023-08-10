@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+    var user = {""};
+	$.ajax({
+		url : "saveuser",
+		type : "POST",//请求方式
+		async : true,
+		contentType : "application/json; charset=utf-8",//"application/x-www-form-urlencoded"
+		data : JSON.stringify(user), //发送到服务器的数据
+		dataType : 'json',//服务器返回的数据类型
+		success : function(data) {		
+			 $("#myDiv").html(htmlobj.responseText);
+		}		
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>
