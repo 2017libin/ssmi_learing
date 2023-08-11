@@ -1,6 +1,6 @@
 /**
  * @Title: BeanDepDemo.java
- * @Package cn.osxm.ssmi.chp2
+ * @Package cn.osxm.ssmi.chp02
  * @Description: TODO
  * @author osxm:oscarxueming
  * @date 2018年12月9日 上午7:34:36
@@ -28,7 +28,7 @@ public class BeanDepDemo {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("cn/osxm/ssmi/chp2/spring-beans.xml"); 
+		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:ssmi/chp02/spring-beans.xml");
 		UserService userService = (UserService)context.getBean("userService");
 		userService.add("Zhang San");
 

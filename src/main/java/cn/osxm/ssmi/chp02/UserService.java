@@ -1,6 +1,6 @@
 /**
  * @Title: UserService.java
- * @Package cn.osxm.ssmi.chp2
+ * @Package cn.osxm.ssmi.chp02
  * @Description: TODO
  * @author osxm:oscarxueming
  * @date 2018年12月9日 上午7:25:34

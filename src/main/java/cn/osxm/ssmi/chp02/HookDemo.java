@@ -1,6 +1,6 @@
 /**
  * @Title: HookDemo.java
- * @Package cn.osxm.ssmi.chp2
+ * @Package cn.osxm.ssmi.chp02
  * @Description: TODO
  * @author osxm:oscarxueming
  * @date 2019年1月5日 下午2:46:16

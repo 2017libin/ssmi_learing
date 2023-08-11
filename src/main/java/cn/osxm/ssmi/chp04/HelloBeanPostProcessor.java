@@ -1,6 +1,6 @@
 /**
  * @Title: MyPostProcessor.java
- * @Package cn.osxm.ssmi.chp2
+ * @Package cn.osxm.ssmi.chp02
  * @Description: TODO
  * @author osxm:oscarxueming
  * @date 2019年1月1日 下午3:46:49

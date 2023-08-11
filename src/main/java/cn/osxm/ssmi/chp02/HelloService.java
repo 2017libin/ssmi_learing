@@ -1,6 +1,6 @@
 /**
  * @Title: HelloService.java
- * @Package cn.osxm.ssmi.chp2
+ * @Package cn.osxm.ssmi.chp02
  * @Description: TODO
  * @author osxm:oscarxueming
  * @date 2018年12月4日 上午6:54:00
